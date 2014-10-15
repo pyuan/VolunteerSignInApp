@@ -1,0 +1,5 @@
+platform :ios, '8.1'
+xcodeproj '../VolunteerSignInApp.xcodeproj'
+#link_with 'VolunteerSignInApp'
+
+
