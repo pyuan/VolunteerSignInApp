@@ -4,98 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
-        <!--Signature View Controller-->
-        <scene sceneID="d2N-D1-vip">
-            <objects>
-                <viewController id="wiC-us-h62" customClass="SignatureViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VQm-zh-4kW"/>
-                        <viewControllerLayoutGuide type="bottom" id="IHk-rU-DB1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nav-bx-i9P">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acU-qq-xT1">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="489-fV-I5h">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="acU-qq-xT1" secondAttribute="trailing" id="Bix-r6-jkA"/>
-                            <constraint firstItem="acU-qq-xT1" firstAttribute="top" secondItem="Nav-bx-i9P" secondAttribute="top" id="Cnf-uk-CHm"/>
-                            <constraint firstItem="489-fV-I5h" firstAttribute="top" secondItem="Nav-bx-i9P" secondAttribute="top" id="D1p-wU-qGf"/>
-                            <constraint firstItem="489-fV-I5h" firstAttribute="leading" secondItem="Nav-bx-i9P" secondAttribute="leading" id="JuB-CW-AcO"/>
-                            <constraint firstAttribute="trailing" secondItem="489-fV-I5h" secondAttribute="trailing" id="hto-wc-rjH"/>
-                            <constraint firstItem="acU-qq-xT1" firstAttribute="leading" secondItem="Nav-bx-i9P" secondAttribute="leading" id="qf0-eu-qhd"/>
-                            <constraint firstItem="IHk-rU-DB1" firstAttribute="top" secondItem="489-fV-I5h" secondAttribute="bottom" id="tuJ-p8-xMf"/>
-                            <constraint firstItem="IHk-rU-DB1" firstAttribute="top" secondItem="acU-qq-xT1" secondAttribute="bottom" id="zkf-m4-3Zr"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="mainImage" destination="acU-qq-xT1" id="RfM-UK-HdI"/>
-                        <outlet property="tempDrawImage" destination="489-fV-I5h" id="GWg-zj-WaV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rn7-DN-DiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-147" y="131"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="2uj-WY-mdQ">
-            <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="qlQ-r0-GwL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rq5-gL-vj4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hhq-ix-nRt">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hhq-ix-nRt" id="rTj-r4-FQH">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qlQ-r0-GwL" id="h4p-il-0Lo"/>
-                            <outlet property="delegate" destination="qlQ-r0-GwL" id="3b2-Y1-FjB"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="uhE-E4-2zR"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wsu-Tl-vHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="673" y="-531"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KmD-Ck-VU1">
-            <objects>
-                <navigationController id="iK2-Db-lWj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3PS-rv-Kbn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="qlQ-r0-GwL" kind="relationship" relationship="rootViewController" id="U8U-J3-Bt7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lgF-xf-plf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-147" y="-531"/>
-        </scene>
         <!--Main Split View Controller-->
         <scene sceneID="mqG-lB-B7u">
             <objects>
-                <splitViewController id="fWd-3y-QPR" customClass="MainSplitViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="iK2-Db-lWj" kind="relationship" relationship="masterViewController" id="y4G-Jj-xgI"/>
-                        <segue destination="wiC-us-h62" kind="relationship" relationship="detailViewController" id="IZv-Lf-aXi"/>
-                    </connections>
-                </splitViewController>
+                <splitViewController id="fWd-3y-QPR" customClass="MainSplitViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEn-0g-dNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-967" y="-200"/>

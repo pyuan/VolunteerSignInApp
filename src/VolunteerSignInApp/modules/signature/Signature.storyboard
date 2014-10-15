@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="384-8W-BN6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signature View Controller-->
+        <scene sceneID="qCj-Js-e3n">
+            <objects>
+                <viewController id="4lA-ye-Hwm" customClass="SignatureViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UOy-bW-3bU"/>
+                        <viewControllerLayoutGuide type="bottom" id="JDd-Vy-6uv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="El3-zl-pSR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-PM-5uS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbi-XQ-EbL">
+                                <rect key="frame" x="537" y="560" width="37" height="30"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clear" destination="4lA-ye-Hwm" eventType="touchUpInside" id="JNn-43-4o3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aN0-PM-5uS" secondAttribute="trailing" id="4LD-Pb-Hjn"/>
+                            <constraint firstItem="aN0-PM-5uS" firstAttribute="top" secondItem="El3-zl-pSR" secondAttribute="top" id="B3i-Dv-khr"/>
+                            <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="aN0-PM-5uS" secondAttribute="bottom" id="NV3-4i-MrE"/>
+                            <constraint firstItem="aN0-PM-5uS" firstAttribute="leading" secondItem="El3-zl-pSR" secondAttribute="leading" id="oso-s7-teU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qbi-XQ-EbL" secondAttribute="trailing" constant="10" id="tbK-Vq-k15"/>
+                            <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="qbi-XQ-EbL" secondAttribute="bottom" constant="10" id="yrC-xJ-dUv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UYB-x5-0CE"/>
+                    <connections>
+                        <outlet property="signatureImageView" destination="aN0-PM-5uS" id="AeQ-nw-Crm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X76-uc-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="318"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xgi-hP-DGZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="384-8W-BN6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ef-XJ-AiC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4lA-ye-Hwm" kind="relationship" relationship="rootViewController" id="PIZ-df-Zbf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hF4-Lv-2lz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115" y="318"/>
+        </scene>
+    </scenes>
+</document>
