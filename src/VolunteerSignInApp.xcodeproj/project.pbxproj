@@ -10,6 +10,7 @@
 		1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724019EE1CDA003ADF1D /* Signature.storyboard */; };
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
 		1B69724A19EE1E87003ADF1D /* VolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B69724819EE1E87003ADF1D /* VolunteersTableViewController.swift */; };
+		1B901E0319FB4D5900C058CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B901E0119FB4D4F00C058CA /* MessageUI.framework */; };
 		1BBF38B919FB20B400932D90 /* PDFRenderer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBF38B819FB20B400932D90 /* PDFRenderer.storyboard */; };
 		1BBF38BB19FB21B700932D90 /* PDFRendererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */; };
 		1BBF38BE19FB22BF00932D90 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBF38BC19FB22A000932D90 /* CoreText.framework */; };
@@ -37,6 +38,7 @@
 		1B69724019EE1CDA003ADF1D /* Signature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signature.storyboard; path = modules/signature/Signature.storyboard; sourceTree = "<group>"; };
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
 		1B69724819EE1E87003ADF1D /* VolunteersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteersTableViewController.swift; path = modules/volunteers/VolunteersTableViewController.swift; sourceTree = "<group>"; };
+		1B901E0119FB4D4F00C058CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1BBF38B819FB20B400932D90 /* PDFRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PDFRenderer.storyboard; path = modules/pdf_renderer/PDFRenderer.storyboard; sourceTree = "<group>"; };
 		1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFRendererViewController.swift; path = modules/pdf_renderer/PDFRendererViewController.swift; sourceTree = "<group>"; };
 		1BBF38BC19FB22A000932D90 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -60,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BBF38BE19FB22BF00932D90 /* CoreText.framework in Frameworks */,
+				1B901E0319FB4D5900C058CA /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +180,7 @@
 		1BCCB1D419ED7A2F00E05A36 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				1B901E0119FB4D4F00C058CA /* MessageUI.framework */,
 				1BBF38BC19FB22A000932D90 /* CoreText.framework */,
 			);
 			name = libs;
