@@ -10,6 +10,9 @@
 		1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724019EE1CDA003ADF1D /* Signature.storyboard */; };
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
 		1B69724A19EE1E87003ADF1D /* VolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B69724819EE1E87003ADF1D /* VolunteersTableViewController.swift */; };
+		1B865EC21A06BB6B008A02F1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B865EC11A06BB6B008A02F1 /* UIColor.swift */; };
+		1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B865ED11A06C728008A02F1 /* FormTemplate.xib */; };
+		1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B865ED21A06C728008A02F1 /* FormTemplateView.swift */; };
 		1B901E0319FB4D5900C058CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B901E0119FB4D4F00C058CA /* MessageUI.framework */; };
 		1BBF38B919FB20B400932D90 /* PDFRenderer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBF38B819FB20B400932D90 /* PDFRenderer.storyboard */; };
 		1BBF38BB19FB21B700932D90 /* PDFRendererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */; };
@@ -38,6 +41,9 @@
 		1B69724019EE1CDA003ADF1D /* Signature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signature.storyboard; path = modules/signature/Signature.storyboard; sourceTree = "<group>"; };
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
 		1B69724819EE1E87003ADF1D /* VolunteersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteersTableViewController.swift; path = modules/volunteers/VolunteersTableViewController.swift; sourceTree = "<group>"; };
+		1B865EC11A06BB6B008A02F1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1B865ED11A06C728008A02F1 /* FormTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTemplate.xib; sourceTree = "<group>"; };
+		1B865ED21A06C728008A02F1 /* FormTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTemplateView.swift; sourceTree = "<group>"; };
 		1B901E0119FB4D4F00C058CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1BBF38B819FB20B400932D90 /* PDFRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PDFRenderer.storyboard; path = modules/pdf_renderer/PDFRenderer.storyboard; sourceTree = "<group>"; };
 		1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFRendererViewController.swift; path = modules/pdf_renderer/PDFRendererViewController.swift; sourceTree = "<group>"; };
@@ -85,12 +91,22 @@
 			name = volunteers;
 			sourceTree = "<group>";
 		};
+		1B865ED01A06C728008A02F1 /* form_template */ = {
+			isa = PBXGroup;
+			children = (
+				1B865ED11A06C728008A02F1 /* FormTemplate.xib */,
+				1B865ED21A06C728008A02F1 /* FormTemplateView.swift */,
+			);
+			name = form_template;
+			path = modules/form_template;
+			sourceTree = "<group>";
+		};
 		1BBF38B519FB207800932D90 /* pdf_renderer */ = {
 			isa = PBXGroup;
 			children = (
 				1BBF38B819FB20B400932D90 /* PDFRenderer.storyboard */,
-				1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */,
 				1BBF38BF19FB298100932D90 /* PDFRenderer.swift */,
+				1BBF38BA19FB21B700932D90 /* PDFRendererViewController.swift */,
 			);
 			name = pdf_renderer;
 			sourceTree = "<group>";
@@ -119,7 +135,6 @@
 				1BCCB1B119ED78E600E05A36 /* AppDelegate.swift */,
 				1BCCB1D119ED7A1D00E05A36 /* constants */,
 				1BCCB1D219ED7A2500E05A36 /* data */,
-				1BCCB1D319ED7A2A00E05A36 /* images */,
 				1BCCB1B819ED78E600E05A36 /* Images.xcassets */,
 				1BCCB1D419ED7A2F00E05A36 /* libs */,
 				1BCCB1D519ED7A3400E05A36 /* models */,
@@ -170,13 +185,6 @@
 			name = data;
 			sourceTree = "<group>";
 		};
-		1BCCB1D319ED7A2A00E05A36 /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = images;
-			sourceTree = "<group>";
-		};
 		1BCCB1D419ED7A2F00E05A36 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +204,7 @@
 		1BCCB1D619ED7A3800E05A36 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				1B865ED01A06C728008A02F1 /* form_template */,
 				1BBF38B519FB207800932D90 /* pdf_renderer */,
 				1B69724219EE1E14003ADF1D /* volunteers */,
 				1BCCB1E419ED7D3100E05A36 /* signature */,
@@ -215,6 +224,7 @@
 		1BCCB1D819ED7A4500E05A36 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B865EC11A06BB6B008A02F1 /* UIColor.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -332,6 +342,7 @@
 				1BCCB1DE19ED7B8500E05A36 /* Main.storyboard in Resources */,
 				1BCCB1B919ED78E600E05A36 /* Images.xcassets in Resources */,
 				1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */,
+				1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,8 +361,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B69724A19EE1E87003ADF1D /* VolunteersTableViewController.swift in Sources */,
+				1B865EC21A06BB6B008A02F1 /* UIColor.swift in Sources */,
 				1BBF38BB19FB21B700932D90 /* PDFRendererViewController.swift in Sources */,
 				1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */,
+				1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */,
 				1BBF38C019FB298100932D90 /* PDFRenderer.swift in Sources */,
 				1BCCB1B219ED78E600E05A36 /* AppDelegate.swift in Sources */,
 				1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */,
@@ -462,6 +475,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VolunteerSignInApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -473,6 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VolunteerSignInApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

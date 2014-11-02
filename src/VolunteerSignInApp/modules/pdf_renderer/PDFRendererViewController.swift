@@ -19,11 +19,11 @@ class PDFRendererViewController:UIViewController, MFMailComposeViewControllerDel
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         let fileName:String = "test.pdf"
         self._createPDF(fileName)
         self._showPDF(fileName)
-        self._createEmailWithPDF(fileName)
+        //self._createEmailWithPDF(fileName)
     }
     
     func _createPDF(fileName:String)
@@ -36,7 +36,41 @@ class PDFRendererViewController:UIViewController, MFMailComposeViewControllerDel
         let to:CGPoint = CGPointMake(200, 300)
         self._drawLineFromPoint(from, to: to)
         
+        self._drawImagesFromTemplate()
+        
         UIGraphicsEndPDFContext()
+    }
+    
+    //draw all the images in the template xib
+    func _drawImagesFromTemplate()
+    {
+        var objects:NSArray = NSBundle.mainBundle().loadNibNamed("FormTemplate", owner: nil, options: nil)
+        var mainView:UIView = objects.objectAtIndex(0) as UIView
+        
+        for var i:Int=0; i<mainView.subviews.count; i++
+        {
+            var view:UIView = mainView.subviews[i] as UIView
+            if view.isKindOfClass(UIImageView.classForCoder()) {
+                var imageView:UIImageView = view as UIImageView
+                self._drawImageToFill(imageView.image!, inRect: imageView.frame)
+            }
+        }
+    }
+    
+    //draw an image into the PDF
+    func _drawImageToFill(image:UIImage, inRect rect:CGRect)
+    {
+        let diffW:CGFloat = abs(rect.size.width - image.size.width)
+        let diffH:CGFloat = abs(rect.size.height - image.size.height)
+        let scaleX:CGFloat = rect.width / image.size.width
+        let scaleY:CGFloat = rect.height / image.size.height
+        let scale:CGFloat = diffW > diffH ? scaleX : scaleY
+        let w:CGFloat = rect.width * scale
+        let h:CGFloat = rect.height * scale
+        let x:CGFloat = rect.origin.x + (rect.width-w)/2
+        let y:CGFloat = rect.origin.y + (rect.height-h)/2
+        let frame:CGRect = CGRectMake(x, y, w, h)
+        image.drawInRect(frame)
     }
     
     func _drawLineFromPoint(from:CGPoint, to:CGPoint)
