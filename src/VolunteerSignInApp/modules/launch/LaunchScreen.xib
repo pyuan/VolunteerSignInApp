@@ -14,18 +14,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_full_white" translatesAutoresizingMaskIntoConstraints="NO" id="Klf-wZ-QTM">
-                    <rect key="frame" x="200" y="200" width="230" height="280"/>
+                    <rect key="frame" x="40" y="215" width="400" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="1Jg-Di-bKn"/>
+                        <constraint firstAttribute="width" constant="400" id="1La-pj-Tvl"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Klf-wZ-QTM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="200" id="6VJ-2U-Pb1"/>
+                <constraint firstAttribute="centerX" secondItem="Klf-wZ-QTM" secondAttribute="centerX" id="4so-n7-6p3"/>
                 <constraint firstAttribute="bottom" secondItem="BtE-ut-atc" secondAttribute="bottom" id="Scg-Au-OH2"/>
-                <constraint firstItem="Klf-wZ-QTM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="200" id="Trl-VN-C5n"/>
                 <constraint firstItem="BtE-ut-atc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZLz-Zz-SAW"/>
-                <constraint firstAttribute="bottom" secondItem="Klf-wZ-QTM" secondAttribute="bottom" id="c6u-KS-Xzl"/>
-                <constraint firstAttribute="trailing" secondItem="Klf-wZ-QTM" secondAttribute="trailing" constant="50" id="hcr-si-tAA"/>
                 <constraint firstItem="BtE-ut-atc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t2j-eD-ivO"/>
+                <constraint firstAttribute="centerY" secondItem="Klf-wZ-QTM" secondAttribute="centerY" id="uax-zS-t3J"/>
                 <constraint firstAttribute="trailing" secondItem="BtE-ut-atc" secondAttribute="trailing" id="zX1-F4-pFe"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -35,6 +37,6 @@
     </objects>
     <resources>
         <image name="bg_default" width="612" height="396"/>
-        <image name="logo_full_white" width="600" height="400"/>
+        <image name="logo_full_white" width="490" height="60"/>
     </resources>
 </document>

@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rcx-Mk-jCD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rcx-Mk-jCD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Volunteers-->
-        <scene sceneID="Stn-9P-V2I">
-            <objects>
-                <tableViewController id="KrZ-oz-QtY" customClass="VolunteersTableViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yoy-qx-G4f">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DsP-o9-4U7">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DsP-o9-4U7" id="gjf-hI-QC1">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="KrZ-oz-QtY" id="ppc-XV-2ag"/>
-                            <outlet property="delegate" destination="KrZ-oz-QtY" id="PxO-P5-J3x"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Volunteers" id="uNR-Yj-d8f"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TUg-1I-9hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="993" y="456"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FW2-Cr-fqS">
             <objects>
@@ -42,12 +15,79 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KrZ-oz-QtY" kind="relationship" relationship="rootViewController" id="jHa-YY-d8P"/>
+                        <segue destination="5uk-5S-0iq" kind="relationship" relationship="rootViewController" id="7Mi-zx-BRW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="266-5N-I5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="181" y="456"/>
+        </scene>
+        <!--Volunteers-->
+        <scene sceneID="npM-EN-Gz7">
+            <objects>
+                <viewController id="5uk-5S-0iq" customClass="VolunteersViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FxV-GW-GLS"/>
+                        <viewControllerLayoutGuide type="bottom" id="O9o-3x-GoW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JUO-TT-IdG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWi-fe-kBe">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="z9t-8s-mi8"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4Wv-O8-iEt"/>
+                                    <barButtonItem title="Send to Chicago Cares" id="I0U-5f-lhB">
+                                        <connections>
+                                            <action selector="sendToChicagoCares:" destination="5uk-5S-0iq" id="KJz-d8-53r"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="frN-du-JuM"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aeZ-M4-MWN">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5uk-5S-0iq" id="OfM-KB-SRg"/>
+                                    <outlet property="delegate" destination="5uk-5S-0iq" id="FeG-rC-f60"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aeZ-M4-MWN" secondAttribute="trailing" id="01c-Oh-vzr"/>
+                            <constraint firstItem="aeZ-M4-MWN" firstAttribute="leading" secondItem="JUO-TT-IdG" secondAttribute="leading" id="HwV-aU-gSG"/>
+                            <constraint firstItem="YWi-fe-kBe" firstAttribute="top" secondItem="aeZ-M4-MWN" secondAttribute="bottom" id="NKx-nE-ygo"/>
+                            <constraint firstItem="O9o-3x-GoW" firstAttribute="top" secondItem="YWi-fe-kBe" secondAttribute="bottom" id="dUh-W2-mqe"/>
+                            <constraint firstItem="aeZ-M4-MWN" firstAttribute="top" secondItem="FxV-GW-GLS" secondAttribute="bottom" id="fsR-NZ-TeD"/>
+                            <constraint firstAttribute="trailing" secondItem="YWi-fe-kBe" secondAttribute="trailing" id="scB-N9-dlA"/>
+                            <constraint firstItem="YWi-fe-kBe" firstAttribute="leading" secondItem="JUO-TT-IdG" secondAttribute="leading" id="xmN-Wx-psY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Volunteers" id="t79-jE-0PY">
+                        <barButtonItem key="leftBarButtonItem" title="Clear All" id="VAy-PH-0LX">
+                            <connections>
+                                <action selector="clearAllVolunteers:" destination="5uk-5S-0iq" id="Nd7-ke-Kzr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AFZ-3F-5Qk">
+                            <connections>
+                                <action selector="addVolunteer:" destination="5uk-5S-0iq" id="kXR-47-5We"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="aeZ-M4-MWN" id="U85-jA-5rR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grH-IW-FIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="456"/>
         </scene>
     </scenes>
 </document>

@@ -12,19 +12,23 @@ import UIKit
 class MainSplitViewController:UISplitViewController, UISplitViewControllerDelegate
 {
     
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        self.delegate = self
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         //instantiate master view controller
         var storyboard:UIStoryboard = UIStoryboard(name: "Volunteers", bundle: nil)
         var masterVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
         
         //instantiate detail view controller
-        storyboard = UIStoryboard(name: "Signature", bundle: nil)
+        storyboard = UIStoryboard(name: "VolunteerInfo", bundle: nil)
         var detailVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
         self.viewControllers = [masterVC, detailVC]
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        self.delegate = self
     }
     
     func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {

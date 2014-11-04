@@ -12,7 +12,7 @@ import UIKit
 class SignatureViewController:UIViewController
 {
     
-    let BRUSH_SIZE:CGFloat = 10.0
+    let BRUSH_SIZE:CGFloat = 5.0
     let BRUSH_ALPHA:CGFloat = 1.0
     let BRUSH_COLOR_RED:CGFloat = 0.0
     let BRUSH_COLOR_GREEN:CGFloat = 0.0
