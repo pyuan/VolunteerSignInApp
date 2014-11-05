@@ -16,34 +16,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJL-3p-KL8">
+                                <rect key="frame" x="543" y="560" width="37" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clear" destination="4lA-ye-Hwm" eventType="touchUpInside" id="a8d-W1-yHL"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-PM-5uS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoM-85-hO9">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="100" y="0.0" width="400" height="600"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="5yO-eI-XeV"/>
+                                    <constraint firstAttribute="width" constant="400" id="Sqe-8f-GV8"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g52-1X-7f6"/>
-                                    <barButtonItem systemItem="trash" id="DxN-vg-7eu">
-                                        <connections>
-                                            <action selector="clear" destination="4lA-ye-Hwm" id="T9a-pL-rfc"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aN0-PM-5uS" secondAttribute="trailing" id="4LD-Pb-Hjn"/>
+                            <constraint firstAttribute="centerX" secondItem="aN0-PM-5uS" secondAttribute="centerX" id="9dq-gA-WvX"/>
                             <constraint firstItem="aN0-PM-5uS" firstAttribute="top" secondItem="El3-zl-pSR" secondAttribute="top" id="B3i-Dv-khr"/>
-                            <constraint firstAttribute="trailing" secondItem="qoM-85-hO9" secondAttribute="trailing" id="C1a-xa-Ka0"/>
+                            <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="aN0-PM-5uS" secondAttribute="bottom" id="FDk-ro-gO3"/>
+                            <constraint firstAttribute="centerY" secondItem="aN0-PM-5uS" secondAttribute="centerY" id="Jly-Ey-SCv"/>
                             <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="aN0-PM-5uS" secondAttribute="bottom" id="NV3-4i-MrE"/>
-                            <constraint firstItem="qoM-85-hO9" firstAttribute="leading" secondItem="El3-zl-pSR" secondAttribute="leading" id="mD5-fI-JUN"/>
-                            <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="qoM-85-hO9" secondAttribute="bottom" id="nGF-ny-8rV"/>
+                            <constraint firstAttribute="trailing" secondItem="TJL-3p-KL8" secondAttribute="trailing" constant="20" id="TDW-Eg-9en"/>
+                            <constraint firstItem="aN0-PM-5uS" firstAttribute="top" secondItem="El3-zl-pSR" secondAttribute="top" id="Wkf-vJ-ntb"/>
+                            <constraint firstItem="JDd-Vy-6uv" firstAttribute="top" secondItem="TJL-3p-KL8" secondAttribute="bottom" constant="10" id="lpp-6H-jLl"/>
                             <constraint firstItem="aN0-PM-5uS" firstAttribute="leading" secondItem="El3-zl-pSR" secondAttribute="leading" id="oso-s7-teU"/>
+                            <constraint firstItem="aN0-PM-5uS" firstAttribute="top" secondItem="JDd-Vy-6uv" secondAttribute="bottom" id="qew-JC-mre"/>
+                            <constraint firstItem="aN0-PM-5uS" firstAttribute="top" secondItem="UOy-bW-3bU" secondAttribute="bottom" id="t6U-ww-AVF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4LD-Pb-Hjn"/>
+                                <exclude reference="B3i-Dv-khr"/>
+                                <exclude reference="Jly-Ey-SCv"/>
+                                <exclude reference="oso-s7-teU"/>
+                                <exclude reference="qew-JC-mre"/>
+                                <exclude reference="t6U-ww-AVF"/>
+                                <exclude reference="NV3-4i-MrE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="UYB-x5-0CE"/>
                     <connections>

@@ -13,13 +13,16 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
 {
     
     @IBOutlet var tableView:UITableView?
+    @IBOutlet var addVolunteerButton:UIBarButtonItem?
+    
+    private var volunteerInfoPopoverController:UIPopoverController?
     
     @IBAction func clearAllVolunteers(sender:AnyObject) {
         println("Clear all volunteers")
     }
     
     @IBAction func addVolunteer(sender:AnyObject) {
-        println("Add volunteer")
+        self.showVolunteerInfoPopover()
     }
     
     @IBAction func sendToChicagoCares(sender:AnyObject) {
@@ -37,6 +40,14 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = UITableViewCell()
         return cell
+    }
+    
+    //show volunteer info in a popover positioned next to the add button
+    private func showVolunteerInfoPopover()
+    {
+        var view:UIView = self.addVolunteerButton?.valueForKey("view") as UIView
+        var frame:CGRect = CGRect(x: view.frame.origin.x-1, y: view.frame.origin.y + 20, width: view.frame.width, height: view.frame.height)
+        self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: nil, inView: self.view)
     }
     
 }

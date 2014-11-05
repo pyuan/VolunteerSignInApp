@@ -24,18 +24,18 @@ class SignatureViewController:UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signatureImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.signatureImageView.contentMode = UIViewContentMode.Center
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
         super.touchesBegan(touches, withEvent: event)
         var touch:UITouch = touches.anyObject() as UITouch
-        self._lastPoint = touch.locationInView(self.view)
+        self._lastPoint = touch.locationInView(self.signatureImageView)
         
         //begin graphics image context
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.signatureImageView.image?.drawInRect(CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        UIGraphicsBeginImageContext(self.signatureImageView.frame.size)
+        self.signatureImageView.image?.drawInRect(CGRectMake(0, 0, self.signatureImageView.frame.width, self.signatureImageView.frame.height))
         
         //setup graphics context
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound)
@@ -48,7 +48,7 @@ class SignatureViewController:UIViewController
     {
         super.touchesMoved(touches, withEvent: event)
         var touch:UITouch = touches.anyObject() as UITouch
-        var currentPoint:CGPoint = touch.locationInView(self.view)
+        var currentPoint:CGPoint = touch.locationInView(self.signatureImageView)
         
         //draw line between previous point and current point
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), self._lastPoint.x, self._lastPoint.y)

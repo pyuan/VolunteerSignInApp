@@ -16,11 +16,11 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
         super.awakeFromNib()
         
         //instantiate master view controller
-        var storyboard:UIStoryboard = UIStoryboard(name: "Volunteers", bundle: nil)
+        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEERS.rawValue, bundle: nil)
         var masterVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
         
         //instantiate detail view controller
-        storyboard = UIStoryboard(name: "VolunteerInfo", bundle: nil)
+        storyboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEER_SIGN_IN.rawValue, bundle: nil)
         var detailVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
         self.viewControllers = [masterVC, detailVC]
     }

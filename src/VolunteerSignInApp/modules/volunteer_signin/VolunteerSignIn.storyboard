@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="98F-JU-pER">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Paul Yuan-->
+        <scene sceneID="dUf-dF-122">
+            <objects>
+                <viewController id="ze8-ZA-OdW" customClass="VolunteerSignInViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EAL-GQ-XBz"/>
+                        <viewControllerLayoutGuide type="bottom" id="fkb-Z9-4fT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K3B-A2-l0K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6f-Sj-Azg">
+                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="ogr-20-KaL"/>
+                                </constraints>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t6f-Sj-Azg" secondAttribute="trailing" id="UV1-u5-MEg"/>
+                            <constraint firstItem="t6f-Sj-Azg" firstAttribute="leading" secondItem="K3B-A2-l0K" secondAttribute="leading" id="dcV-pl-ZR8"/>
+                            <constraint firstItem="fkb-Z9-4fT" firstAttribute="top" secondItem="t6f-Sj-Azg" secondAttribute="bottom" id="o1K-Jh-bzP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Paul Yuan" id="Caz-Tf-AUB">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="fgO-XL-fHg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mo4-tQ-hAF">
+                                <rect key="frame" x="451" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomView" destination="t6f-Sj-Azg" id="60q-fu-QG5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="px0-hl-sH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="178"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B9Q-LN-Ynd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="98F-JU-pER" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3zf-nV-ezs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ze8-ZA-OdW" kind="relationship" relationship="rootViewController" id="K1P-2b-fIJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4p-jC-Kbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213" y="178"/>
+        </scene>
+    </scenes>
+</document>

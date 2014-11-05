@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /*
+        //check what fonts are available in the app
+        for family in UIFont.familyNames() {
+            println(family)
+            
+            for name in UIFont.fontNamesForFamilyName(family as NSString) {
+                println(name)
+            }
+        }
+        */
+        
+        //set global styles
+        StylesManager.initStyles()
+        
         return true
     }
 

@@ -2,28 +2,41 @@
 //  VolunteerInfoViewController.swift
 //  VolunteerSignInApp
 //
-//  Created by Paul Yuan on 2014-11-03.
+//  Created by Paul Yuan on 2014-11-05.
 //  Copyright (c) 2014 Paul Yuan. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class VolunteerInfoViewController:UIViewController
+class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     
-    @IBOutlet var bottomView:UIView?
+    @IBOutlet var tableView:UITableView?
+    @IBOutlet var bottomBar:InfoBottomBar?
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellReuseId:String = "textFieldCell"
+        var cell:VolunteerInfoTextFieldCell! = tableView.dequeueReusableCellWithIdentifier(cellReuseId, forIndexPath: indexPath) as VolunteerInfoTextFieldCell
         
-        //programmatically add signature view controller
-        var storyboard:UIStoryboard = UIStoryboard(name: "Signature", bundle: nil)
-        var signatureVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
-        signatureVC.view.frame = self.bottomView!.frame
-        self.addChildViewController(signatureVC)
-        self.view.addSubview(signatureVC.view)
-        signatureVC.didMoveToParentViewController(self)
+        return cell
     }
     
 }

@@ -82,6 +82,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addVolunteerButton" destination="AFZ-3F-5Qk" id="boy-by-xry"/>
                         <outlet property="tableView" destination="aeZ-M4-MWN" id="U85-jA-5rR"/>
                     </connections>
                 </viewController>

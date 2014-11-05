@@ -11,10 +11,25 @@
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
 		1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B865ED11A06C728008A02F1 /* FormTemplate.xib */; };
 		1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B865ED21A06C728008A02F1 /* FormTemplateView.swift */; };
+		1B8DBB401A0AB904009B1C6F /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB3F1A0AB904009B1C6F /* Volunteer.swift */; };
+		1B8DBB441A0ABAD6009B1C6F /* VolunteerSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB421A0ABAD6009B1C6F /* VolunteerSignIn.storyboard */; };
+		1B8DBB451A0ABAD6009B1C6F /* VolunteerSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB431A0ABAD6009B1C6F /* VolunteerSignInViewController.swift */; };
+		1B8DBB471A0ABBEA009B1C6F /* VolunteerInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB461A0ABBEA009B1C6F /* VolunteerInfo.storyboard */; };
+		1B8DBB491A0ABC2E009B1C6F /* VolunteerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB481A0ABC2E009B1C6F /* VolunteerInfoViewController.swift */; };
+		1B8DBB4D1A0ABDCC009B1C6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB4C1A0ABDCC009B1C6F /* Constants.swift */; };
+		1B8DBB4F1A0ABF54009B1C6F /* PopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB4E1A0ABF54009B1C6F /* PopoverManager.swift */; };
+		1B8DBB511A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB501A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift */; };
+		1B8DBB531A0AD014009B1C6F /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB521A0AD014009B1C6F /* UIFont.swift */; };
+		1B8DBB581A0AD034009B1C6F /* Georgia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB551A0AD034009B1C6F /* Georgia.ttf */; };
+		1B8DBB591A0AD034009B1C6F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB561A0AD034009B1C6F /* Gotham-Bold.otf */; };
+		1B8DBB5A1A0AD034009B1C6F /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB571A0AD034009B1C6F /* Gotham-Book.otf */; };
+		1B8DBB5C1A0AD1D9009B1C6F /* StylesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB5B1A0AD1D9009B1C6F /* StylesManager.swift */; };
+		1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB5E1A0AD61A009B1C6F /* UIButton.swift */; };
+		1B8DBB611A0AD702009B1C6F /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1B8DBB601A0AD702009B1C6F /* Gotham-Medium.otf */; };
+		1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB621A0AD938009B1C6F /* UIBarButtonItem.swift */; };
+		1B8DBB651A0ADF9B009B1C6F /* InfoBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8DBB641A0ADF9B009B1C6F /* InfoBottomBar.swift */; };
 		1B901E0319FB4D5900C058CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B901E0119FB4D4F00C058CA /* MessageUI.framework */; };
 		1BBB3D1F1A088A150014A7FD /* VolunteersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB3D1E1A088A150014A7FD /* VolunteersViewController.swift */; };
-		1BBB3D241A088EC50014A7FD /* VolunteerInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB3D231A088EC50014A7FD /* VolunteerInfo.storyboard */; };
-		1BBB3D291A089C030014A7FD /* VolunteerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB3D281A089C030014A7FD /* VolunteerInfoViewController.swift */; };
 		1BBB3D2B1A089C140014A7FD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB3D2A1A089C140014A7FD /* UIColor.swift */; };
 		1BBB3D2F1A089E380014A7FD /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB3D2E1A089E380014A7FD /* DatabaseHandler.swift */; };
 		1BBB3D321A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BBB3D301A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld */; };
@@ -46,10 +61,25 @@
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
 		1B865ED11A06C728008A02F1 /* FormTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTemplate.xib; sourceTree = "<group>"; };
 		1B865ED21A06C728008A02F1 /* FormTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTemplateView.swift; sourceTree = "<group>"; };
+		1B8DBB3F1A0AB904009B1C6F /* Volunteer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Volunteer.swift; path = core_data/Volunteer.swift; sourceTree = "<group>"; };
+		1B8DBB421A0ABAD6009B1C6F /* VolunteerSignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VolunteerSignIn.storyboard; sourceTree = "<group>"; };
+		1B8DBB431A0ABAD6009B1C6F /* VolunteerSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerSignInViewController.swift; sourceTree = "<group>"; };
+		1B8DBB461A0ABBEA009B1C6F /* VolunteerInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = VolunteerInfo.storyboard; path = modules/volunteer_info/VolunteerInfo.storyboard; sourceTree = "<group>"; };
+		1B8DBB481A0ABC2E009B1C6F /* VolunteerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerInfoViewController.swift; path = modules/volunteer_info/VolunteerInfoViewController.swift; sourceTree = "<group>"; };
+		1B8DBB4C1A0ABDCC009B1C6F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = constants/Constants.swift; sourceTree = "<group>"; };
+		1B8DBB4E1A0ABF54009B1C6F /* PopoverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverManager.swift; path = utils/PopoverManager.swift; sourceTree = "<group>"; };
+		1B8DBB501A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerInfoTextFieldCell.swift; path = modules/volunteer_info/VolunteerInfoTextFieldCell.swift; sourceTree = "<group>"; };
+		1B8DBB521A0AD014009B1C6F /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIFont.swift; path = utils/UIFont.swift; sourceTree = "<group>"; };
+		1B8DBB551A0AD034009B1C6F /* Georgia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Georgia.ttf; sourceTree = "<group>"; };
+		1B8DBB561A0AD034009B1C6F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		1B8DBB571A0AD034009B1C6F /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		1B8DBB5B1A0AD1D9009B1C6F /* StylesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StylesManager.swift; path = utils/StylesManager.swift; sourceTree = "<group>"; };
+		1B8DBB5E1A0AD61A009B1C6F /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = ui/UIButton.swift; sourceTree = "<group>"; };
+		1B8DBB601A0AD702009B1C6F /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		1B8DBB621A0AD938009B1C6F /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = ui/UIBarButtonItem.swift; sourceTree = "<group>"; };
+		1B8DBB641A0ADF9B009B1C6F /* InfoBottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoBottomBar.swift; path = modules/volunteer_info/InfoBottomBar.swift; sourceTree = "<group>"; };
 		1B901E0119FB4D4F00C058CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1BBB3D1E1A088A150014A7FD /* VolunteersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteersViewController.swift; path = modules/volunteers/VolunteersViewController.swift; sourceTree = "<group>"; };
-		1BBB3D231A088EC50014A7FD /* VolunteerInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = VolunteerInfo.storyboard; path = modules/volunteer_info/VolunteerInfo.storyboard; sourceTree = "<group>"; };
-		1BBB3D281A089C030014A7FD /* VolunteerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerInfoViewController.swift; path = modules/volunteer_info/VolunteerInfoViewController.swift; sourceTree = "<group>"; };
 		1BBB3D2A1A089C140014A7FD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = utils/UIColor.swift; sourceTree = "<group>"; };
 		1BBB3D2E1A089E380014A7FD /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseHandler.swift; path = core_data/DatabaseHandler.swift; sourceTree = "<group>"; };
 		1BBB3D311A089F230014A7FD /* VolunteerSignInApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolunteerSignInApp.xcdatamodel; sourceTree = "<group>"; };
@@ -109,11 +139,43 @@
 			path = modules/form_template;
 			sourceTree = "<group>";
 		};
+		1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */ = {
+			isa = PBXGroup;
+			children = (
+				1B8DBB421A0ABAD6009B1C6F /* VolunteerSignIn.storyboard */,
+				1B8DBB431A0ABAD6009B1C6F /* VolunteerSignInViewController.swift */,
+			);
+			name = volunteer_signin;
+			path = modules/volunteer_signin;
+			sourceTree = "<group>";
+		};
+		1B8DBB541A0AD034009B1C6F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1B8DBB551A0AD034009B1C6F /* Georgia.ttf */,
+				1B8DBB561A0AD034009B1C6F /* Gotham-Bold.otf */,
+				1B8DBB571A0AD034009B1C6F /* Gotham-Book.otf */,
+				1B8DBB601A0AD702009B1C6F /* Gotham-Medium.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		1B8DBB5D1A0AD5EF009B1C6F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				1B8DBB5E1A0AD61A009B1C6F /* UIButton.swift */,
+				1B8DBB621A0AD938009B1C6F /* UIBarButtonItem.swift */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
 		1BBB3D201A088E970014A7FD /* volunteer_info */ = {
 			isa = PBXGroup;
 			children = (
-				1BBB3D231A088EC50014A7FD /* VolunteerInfo.storyboard */,
-				1BBB3D281A089C030014A7FD /* VolunteerInfoViewController.swift */,
+				1B8DBB641A0ADF9B009B1C6F /* InfoBottomBar.swift */,
+				1B8DBB461A0ABBEA009B1C6F /* VolunteerInfo.storyboard */,
+				1B8DBB501A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift */,
+				1B8DBB481A0ABC2E009B1C6F /* VolunteerInfoViewController.swift */,
 			);
 			name = volunteer_info;
 			sourceTree = "<group>";
@@ -152,12 +214,14 @@
 				1BCCB1B119ED78E600E05A36 /* AppDelegate.swift */,
 				1BCCB1D119ED7A1D00E05A36 /* constants */,
 				1BCCB1D219ED7A2500E05A36 /* core_data */,
+				1B8DBB541A0AD034009B1C6F /* fonts */,
 				1BCCB1B819ED78E600E05A36 /* Images.xcassets */,
 				1BCCB1D419ED7A2F00E05A36 /* libs */,
 				1BCCB1D519ED7A3400E05A36 /* models */,
 				1BCCB1D619ED7A3800E05A36 /* modules */,
 				1BCCB1D719ED7A3E00E05A36 /* services */,
 				1BCCB1AF19ED78E600E05A36 /* Supporting Files */,
+				1B8DBB5D1A0AD5EF009B1C6F /* ui */,
 				1BCCB1D819ED7A4500E05A36 /* utils */,
 			);
 			path = VolunteerSignInApp;
@@ -191,6 +255,7 @@
 		1BCCB1D119ED7A1D00E05A36 /* constants */ = {
 			isa = PBXGroup;
 			children = (
+				1B8DBB4C1A0ABDCC009B1C6F /* Constants.swift */,
 			);
 			name = constants;
 			sourceTree = "<group>";
@@ -199,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				1BBB3D2E1A089E380014A7FD /* DatabaseHandler.swift */,
+				1B8DBB3F1A0AB904009B1C6F /* Volunteer.swift */,
 				1BBB3D301A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld */,
 			);
 			name = core_data;
@@ -229,6 +295,7 @@
 				1BBF38B519FB207800932D90 /* pdf_renderer */,
 				1BCCB1E419ED7D3100E05A36 /* signature */,
 				1BBB3D201A088E970014A7FD /* volunteer_info */,
+				1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */,
 				1B69724219EE1E14003ADF1D /* volunteers */,
 			);
 			name = modules;
@@ -244,7 +311,10 @@
 		1BCCB1D819ED7A4500E05A36 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B8DBB4E1A0ABF54009B1C6F /* PopoverManager.swift */,
+				1B8DBB5B1A0AD1D9009B1C6F /* StylesManager.swift */,
 				1BBB3D2A1A089C140014A7FD /* UIColor.swift */,
+				1B8DBB521A0AD014009B1C6F /* UIFont.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -356,14 +426,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B8DBB441A0ABAD6009B1C6F /* VolunteerSignIn.storyboard in Resources */,
+				1B8DBB611A0AD702009B1C6F /* Gotham-Medium.otf in Resources */,
 				1BBF38B919FB20B400932D90 /* PDFRenderer.storyboard in Resources */,
+				1B8DBB471A0ABBEA009B1C6F /* VolunteerInfo.storyboard in Resources */,
 				1BCCB1DC19ED7B7D00E05A36 /* LaunchScreen.xib in Resources */,
-				1BBB3D241A088EC50014A7FD /* VolunteerInfo.storyboard in Resources */,
 				1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */,
 				1BCCB1DE19ED7B8500E05A36 /* Main.storyboard in Resources */,
+				1B8DBB5A1A0AD034009B1C6F /* Gotham-Book.otf in Resources */,
+				1B8DBB591A0AD034009B1C6F /* Gotham-Bold.otf in Resources */,
 				1BCCB1B919ED78E600E05A36 /* Images.xcassets in Resources */,
 				1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */,
 				1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */,
+				1B8DBB581A0AD034009B1C6F /* Georgia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,16 +457,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BBF38BB19FB21B700932D90 /* PDFRendererViewController.swift in Sources */,
+				1B8DBB531A0AD014009B1C6F /* UIFont.swift in Sources */,
+				1B8DBB4F1A0ABF54009B1C6F /* PopoverManager.swift in Sources */,
 				1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */,
+				1B8DBB401A0AB904009B1C6F /* Volunteer.swift in Sources */,
+				1B8DBB651A0ADF9B009B1C6F /* InfoBottomBar.swift in Sources */,
 				1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */,
+				1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */,
+				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,
 				1BBB3D2F1A089E380014A7FD /* DatabaseHandler.swift in Sources */,
+				1B8DBB4D1A0ABDCC009B1C6F /* Constants.swift in Sources */,
 				1BBF38C019FB298100932D90 /* PDFRenderer.swift in Sources */,
+				1B8DBB511A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift in Sources */,
 				1BCCB1B219ED78E600E05A36 /* AppDelegate.swift in Sources */,
-				1BBB3D291A089C030014A7FD /* VolunteerInfoViewController.swift in Sources */,
+				1B8DBB5C1A0AD1D9009B1C6F /* StylesManager.swift in Sources */,
+				1B8DBB451A0ABAD6009B1C6F /* VolunteerSignInViewController.swift in Sources */,
 				1BBB3D321A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld in Sources */,
 				1BBB3D1F1A088A150014A7FD /* VolunteersViewController.swift in Sources */,
 				1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */,
 				1BBB3D2B1A089C140014A7FD /* UIColor.swift in Sources */,
+				1B8DBB491A0ABC2E009B1C6F /* VolunteerInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
