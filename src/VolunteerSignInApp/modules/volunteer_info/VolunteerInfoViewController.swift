@@ -85,7 +85,7 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
         }
         else
         {
-            let alertController = UIAlertController(title: "Sorry", message: "First and last names required.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Sorry!", message: "First and last names are required.", preferredStyle: UIAlertControllerStyle.Alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(defaultAction)

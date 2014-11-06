@@ -15,14 +15,19 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //instantiate master view controller
-        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEERS.rawValue, bundle: nil)
-        var masterVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
-        
         //instantiate detail view controller
-        storyboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEER_SIGN_IN.rawValue, bundle: nil)
-        var detailVC:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
-        self.viewControllers = [masterVC, detailVC]
+        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEER_SIGN_IN.rawValue, bundle: nil)
+        var detailNC:UINavigationController = storyboard.instantiateInitialViewController() as UINavigationController
+        var detailVC:VolunteerSignInViewController = detailNC.viewControllers[0] as VolunteerSignInViewController
+        
+        //instantiate master view controller
+        storyboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEERS.rawValue, bundle: nil)
+        var masterNC:UINavigationController = storyboard.instantiateInitialViewController() as UINavigationController
+        println(masterNC.viewControllers)
+        var masterVC:VolunteersViewController = masterNC.viewControllers[0] as VolunteersViewController
+        masterVC.delegate = detailVC
+        
+        self.viewControllers = [masterNC, detailNC]
     }
     
     override func viewDidLoad()

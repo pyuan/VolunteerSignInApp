@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Paul Yuan-->
+        <!--Name-->
         <scene sceneID="dUf-dF-122">
             <objects>
                 <viewController id="ze8-ZA-OdW" customClass="VolunteerSignInViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <constraint firstItem="fkb-Z9-4fT" firstAttribute="top" secondItem="t6f-Sj-Azg" secondAttribute="bottom" id="o1K-Jh-bzP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Paul Yuan" id="Caz-Tf-AUB">
+                    <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fgO-XL-fHg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mo4-tQ-hAF">
                                 <rect key="frame" x="451" y="7" width="22" height="22"/>

@@ -9,17 +9,24 @@
 import Foundation
 import UIKit
 
+protocol VolunteersViewDelegate {
+    func volunteersViewSelectVolunteer(volunteer:Volunteer?)
+}
+
 class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate
 {
     
     @IBOutlet var tableView:UITableView?
     @IBOutlet var addVolunteerButton:UIBarButtonItem?
     
+    var delegate:VolunteersViewDelegate?
+    
     private var volunteerInfoPopoverController:UIPopoverController?
     private var volunteers:[Volunteer]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView?.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
         self.reload()
     }
     
@@ -77,6 +84,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var volunteer:Volunteer = self.volunteers![indexPath.row]
+        self.delegate?.volunteersViewSelectVolunteer(volunteer)
+    }
+    
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
     }
@@ -89,7 +101,7 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         var line:UIView = UIView(frame: CGRectMake(leftMargin, 0, footer.frame.width, footer.frame.height))
         line.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
         footer.addSubview(line)
-        return footer
+        return UIView() //footer
     }
     
     //scroll to and select row, or deselect all rows if no volunteer is specified

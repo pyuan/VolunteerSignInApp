@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VolunteerSignInViewController:UIViewController
+class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
 {
     
     @IBOutlet var bottomView:UIView?
@@ -19,6 +19,7 @@ class VolunteerSignInViewController:UIViewController
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.refreshSignatureView()
+        self.volunteersViewSelectVolunteer(nil)
     }
     
     //programmatically add signature view controller
@@ -39,6 +40,13 @@ class VolunteerSignInViewController:UIViewController
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         self.refreshSignatureView()
+    }
+    
+    /**** delegate methods ****/
+    func volunteersViewSelectVolunteer(volunteer: Volunteer?)
+    {
+        let title:String = volunteer == nil ? "" : volunteer!.getDisplayName()
+        self.title = title
     }
     
 }
