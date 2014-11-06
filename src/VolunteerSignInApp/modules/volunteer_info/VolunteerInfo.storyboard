@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6mK-He-WXF">
-                                <rect key="frame" x="0.0" y="25" width="600" height="575"/>
+                                <rect key="frame" x="0.0" y="25" width="600" height="525"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textFieldCell" id="esy-AA-zRM" customClass="VolunteerInfoTextFieldCell" customModule="VolunteerSignInApp" customModuleProvider="target">
@@ -65,6 +65,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="save" destination="uSD-0N-m5N" eventType="touchUpInside" id="7FH-cA-1Fe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,8 +102,14 @@
                             <constraint firstItem="uSD-0N-m5N" firstAttribute="leading" secondItem="8O2-O8-sG8" secondAttribute="leading" id="iY2-EB-0p8"/>
                             <constraint firstItem="6mK-He-WXF" firstAttribute="top" secondItem="hAt-l0-MIN" secondAttribute="bottom" constant="5" id="mj5-HU-23B"/>
                             <constraint firstItem="6mK-He-WXF" firstAttribute="leading" secondItem="8O2-O8-sG8" secondAttribute="leading" id="qI9-JK-zMs"/>
+                            <constraint firstItem="uSD-0N-m5N" firstAttribute="top" secondItem="6mK-He-WXF" secondAttribute="bottom" id="tlP-6e-qxU"/>
                             <constraint firstAttribute="trailing" secondItem="6mK-He-WXF" secondAttribute="trailing" id="wuy-E3-Yhh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bDr-0i-Nh8"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bottomBar" destination="uSD-0N-m5N" id="Zg2-P2-74B"/>

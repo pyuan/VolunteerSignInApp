@@ -23,6 +23,8 @@ extension UIColor
         static let WHITE = UIColor(rgba: "#FFFFFF");
     }
     
+    class var DEFAULT_SEPARATOR_COLOR:UIColor { return UIColor(rgba: "#e0e0e0") }
+    
     //from  Dong Yu Li, to create a UIColor from rgba
     convenience init(rgba: String) {
         //println("calculating color with hex \(rgba)");

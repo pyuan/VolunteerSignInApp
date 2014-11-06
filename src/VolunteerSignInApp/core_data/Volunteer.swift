@@ -13,11 +13,14 @@ class Volunteer: NSManagedObject {
 
     @NSManaged var email: String
     @NSManaged var fName: String
-    @NSManaged var id: NSNumber
     @NSManaged var lName: String
     @NSManaged var over18: NSNumber
     @NSManaged var phone: String
     @NSManaged var signature: NSData
     @NSManaged var team: String
+    
+    func getDisplayName() -> String {
+        return self.fName + " " + self.lName
+    }
 
 }

@@ -13,11 +13,13 @@ class PopoverManager
 {
     
     //show the volunteer popover in a view
-    class func showVolunteerInfo(frame:CGRect, volunteer:Volunteer?, inView view:UIView) -> UIPopoverController
+    class func showVolunteerInfo(frame:CGRect, volunteer:Volunteer?, inView view:UIView, delegate:VolunteerInfoViewDelegate?) -> UIPopoverController
     {
         var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEER_INFO.rawValue, bundle: nil)
-        var controller:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
+        var controller:VolunteerInfoViewController = storyboard.instantiateInitialViewController() as VolunteerInfoViewController
+        controller.delegate = delegate
         var popoverController:UIPopoverController = UIPopoverController(contentViewController: controller)
+        popoverController.setPopoverContentSize(VolunteerInfoViewController.POPOVER_SIZE, animated: true)
         popoverController.presentPopoverFromRect(frame, inView: view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         return popoverController
     }

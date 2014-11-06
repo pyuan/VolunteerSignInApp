@@ -1,0 +1,28 @@
+[
+
+	{
+		"key" : "fname",
+		"placeholder" : "First Name?"
+	},
+
+	{
+		"key" : "lname",
+		"placeholder" : "Last Name?"
+	},
+
+	{
+		"key" : "team",
+		"placeholder" : "Team?"
+	},
+
+	{
+		"key" : "phone",
+		"placeholder" : "Phone Number?"
+	},
+
+	{
+		"key" : "email",
+		"placeholder" : "Email?"
+	}
+
+]

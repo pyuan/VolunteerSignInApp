@@ -13,6 +13,7 @@ class VolunteerSignInViewController:UIViewController
 {
     
     @IBOutlet var bottomView:UIView?
+    
     private var signatureVC:SignatureViewController?
     
     override func viewDidAppear(animated: Bool) {

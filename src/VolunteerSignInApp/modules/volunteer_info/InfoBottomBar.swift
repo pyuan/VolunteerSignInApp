@@ -9,12 +9,18 @@
 import Foundation
 import UIKit
 
+protocol InfoBottomBarDelegate {
+    func infoBottomBarSave(isOver18:Bool)
+}
+
 class InfoBottomBar:UIView
 {
     
     @IBOutlet var over18Label:UILabel?
     @IBOutlet var over18Switch:UISwitch?
     @IBOutlet var saveBtn:UIButton?
+    
+    var delegate:InfoBottomBarDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,6 +62,10 @@ class InfoBottomBar:UIView
     
     func onSwipeRight() {
         self.over18Switch?.setOn(true, animated: true)
+    }
+    
+    @IBAction func save() {
+        self.delegate?.infoBottomBarSave(self.over18Switch!.on)
     }
     
 }

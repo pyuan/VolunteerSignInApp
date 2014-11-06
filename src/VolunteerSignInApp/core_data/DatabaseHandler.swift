@@ -74,7 +74,6 @@ class DatabaseHandler
         }()
     
     // MARK: - Core Data Saving support
-    
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
@@ -85,6 +84,43 @@ class DatabaseHandler
                 abort()
             }
         }
+    }
+    
+    //add new volunteer to database and save
+    func createNewVolunteer(fName:String, lName:String, team:String, phone:String, email:String, isOver18:Bool) -> Volunteer
+    {
+        let volunteer:Volunteer = NSEntityDescription.insertNewObjectForEntityForName("Volunteer", inManagedObjectContext: self.managedObjectContext!) as Volunteer
+        volunteer.fName = fName
+        volunteer.lName = lName
+        volunteer.team = team
+        volunteer.phone = phone
+        volunteer.email = email
+        volunteer.over18 = isOver18
+        self.saveContext()
+        return volunteer
+    }
+    
+    //retrieve all volunteers from database sorted alphabetically by the first name
+    func getAllVolunteers() -> [Volunteer]
+    {
+        var volunteers:[Volunteer] = [Volunteer]()
+        let fetchRequest:NSFetchRequest = NSFetchRequest(entityName: "Volunteer")
+        let sortDescriptor:NSSortDescriptor = NSSortDescriptor(key: "fName", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let fetchResults:[Volunteer] = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Volunteer]
+        {
+            volunteers = fetchResults
+        }
+        return volunteers
+    }
+    
+    //delete volunteers from the database
+    func deleteVolunteers(volunteers:[Volunteer])
+    {
+        for volunteer in volunteers {
+            self.managedObjectContext?.deleteObject(volunteer)
+        }
+        self.saveContext()
     }
     
 }

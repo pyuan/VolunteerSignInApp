@@ -15,7 +15,9 @@ class StylesManager
     class func initStyles()
     {
         UIView.appearance().tintColor = UIColor.CHICAGO_CARES.BLUE
+        
         UILabel.appearance().font = UIFont.DEFAULT_LABEL()
+        
         UISwitch.appearance().tintColor = UIColor.CHICAGO_CARES.BLUE
         UISwitch.appearance().onTintColor = UIColor.CHICAGO_CARES.BLUE
     }
