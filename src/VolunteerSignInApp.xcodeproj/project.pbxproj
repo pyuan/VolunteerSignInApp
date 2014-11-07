@@ -15,6 +15,7 @@
 		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
 		1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724019EE1CDA003ADF1D /* Signature.storyboard */; };
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
+		1B71C61F1A0D12FF00838D21 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B71C61E1A0D12FF00838D21 /* SettingsButton.swift */; };
 		1B8398691A0BDAB0000372B3 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */; };
 		1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B865ED11A06C728008A02F1 /* FormTemplate.xib */; };
 		1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B865ED21A06C728008A02F1 /* FormTemplateView.swift */; };
@@ -75,6 +76,7 @@
 		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
 		1B69724019EE1CDA003ADF1D /* Signature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signature.storyboard; path = modules/signature/Signature.storyboard; sourceTree = "<group>"; };
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
+		1B71C61E1A0D12FF00838D21 /* SettingsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationBar.swift; path = ui/UINavigationBar.swift; sourceTree = "<group>"; };
 		1B865ED11A06C728008A02F1 /* FormTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTemplate.xib; sourceTree = "<group>"; };
 		1B865ED21A06C728008A02F1 /* FormTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTemplateView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */ = {
 			isa = PBXGroup;
 			children = (
+				1B71C61E1A0D12FF00838D21 /* SettingsButton.swift */,
 				1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */,
 				1B8DBB421A0ABAD6009B1C6F /* VolunteerSignIn.storyboard */,
 				1B8DBB431A0ABAD6009B1C6F /* VolunteerSignInViewController.swift */,
@@ -503,6 +506,7 @@
 				1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */,
 				1B8DBB401A0AB904009B1C6F /* Volunteer.swift in Sources */,
 				1B8DBB651A0ADF9B009B1C6F /* InfoBottomBar.swift in Sources */,
+				1B71C61F1A0D12FF00838D21 /* SettingsButton.swift in Sources */,
 				1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */,
 				1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */,
 				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,

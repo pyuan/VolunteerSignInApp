@@ -65,11 +65,11 @@
                     <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
                         <barButtonItem key="rightBarButtonItem" id="fgO-XL-fHg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mo4-tQ-hAF" customClass="VolunteerInfoButton" customModule="VolunteerSignInApp" customModuleProvider="target">
-                                <rect key="frame" x="451" y="7" width="22" height="22"/>
+                                <rect key="frame" x="554" y="11" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <connections>
-                                    <action selector="showVolunteerInfo:" destination="ze8-ZA-OdW" eventType="touchUpInside" id="1dD-6Q-iQW"/>
+                                    <action selector="showVolunteerInfo:" destination="ze8-ZA-OdW" eventType="touchUpInside" id="cJI-8c-AEU"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -78,7 +78,7 @@
                         <outlet property="blankLabel" destination="GRQ-QG-Qfp" id="WrM-7T-ws4"/>
                         <outlet property="blankView" destination="JCJ-al-qbB" id="gur-k9-55t"/>
                         <outlet property="bottomView" destination="t6f-Sj-Azg" id="60q-fu-QG5"/>
-                        <outlet property="profileButton" destination="fgO-XL-fHg" id="1DL-OJ-VUg"/>
+                        <outlet property="profileButton" destination="fgO-XL-fHg" id="h39-Sn-uJi"/>
                         <outlet property="wrapperView" destination="V1o-CU-9Z2" id="YZT-Gt-ykj"/>
                     </connections>
                 </viewController>

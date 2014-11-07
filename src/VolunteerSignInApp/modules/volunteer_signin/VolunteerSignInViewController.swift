@@ -65,7 +65,7 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     private func showVolunteerInfoPopover()
     {
         var view:UIView = self.profileButton?.valueForKey("view") as UIView
-        var frame:CGRect = CGRect(x: view.frame.origin.x-4, y: view.frame.origin.y + 25, width: view.frame.width, height: view.frame.height)
+        var frame:CGRect = CGRect(x: view.frame.origin.x-2, y: view.frame.origin.y + 25, width: view.frame.width, height: view.frame.height)
         self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: self.volunteer, inView: self.view, delegate: self)
     }
     
