@@ -41,11 +41,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     {
         if self.volunteers?.count > 0
         {
-            let alert:UIAlertController = UIAlertController(title: "Whoa!", message: "Are you sure you want to remove ALL the volunteers?", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert:UIAlertController = UIAlertController(title: "Whoa!", message: "Are you sure you want to remove ALL the volunteers? This cannot be undone.", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
                 alert.dismissViewControllerAnimated(false, completion: nil)
             }
-            let submit:UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (action) -> Void in
+            let submit:UIAlertAction = UIAlertAction(title: "Yes, I'm sure", style: UIAlertActionStyle.Default) { (action) -> Void in
                 //remove from db
                 VolunteerService.removeVolunteers(self.volunteers!)
                 
@@ -65,7 +65,7 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         }
         else
         {
-            let alert:UIAlertController = UIAlertController(title: "Sorry", message: "You don't have any volunteer to remove. Add one by tapping +", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert:UIAlertController = UIAlertController(title: "Sorry", message: "You don't have any volunteer to remove. Add one by tapping the '+' button.", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alert.addAction(defaultAction)
             self.presentViewController(alert, animated: false, completion: nil)
