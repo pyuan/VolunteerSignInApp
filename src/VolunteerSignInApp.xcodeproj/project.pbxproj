@@ -13,6 +13,10 @@
 		1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */; };
 		1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */; };
 		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
+		1B672C8F1A0D66BA009D5F53 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */; };
+		1B672C911A0D66D8009D5F53 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */; };
+		1B672C931A0D8100009D5F53 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672C921A0D8100009D5F53 /* UITextField.swift */; };
+		1B672C951A0D9194009D5F53 /* SettingsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672C941A0D9194009D5F53 /* SettingsField.swift */; };
 		1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724019EE1CDA003ADF1D /* Signature.storyboard */; };
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
 		1B71C61F1A0D12FF00838D21 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B71C61E1A0D12FF00838D21 /* SettingsButton.swift */; };
@@ -74,6 +78,10 @@
 		1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeUtils.swift; path = utils/TimeUtils.swift; sourceTree = "<group>"; };
 		1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveVolunteerButton.swift; path = modules/volunteers/RemoveVolunteerButton.swift; sourceTree = "<group>"; };
 		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
+		1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1B672C921A0D8100009D5F53 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextField.swift; path = ui/UITextField.swift; sourceTree = "<group>"; };
+		1B672C941A0D9194009D5F53 /* SettingsField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsField.swift; sourceTree = "<group>"; };
 		1B69724019EE1CDA003ADF1D /* Signature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signature.storyboard; path = modules/signature/Signature.storyboard; sourceTree = "<group>"; };
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
 		1B71C61E1A0D12FF00838D21 /* SettingsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
@@ -150,6 +158,17 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		1B672C8D1A0D668D009D5F53 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */,
+				1B672C941A0D9194009D5F53 /* SettingsField.swift */,
+				1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */,
+			);
+			name = settings;
+			path = modules/settings;
+			sourceTree = "<group>";
+		};
 		1B69724219EE1E14003ADF1D /* volunteers */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +219,7 @@
 				1B8DBB621A0AD938009B1C6F /* UIBarButtonItem.swift */,
 				1B8DBB5E1A0AD61A009B1C6F /* UIButton.swift */,
 				1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */,
+				1B672C921A0D8100009D5F53 /* UITextField.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -330,6 +350,7 @@
 				1BCCB1D919ED7A6E00E05A36 /* launch */,
 				1BCCB1DA19ED7A8E00E05A36 /* main */,
 				1BBF38B519FB207800932D90 /* pdf_renderer */,
+				1B672C8D1A0D668D009D5F53 /* settings */,
 				1BCCB1E419ED7D3100E05A36 /* signature */,
 				1BBB3D201A088E970014A7FD /* volunteer_info */,
 				1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */,
@@ -476,6 +497,7 @@
 				1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */,
 				1BCCB1DE19ED7B8500E05A36 /* Main.storyboard in Resources */,
 				1B8DBB5A1A0AD034009B1C6F /* Gotham-Book.otf in Resources */,
+				1B672C8F1A0D66BA009D5F53 /* Settings.storyboard in Resources */,
 				1B8DBB591A0AD034009B1C6F /* Gotham-Bold.otf in Resources */,
 				1BCCB1B919ED78E600E05A36 /* Images.xcassets in Resources */,
 				1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */,
@@ -505,16 +527,19 @@
 				1B99BAA61A0BEE75004E1FED /* VolunteerInfoFormTextFieldModel.swift in Sources */,
 				1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */,
 				1B8DBB401A0AB904009B1C6F /* Volunteer.swift in Sources */,
+				1B672C911A0D66D8009D5F53 /* SettingsViewController.swift in Sources */,
 				1B8DBB651A0ADF9B009B1C6F /* InfoBottomBar.swift in Sources */,
 				1B71C61F1A0D12FF00838D21 /* SettingsButton.swift in Sources */,
 				1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */,
 				1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */,
 				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,
 				1B99BAA81A0BEEF6004E1FED /* VolunteerFormService.swift in Sources */,
+				1B672C931A0D8100009D5F53 /* UITextField.swift in Sources */,
 				1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */,
 				1B8398691A0BDAB0000372B3 /* UINavigationBar.swift in Sources */,
 				1BBB3D2F1A089E380014A7FD /* DatabaseHandler.swift in Sources */,
 				1B122DFA1A0BEC5500625623 /* JSONFileService.swift in Sources */,
+				1B672C951A0D9194009D5F53 /* SettingsField.swift in Sources */,
 				1B8DBB4D1A0ABDCC009B1C6F /* Constants.swift in Sources */,
 				1BE67AF01A0C75CB007A238C /* VolunteerInfoButton.swift in Sources */,
 				1BBF38C019FB298100932D90 /* PDFRenderer.swift in Sources */,

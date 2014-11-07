@@ -14,6 +14,9 @@ class StylesManager
     
     class func initStyles()
     {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
+        appDelegate.window!.backgroundColor = UIColor.whiteColor()
+        
         UIView.appearance().tintColor = UIColor.CHICAGO_CARES.BLUE
         
         UILabel.appearance().font = UIFont.DEFAULT_LABEL()

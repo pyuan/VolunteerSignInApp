@@ -19,4 +19,10 @@ class Constants
         case SIGNATURE = "Signature"
     }
     
+    enum NOTIFICATION_CENTER_OBSERVER_NAMES:String
+    {
+        case SHOW_SETTINGS = "notificationShowSettings"
+        case SHOW_PDF_VIEWER = "notificationShowPDF"
+    }
+    
 }

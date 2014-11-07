@@ -34,12 +34,14 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
         self.blankLabel?.text = "Select a volunteer from the left to sign in."
         self.blankLabel?.font = UIFont.DEFAULT_LABEL()
         self.blankLabel?.textColor = UIColor.CHICAGO_CARES.GREY
+        
+        //reset view
+        self.volunteersViewSelectVolunteer(nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.refreshSignatureView()
-        self.volunteersViewSelectVolunteer(nil)
     }
     
     @IBAction func showVolunteerInfo(sender:AnyObject) {

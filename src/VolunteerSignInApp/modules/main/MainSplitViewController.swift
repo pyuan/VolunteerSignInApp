@@ -35,10 +35,27 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
     {
         super.viewDidLoad()
         self.delegate = self
+        
+        let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        notif.addObserver(self, selector: "showSettings", name: Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_SETTINGS.rawValue, object: nil)
     }
     
     func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
         return false
+    }
+    
+    @IBAction func unwindToMain(s:UIStoryboardSegue) { }
+    
+    func showSettings()
+    {
+        var storyboard:UIStoryboard = UIStoryboard(name: "Settings", bundle: nil)
+        var controller:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    deinit {
+        let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        notif.removeObserver(self)
     }
     
 }

@@ -80,6 +80,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         println("Send to Chicago Cares")
     }
     
+    @IBAction func showSettings(sender:AnyObject) {
+        let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        notif.postNotificationName(Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_SETTINGS.rawValue, object: nil)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -121,6 +126,18 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
             self.volunteers?.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+    
+    //allow tap again to deselect
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+    {
+        var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        if cell.selected {
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            self.selectVolunteer(nil)
+            return nil
+        }
+        return indexPath
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
