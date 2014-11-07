@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
+protocol VolunteerSignInDelegate {
+    func volunteerSignInSaved(volunteer:Volunteer?)
+}
+
+class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, VolunteerInfoViewDelegate
 {
     
     @IBOutlet var wrapperView:UIView?
@@ -18,7 +22,11 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
     @IBOutlet var bottomView:UIView?
     @IBOutlet var profileButton:UIBarButtonItem?
     
+    var delegate:VolunteerSignInDelegate?
+    
     private var signatureVC:SignatureViewController?
+    private var volunteerInfoPopoverController:UIPopoverController?
+    private var volunteer:Volunteer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +40,10 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
         super.viewDidAppear(animated)
         self.refreshSignatureView()
         self.volunteersViewSelectVolunteer(nil)
+    }
+    
+    @IBAction func showVolunteerInfo(sender:AnyObject) {
+        self.showVolunteerInfoPopover()
     }
     
     //programmatically add signature view controller
@@ -49,14 +61,25 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
         self.signatureVC!.view.frame = self.bottomView!.frame
     }
     
+    //show volunteer info in a popover positioned next to the add button
+    private func showVolunteerInfoPopover()
+    {
+        var view:UIView = self.profileButton?.valueForKey("view") as UIView
+        var frame:CGRect = CGRect(x: view.frame.origin.x-4, y: view.frame.origin.y + 25, width: view.frame.width, height: view.frame.height)
+        self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: self.volunteer, inView: self.view, delegate: self)
+    }
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         self.refreshSignatureView()
+        self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
     }
     
     /**** delegate methods ****/
     func volunteersViewSelectVolunteer(volunteer: Volunteer?)
     {
+        self.volunteer = volunteer
+        
         let title:String = volunteer == nil ? "" : volunteer!.getDisplayName()
         self.title = title
         
@@ -65,6 +88,13 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate
         
         var view:UIView = self.profileButton?.valueForKey("view") as UIView
         view.hidden = volunteer == nil
+    }
+    
+    func volunteerInfoClose(volunteer: Volunteer?)
+    {
+        self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
+        self.volunteerInfoPopoverController = nil
+        self.delegate?.volunteerSignInSaved(volunteer)
     }
     
 }

@@ -86,7 +86,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Volunteers" id="t79-jE-0PY">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="4vv-gF-esC">
+                        <barButtonItem key="leftBarButtonItem" id="4vv-gF-esC">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x0V-im-VBU" customClass="RemoveVolunteerButton" customModule="VolunteerSignInApp" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

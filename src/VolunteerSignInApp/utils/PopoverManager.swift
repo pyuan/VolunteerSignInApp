@@ -17,6 +17,7 @@ class PopoverManager
     {
         var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEER_INFO.rawValue, bundle: nil)
         var controller:VolunteerInfoViewController = storyboard.instantiateInitialViewController() as VolunteerInfoViewController
+        controller.setVolunteer(volunteer?)
         controller.delegate = delegate
         var popoverController:UIPopoverController = UIPopoverController(contentViewController: controller)
         popoverController.setPopoverContentSize(VolunteerInfoViewController.POPOVER_SIZE, animated: true)

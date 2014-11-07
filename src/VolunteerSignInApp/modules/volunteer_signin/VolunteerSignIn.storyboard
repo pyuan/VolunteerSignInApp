@@ -63,11 +63,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fgO-XL-fHg">
+                        <barButtonItem key="rightBarButtonItem" id="fgO-XL-fHg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mo4-tQ-hAF" customClass="VolunteerInfoButton" customModule="VolunteerSignInApp" customModuleProvider="target">
                                 <rect key="frame" x="451" y="7" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <connections>
+                                    <action selector="showVolunteerInfo:" destination="ze8-ZA-OdW" eventType="touchUpInside" id="1dD-6Q-iQW"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

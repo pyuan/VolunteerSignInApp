@@ -19,6 +19,13 @@ class VolunteerService
         return volunteer
     }
     
+    //update an existing volunteer in the db
+    class func updateVolunteer(volunteer:Volunteer, attributes:NSDictionary) -> Volunteer {
+        let db:DatabaseHandler = DatabaseHandler.sharedInstance
+        var v:Volunteer = db.updateVolunteer(volunteer, attributes: attributes)
+        return v
+    }
+    
     //get all saved volunteers from the db
     class func getAllVolunteers() -> [Volunteer]
     {

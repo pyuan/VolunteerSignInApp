@@ -44,6 +44,7 @@ class VolunteerInfoTextFieldCell:UITableViewCell, UITextFieldDelegate
     func update(model:VolunteerInfoFormTextFieldModel) {
         self.model = model
         self.textField?.placeholder = model.placeholder
+        self.textField?.text = model.value
         
         //set keyboard attributes based on key
         var keyboardType = UIKeyboardType.Default

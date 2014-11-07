@@ -24,6 +24,7 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
     var delegate:VolunteerInfoViewDelegate?
     
     private var fields:[VolunteerInfoFormTextFieldModel] = [VolunteerInfoFormTextFieldModel]()
+    private var volunteer:Volunteer?
     
     override func viewDidLoad()
     {
@@ -33,6 +34,45 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
         
         //load form data
         self.fields = VolunteerFormService.getFormFields()
+        
+        //preload with volunteer data
+        if self.volunteer != nil
+        {
+            for field in self.fields
+            {
+                switch field.key
+                {
+                    case "fname":
+                        field.value = self.volunteer!.fName
+                        break
+                    case "lname":
+                        field.value = self.volunteer!.lName
+                        break
+                    case "team":
+                        field.value = self.volunteer!.team
+                        break
+                    case "phone":
+                        field.value = self.volunteer!.phone
+                        break
+                    case "email":
+                        field.value = self.volunteer!.email
+                        break
+                    default:
+                        break
+                }
+            }
+            
+            self.bottomBar?.setIsOver18(self.volunteer!.over18.boolValue)
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func setVolunteer(volunteer:Volunteer?) {
+        self.volunteer = volunteer
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -79,9 +119,18 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
         var isValid:Bool = self.validateForm(attributes)
         if isValid
         {
-            var volunteer:Volunteer = VolunteerService.addNewVolunteer(attributes["fname"]!, lName: attributes["lname"]!, team: attributes["team"]!, phone: attributes["phone"]!, email: attributes["email"]!, isOver18: isOver18)
-            
-            self.delegate?.volunteerInfoClose(volunteer)
+            if self.volunteer == nil
+            {
+                var volunteer:Volunteer = VolunteerService.addNewVolunteer(attributes["fname"]!, lName: attributes["lname"]!, team: attributes["team"]!, phone: attributes["phone"]!, email: attributes["email"]!, isOver18: isOver18)
+                self.delegate?.volunteerInfoClose(volunteer)
+            }
+            else
+            {
+                //TODO: update volunteer in db
+                attributes["over18"] = isOver18.description
+                self.volunteer = VolunteerService.updateVolunteer(self.volunteer!, attributes: attributes)
+                self.delegate?.volunteerInfoClose(self.volunteer)
+            }
         }
         else
         {

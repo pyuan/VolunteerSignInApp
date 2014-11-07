@@ -52,6 +52,10 @@ class InfoBottomBar:UIView
         self.userInteractionEnabled = true
     }
     
+    func setIsOver18(isOver18:Bool) {
+        self.over18Switch?.setOn(isOver18, animated: true)
+    }
+    
     func toggleSwitch() {
         self.over18Switch!.setOn(!self.over18Switch!.on, animated: true)
     }

@@ -13,7 +13,7 @@ protocol VolunteersViewDelegate {
     func volunteersViewSelectVolunteer(volunteer:Volunteer?)
 }
 
-class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate
+class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate
 {
     
     @IBOutlet var tableView:UITableView?
@@ -183,6 +183,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     {
         self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
         self.volunteerInfoPopoverController = nil
+        self.reload()
+        self.selectVolunteer(volunteer)
+    }
+    
+    func volunteerSignInSaved(volunteer: Volunteer?) {
         self.reload()
         self.selectVolunteer(volunteer)
     }
