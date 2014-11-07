@@ -34,6 +34,7 @@ class VolunteerInfoTextFieldCell:UITableViewCell, UITextFieldDelegate
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.None
         self.textField?.font = UIFont.DEFAULT_LABEL()
+        self.textField?.textColor = UIColor.CHICAGO_CARES.BLUE
         self.textField?.addTarget(self, action: "onTextFieldValueChange:", forControlEvents: UIControlEvents.EditingChanged)
         self.textField?.addTarget(self, action: "onTextFieldValueChangeEnd:", forControlEvents: UIControlEvents.EditingDidEnd)
         self.textField?.addTarget(self, action: "onTextFieldFocus:", forControlEvents: UIControlEvents.EditingDidBegin)

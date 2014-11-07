@@ -36,8 +36,40 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         self.tableView?.reloadData()
     }
     
-    @IBAction func clearAllVolunteers(sender:AnyObject) {
-        println("Clear all volunteers")
+    //remove all volunteers from the db after confirmation
+    @IBAction func clearAllVolunteers(sender:AnyObject)
+    {
+        if self.volunteers?.count > 0
+        {
+            let alert:UIAlertController = UIAlertController(title: "Whoa!", message: "Are you sure you want to remove ALL the volunteers?", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+                alert.dismissViewControllerAnimated(false, completion: nil)
+            }
+            let submit:UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (action) -> Void in
+                //remove from db
+                VolunteerService.removeVolunteers(self.volunteers!)
+                
+                var indexPaths:[NSIndexPath] = [NSIndexPath]()
+                for var i:Int=0; i<self.volunteers?.count; i++ {
+                    let indexPath:NSIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                    indexPaths.append(indexPath)
+                }
+                self.volunteers?.removeAll(keepCapacity: false)
+                self.tableView?.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+                self.selectVolunteer(nil)
+                alert.dismissViewControllerAnimated(false, completion: nil)
+            }
+            alert.addAction(cancel)
+            alert.addAction(submit)
+            self.presentViewController(alert, animated: false, completion: nil)
+        }
+        else
+        {
+            let alert:UIAlertController = UIAlertController(title: "Sorry", message: "You don't have any volunteer to remove. Add one by tapping +", preferredStyle: UIAlertControllerStyle.Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(defaultAction)
+            self.presentViewController(alert, animated: false, completion: nil)
+        }
     }
     
     @IBAction func addVolunteer(sender:AnyObject) {
@@ -70,10 +102,17 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         return true
     }
     
+    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectVolunteer(nil)
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
+            //update selection
+            self.selectVolunteer(nil)
+            
             //remove from db
             var volunteer:Volunteer = self.volunteers![indexPath.row]
             VolunteerService.removeVolunteers([volunteer])
@@ -116,6 +155,7 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
                 {
                     let indexPath:NSIndexPath = NSIndexPath(forRow: i, inSection: 0)
                     self.tableView?.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+                    self.delegate?.volunteersViewSelectVolunteer(v)
                     break
                 }
             }
@@ -126,6 +166,7 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
             if selected != nil {
                 self.tableView?.deselectRowAtIndexPath(selected!, animated: true)
             }
+            self.delegate?.volunteersViewSelectVolunteer(nil)
         }
     }
     

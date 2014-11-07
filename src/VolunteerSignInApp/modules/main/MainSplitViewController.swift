@@ -23,7 +23,6 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
         //instantiate master view controller
         storyboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.VOLUNTEERS.rawValue, bundle: nil)
         var masterNC:UINavigationController = storyboard.instantiateInitialViewController() as UINavigationController
-        println(masterNC.viewControllers)
         var masterVC:VolunteersViewController = masterNC.viewControllers[0] as VolunteersViewController
         masterVC.delegate = detailVC
         

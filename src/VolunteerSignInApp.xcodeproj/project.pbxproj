@@ -11,6 +11,8 @@
 		1B122DF81A0BEB9C00625623 /* volunteer_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B122DF71A0BEB9C00625623 /* volunteer_info.json */; };
 		1B122DFA1A0BEC5500625623 /* JSONFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DF91A0BEC5500625623 /* JSONFileService.swift */; };
 		1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */; };
+		1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */; };
+		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
 		1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724019EE1CDA003ADF1D /* Signature.storyboard */; };
 		1B69724919EE1E87003ADF1D /* Volunteers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B69724719EE1E87003ADF1D /* Volunteers.storyboard */; };
 		1B8398691A0BDAB0000372B3 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */; };
@@ -51,6 +53,7 @@
 		1BCCB1DE19ED7B8500E05A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BCCB1DD19ED7B8500E05A36 /* Main.storyboard */; };
 		1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCB1E219ED7BCA00E05A36 /* MainSplitViewController.swift */; };
 		1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCB1E719ED7D7300E05A36 /* SignatureViewController.swift */; };
+		1BE67AF01A0C75CB007A238C /* VolunteerInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,8 @@
 		1B122DF71A0BEB9C00625623 /* volunteer_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = volunteer_info.json; sourceTree = "<group>"; };
 		1B122DF91A0BEC5500625623 /* JSONFileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFileService.swift; path = services/JSONFileService.swift; sourceTree = "<group>"; };
 		1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeUtils.swift; path = utils/TimeUtils.swift; sourceTree = "<group>"; };
+		1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveVolunteerButton.swift; path = modules/volunteers/RemoveVolunteerButton.swift; sourceTree = "<group>"; };
+		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
 		1B69724019EE1CDA003ADF1D /* Signature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Signature.storyboard; path = modules/signature/Signature.storyboard; sourceTree = "<group>"; };
 		1B69724719EE1E87003ADF1D /* Volunteers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Volunteers.storyboard; path = modules/volunteers/Volunteers.storyboard; sourceTree = "<group>"; };
 		1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationBar.swift; path = ui/UINavigationBar.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		1BCCB1DD19ED7B8500E05A36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = modules/main/Main.storyboard; sourceTree = "<group>"; };
 		1BCCB1E219ED7BCA00E05A36 /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainSplitViewController.swift; path = modules/main/MainSplitViewController.swift; sourceTree = "<group>"; };
 		1BCCB1E719ED7D7300E05A36 /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignatureViewController.swift; path = modules/signature/SignatureViewController.swift; sourceTree = "<group>"; };
+		1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerInfoButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,8 @@
 		1B69724219EE1E14003ADF1D /* volunteers */ = {
 			isa = PBXGroup;
 			children = (
+				1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */,
+				1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */,
 				1B69724719EE1E87003ADF1D /* Volunteers.storyboard */,
 				1BBB3D1E1A088A150014A7FD /* VolunteersViewController.swift */,
 			);
@@ -164,6 +172,7 @@
 		1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */ = {
 			isa = PBXGroup;
 			children = (
+				1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */,
 				1B8DBB421A0ABAD6009B1C6F /* VolunteerSignIn.storyboard */,
 				1B8DBB431A0ABAD6009B1C6F /* VolunteerSignInViewController.swift */,
 			);
@@ -498,14 +507,17 @@
 				1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */,
 				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,
 				1B99BAA81A0BEEF6004E1FED /* VolunteerFormService.swift in Sources */,
+				1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */,
 				1B8398691A0BDAB0000372B3 /* UINavigationBar.swift in Sources */,
 				1BBB3D2F1A089E380014A7FD /* DatabaseHandler.swift in Sources */,
 				1B122DFA1A0BEC5500625623 /* JSONFileService.swift in Sources */,
 				1B8DBB4D1A0ABDCC009B1C6F /* Constants.swift in Sources */,
+				1BE67AF01A0C75CB007A238C /* VolunteerInfoButton.swift in Sources */,
 				1BBF38C019FB298100932D90 /* PDFRenderer.swift in Sources */,
 				1B8DBB511A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift in Sources */,
 				1BCCB1B219ED78E600E05A36 /* AppDelegate.swift in Sources */,
 				1B122DF51A0BE01A00625623 /* StylesManager.swift in Sources */,
+				1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */,
 				1B8DBB451A0ABAD6009B1C6F /* VolunteerSignInViewController.swift in Sources */,
 				1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */,
 				1BBB3D321A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld in Sources */,
