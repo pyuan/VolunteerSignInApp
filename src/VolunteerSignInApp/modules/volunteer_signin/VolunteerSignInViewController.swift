@@ -69,10 +69,16 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
         self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: self.volunteer, inView: self.view, delegate: self)
     }
     
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+    {
+        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+        self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
+        self.volunteerInfoPopoverController = nil
+    }
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         self.refreshSignatureView()
-        self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
     }
     
     /**** delegate methods ****/
