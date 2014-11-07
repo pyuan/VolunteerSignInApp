@@ -103,12 +103,7 @@ class DatabaseHandler
     //update a volunteer and save
     func updateVolunteer(volunteer:Volunteer, attributes:NSDictionary) -> Volunteer
     {
-        volunteer.fName = attributes["fname"] == nil ? volunteer.fName : attributes["fname"] as String
-        volunteer.lName = attributes["lname"] == nil ? volunteer.lName : attributes["lname"] as String
-        volunteer.team = attributes["team"] == nil ? volunteer.team : attributes["team"] as String
-        volunteer.phone = attributes["phone"] == nil ? volunteer.phone : attributes["phone"] as String
-        volunteer.email = attributes["email"] == nil ? volunteer.email : attributes["email"] as String
-        volunteer.over18 = attributes["over18"] == nil ? volunteer.over18 : attributes["over18"] as String == "true"
+        volunteer.update(attributes)
         self.saveContext()
         return volunteer
     }
