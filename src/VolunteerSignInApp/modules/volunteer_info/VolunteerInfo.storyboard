@@ -75,18 +75,12 @@
                                     <constraint firstItem="M2z-KF-eb6" firstAttribute="leading" secondItem="uSD-0N-m5N" secondAttribute="leading" constant="15" id="AHb-PZ-o4O"/>
                                     <constraint firstItem="M2z-KF-eb6" firstAttribute="top" secondItem="uSD-0N-m5N" secondAttribute="top" id="D0T-YT-b6e"/>
                                     <constraint firstItem="ha1-Xj-x58" firstAttribute="leading" secondItem="M2z-KF-eb6" secondAttribute="trailing" constant="10" id="NYD-eS-c4d"/>
-                                    <constraint firstAttribute="centerY" secondItem="M2z-KF-eb6" secondAttribute="centerY" id="Ynp-fd-0QB"/>
                                     <constraint firstAttribute="height" constant="50" id="ard-8e-Yk1"/>
                                     <constraint firstAttribute="trailing" secondItem="XlM-76-hoU" secondAttribute="trailing" constant="15" id="gfP-Ms-FiG"/>
                                     <constraint firstAttribute="centerY" secondItem="XlM-76-hoU" secondAttribute="centerY" id="qfq-vS-l95"/>
                                     <constraint firstAttribute="bottom" secondItem="M2z-KF-eb6" secondAttribute="bottom" id="yEX-83-uoB"/>
                                     <constraint firstAttribute="centerY" secondItem="ha1-Xj-x58" secondAttribute="centerY" id="zTI-ny-61k"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ynp-fd-0QB"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="over18Label" destination="M2z-KF-eb6" id="HmG-Nf-kmI"/>
                                     <outlet property="over18Switch" destination="ha1-Xj-x58" id="X70-wr-Ydg"/>
@@ -98,18 +92,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uSD-0N-m5N" secondAttribute="trailing" id="DSD-GF-WSD"/>
                             <constraint firstItem="Dhc-UQ-zHG" firstAttribute="top" secondItem="uSD-0N-m5N" secondAttribute="bottom" id="LNa-BW-WYS"/>
-                            <constraint firstAttribute="bottom" secondItem="6mK-He-WXF" secondAttribute="bottom" id="bDr-0i-Nh8"/>
                             <constraint firstItem="uSD-0N-m5N" firstAttribute="leading" secondItem="8O2-O8-sG8" secondAttribute="leading" id="iY2-EB-0p8"/>
                             <constraint firstItem="6mK-He-WXF" firstAttribute="top" secondItem="hAt-l0-MIN" secondAttribute="bottom" constant="5" id="mj5-HU-23B"/>
                             <constraint firstItem="6mK-He-WXF" firstAttribute="leading" secondItem="8O2-O8-sG8" secondAttribute="leading" id="qI9-JK-zMs"/>
                             <constraint firstItem="uSD-0N-m5N" firstAttribute="top" secondItem="6mK-He-WXF" secondAttribute="bottom" id="tlP-6e-qxU"/>
                             <constraint firstAttribute="trailing" secondItem="6mK-He-WXF" secondAttribute="trailing" id="wuy-E3-Yhh"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bDr-0i-Nh8"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="bottomBar" destination="uSD-0N-m5N" id="Zg2-P2-74B"/>

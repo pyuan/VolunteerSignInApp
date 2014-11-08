@@ -25,4 +25,10 @@ class Constants
         case SHOW_PDF_VIEWER = "notificationShowPDF"
     }
     
+    enum SIGNATURE_SIZE:Float
+    {
+        case LANDSCAPE_HEIGHT = 255
+        case PORTRAIT_HEIGHT = 200
+    }
+    
 }

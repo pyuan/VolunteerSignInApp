@@ -60,8 +60,6 @@
                                 <constraints>
                                     <constraint firstItem="Noh-1E-Lh4" firstAttribute="leading" secondItem="aWO-rz-SY7" secondAttribute="trailing" constant="10" id="1g9-wZ-Cne"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="leading" secondItem="EV9-rw-vmR" secondAttribute="leading" constant="25" id="4iO-tj-bkg"/>
-                                    <constraint firstAttribute="trailing" secondItem="wEq-OS-yqt" secondAttribute="trailing" constant="25" id="A70-Cg-Xau"/>
-                                    <constraint firstAttribute="width" constant="300" id="Bic-oL-MrC"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="height" secondItem="LYd-Ld-DMk" secondAttribute="height" id="Bun-M6-Hmu"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="top" secondItem="LYd-Ld-DMk" secondAttribute="bottom" constant="15" id="ErS-EQ-A9n"/>
                                     <constraint firstAttribute="bottom" secondItem="BIR-94-8Uj" secondAttribute="bottom" constant="25" id="La7-IU-t67"/>
@@ -81,19 +79,9 @@
                                     <constraint firstItem="AI4-1a-xH3" firstAttribute="top" secondItem="Noh-1E-Lh4" secondAttribute="bottom" constant="15" id="mJh-uI-WxE"/>
                                     <constraint firstAttribute="trailing" secondItem="LYd-Ld-DMk" secondAttribute="trailing" constant="25" id="pRy-cv-FW7"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="height" secondItem="Noh-1E-Lh4" secondAttribute="height" id="qLk-Jy-Acr"/>
-                                    <constraint firstAttribute="height" constant="500" id="qfd-Qb-TMS"/>
-                                    <constraint firstItem="wEq-OS-yqt" firstAttribute="leading" secondItem="EV9-rw-vmR" secondAttribute="leading" constant="25" id="rmv-vM-HPk"/>
                                     <constraint firstItem="aWO-rz-SY7" firstAttribute="top" secondItem="wEq-OS-yqt" secondAttribute="bottom" constant="15" id="uk3-a5-apU"/>
                                     <constraint firstItem="Noh-1E-Lh4" firstAttribute="trailing" secondItem="LYd-Ld-DMk" secondAttribute="trailing" id="y5Y-9g-FoO"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Bic-oL-MrC"/>
-                                        <exclude reference="qfd-Qb-TMS"/>
-                                        <exclude reference="A70-Cg-Xau"/>
-                                        <exclude reference="rmv-vM-HPk"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dv8-w2-J1F">
                                 <rect key="frame" x="393" y="114" width="350" height="885"/>
@@ -126,38 +114,20 @@
                                     <constraint firstItem="BLH-u5-xuL" firstAttribute="top" secondItem="dv8-w2-J1F" secondAttribute="top" constant="100" id="8aV-XV-yHB"/>
                                     <constraint firstItem="4ZO-dR-rie" firstAttribute="top" secondItem="BLH-u5-xuL" secondAttribute="bottom" id="9zq-EC-oeK"/>
                                     <constraint firstAttribute="width" constant="350" id="eLv-Ny-4cG"/>
-                                    <constraint firstAttribute="centerY" secondItem="4ZO-dR-rie" secondAttribute="centerY" id="h5P-DA-4li"/>
                                     <constraint firstAttribute="centerX" secondItem="BLH-u5-xuL" secondAttribute="centerX" constant="25" id="ni6-bL-QP5"/>
-                                    <constraint firstAttribute="trailing" secondItem="BLH-u5-xuL" secondAttribute="trailing" constant="25" id="pi5-cy-NrT"/>
                                     <constraint firstItem="4ZO-dR-rie" firstAttribute="leading" secondItem="dv8-w2-J1F" secondAttribute="leading" id="vGW-WQ-q9o"/>
-                                    <constraint firstItem="BLH-u5-xuL" firstAttribute="leading" secondItem="dv8-w2-J1F" secondAttribute="leading" constant="25" id="wsw-V3-826"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="pi5-cy-NrT"/>
-                                        <exclude reference="wsw-V3-826"/>
-                                        <exclude reference="h5P-DA-4li"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EV9-rw-vmR" secondAttribute="trailing" constant="50" id="2zc-Rg-9W6"/>
                             <constraint firstItem="EV9-rw-vmR" firstAttribute="leading" secondItem="ExR-qw-tbg" secondAttribute="leading" constant="50" id="Clw-wi-WE6"/>
                             <constraint firstItem="dv8-w2-J1F" firstAttribute="leading" secondItem="EV9-rw-vmR" secondAttribute="trailing" constant="50" id="LJi-D9-L3K"/>
                             <constraint firstItem="dv8-w2-J1F" firstAttribute="top" secondItem="ydb-Ip-8Z4" secondAttribute="bottom" constant="50" id="bDQ-Q0-9eN"/>
                             <constraint firstAttribute="trailing" secondItem="dv8-w2-J1F" secondAttribute="trailing" constant="25" id="bsz-7F-l2u"/>
                             <constraint firstItem="EV9-rw-vmR" firstAttribute="top" secondItem="ydb-Ip-8Z4" secondAttribute="bottom" constant="50" id="sux-Ni-j72"/>
-                            <constraint firstItem="0d5-aK-IE1" firstAttribute="top" secondItem="EV9-rw-vmR" secondAttribute="bottom" constant="50" id="t3g-fm-8i1"/>
                             <constraint firstItem="0d5-aK-IE1" firstAttribute="top" secondItem="dv8-w2-J1F" secondAttribute="bottom" constant="25" id="yti-ch-60i"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2zc-Rg-9W6"/>
-                                <exclude reference="t3g-fm-8i1"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="A26-2I-4sh">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="T4e-3W-kjw">

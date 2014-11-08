@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol SignatureViewDelegate {
+    func signatureViewOnSave(signature:UIImage?)
+}
+
 class SignatureViewController:UIViewController
 {
     
@@ -19,12 +23,20 @@ class SignatureViewController:UIViewController
     let BRUSH_COLOR_BLUE:CGFloat = 0.0
     
     @IBOutlet var signatureImageView:UIImageView!
+    @IBOutlet var line:UIView?
+    @IBOutlet var signLabel:UILabel?
+    
+    var delegate:SignatureViewDelegate?
     
     var _lastPoint:CGPoint = CGPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.signatureImageView.contentMode = UIViewContentMode.Center
+        self.line?.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
+        self.signLabel?.font = UIFont.MICE_TYPE()
+        self.signLabel?.textColor = UIColor.CHICAGO_CARES.GREY
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
@@ -72,6 +84,12 @@ class SignatureViewController:UIViewController
     //clear the image bitmap
     @IBAction func clear() {
         self.signatureImageView.image = nil
+    }
+    
+    //trigger save on the signature
+    @IBAction func save() {
+        let signature:UIImage? = self.signatureImageView.image
+        self.delegate?.signatureViewOnSave(signature)
     }
     
 }
