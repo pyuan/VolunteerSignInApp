@@ -17,6 +17,7 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
 {
     
     @IBOutlet var wrapperView:UIView?
+    @IBOutlet var containerView:UIView?
     @IBOutlet var blankView:UIView?
     @IBOutlet var blankLabel:UILabel?
     @IBOutlet var profileButton:UIBarButtonItem?
@@ -57,16 +58,14 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
             self.signatureVC?.delegate = self
             self.addChildViewController(self.signatureVC!)
             self.signatureVC?.view.clipsToBounds = true
-            self.wrapperView?.addSubview(self.signatureVC!.view)
+            self.containerView?.addSubview(self.signatureVC!.view)
             self.signatureVC!.didMoveToParentViewController(self)
         }
         
         //re-adjust signature view
-        let isLandscape:Bool = UIInterfaceOrientationIsLandscape(self.interfaceOrientation)
-        let h:CGFloat = CGFloat(isLandscape == true ? Constants.SIGNATURE_SIZE.LANDSCAPE_HEIGHT.rawValue : Constants.SIGNATURE_SIZE.PORTRAIT_HEIGHT.rawValue)
-        let frame:CGRect = CGRectMake(0, self.wrapperView!.frame.height-h, self.wrapperView!.frame.width, h)
-        self.signatureVC?.view.frame = frame
-        println(self.wrapperView?.frame)
+        let h:CGFloat = CGFloat(Constants.SIGNATURE_SIZE.HEIGHT.rawValue)
+        self.containerView?.frame = CGRectMake(0, self.wrapperView!.frame.height-h, self.wrapperView!.frame.width, h)
+        self.signatureVC?.view.frame = CGRectMake(0, 0, self.containerView!.frame.width, self.containerView!.frame.height)
     }
     
     //show volunteer info in a popover positioned next to the add button
@@ -102,6 +101,9 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
         
         var view:UIView = self.profileButton?.valueForKey("view") as UIView
         view.hidden = volunteer == nil
+        
+        var signature:UIImage? = volunteer != nil && volunteer!.signature != nil ? UIImage(data: volunteer!.signature!) : nil
+        self.signatureVC?.setSignature(signature)
     }
     
     func volunteerInfoClose(volunteer: Volunteer?)
@@ -121,6 +123,13 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
         {
             alert.title = "Ooops!"
             alert.message = "Please go through the waiver and sign your name above."
+        }
+        else
+        {
+            //save signature for volunteer in db
+            var attributes:NSMutableDictionary = self.volunteer!.getAttributes().mutableCopy() as NSMutableDictionary
+            attributes["signature"] = UIImagePNGRepresentation(signature)
+            VolunteerService.updateVolunteer(self.volunteer!, attributes: attributes)
         }
         
         self.presentViewController(alert, animated: true, completion: nil)

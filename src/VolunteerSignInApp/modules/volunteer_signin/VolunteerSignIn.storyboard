@@ -16,14 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-CU-9Z2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-al-qbB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-CU-9Z2" userLabel="signatureView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRQ-QG-Qfp">
-                                        <rect key="frame" x="279" y="307" width="42" height="20.5"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGn-eJ-dcE">
+                                        <rect key="frame" x="0.0" y="428" width="600" height="172"/>
+                                    </containerView>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-al-qbB" userLabel="blankView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRQ-QG-Qfp">
+                                        <rect key="frame" x="279" y="290" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,14 +43,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V1o-CU-9Z2" secondAttribute="trailing" id="A8D-DC-xII"/>
                             <constraint firstAttribute="bottom" secondItem="JCJ-al-qbB" secondAttribute="bottom" id="BIs-rx-hUT"/>
-                            <constraint firstItem="V1o-CU-9Z2" firstAttribute="top" secondItem="K3B-A2-l0K" secondAttribute="top" id="DBf-Cr-WPU"/>
+                            <constraint firstItem="V1o-CU-9Z2" firstAttribute="top" secondItem="K3B-A2-l0K" secondAttribute="top" id="CwH-KK-oel"/>
                             <constraint firstItem="JCJ-al-qbB" firstAttribute="top" secondItem="K3B-A2-l0K" secondAttribute="top" id="EBG-3J-eRF"/>
-                            <constraint firstAttribute="trailing" secondItem="V1o-CU-9Z2" secondAttribute="trailing" id="I9I-4c-vaG"/>
-                            <constraint firstItem="V1o-CU-9Z2" firstAttribute="leading" secondItem="K3B-A2-l0K" secondAttribute="leading" id="Rhs-aK-DbT"/>
+                            <constraint firstAttribute="bottom" secondItem="V1o-CU-9Z2" secondAttribute="bottom" id="OBE-Dz-dIJ"/>
+                            <constraint firstItem="V1o-CU-9Z2" firstAttribute="leading" secondItem="K3B-A2-l0K" secondAttribute="leading" id="a4Y-KF-v8d"/>
                             <constraint firstItem="JCJ-al-qbB" firstAttribute="leading" secondItem="K3B-A2-l0K" secondAttribute="leading" id="eUG-xV-EXG"/>
                             <constraint firstAttribute="trailing" secondItem="JCJ-al-qbB" secondAttribute="trailing" id="ipz-8E-ykj"/>
-                            <constraint firstAttribute="bottom" secondItem="V1o-CU-9Z2" secondAttribute="bottom" id="oZZ-5p-SSf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
@@ -63,6 +68,7 @@
                     <connections>
                         <outlet property="blankLabel" destination="GRQ-QG-Qfp" id="WrM-7T-ws4"/>
                         <outlet property="blankView" destination="JCJ-al-qbB" id="gur-k9-55t"/>
+                        <outlet property="containerView" destination="VGn-eJ-dcE" id="PGM-iU-bVc"/>
                         <outlet property="profileButton" destination="fgO-XL-fHg" id="h39-Sn-uJi"/>
                         <outlet property="wrapperView" destination="V1o-CU-9Z2" id="YZT-Gt-ykj"/>
                     </connections>

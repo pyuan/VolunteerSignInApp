@@ -16,7 +16,7 @@ class Volunteer: NSManagedObject {
     @NSManaged var lName: String
     @NSManaged var over18: NSNumber
     @NSManaged var phone: String
-    @NSManaged var signature: NSData
+    @NSManaged var signature: NSData?
     @NSManaged var team: String
     
     func getDisplayName() -> String {
@@ -30,6 +30,23 @@ class Volunteer: NSManagedObject {
         self.phone = attributes["phone"] == nil ? self.phone : attributes["phone"] as String
         self.email = attributes["email"] == nil ? self.email : attributes["email"] as String
         self.over18 = attributes["over18"] == nil ? self.over18 : attributes["over18"] as String == "true"
+        self.signature = attributes.objectForKey("signature") == nil ? self.signature : attributes["signature"] as? NSData
+    }
+    
+    func getAttributes() -> NSDictionary {
+        var attributes:NSMutableDictionary = NSMutableDictionary()
+        attributes["fname"] = self.fName
+        attributes["lname"] = self.lName
+        attributes["team"] = self.team
+        attributes["phone"] = self.phone
+        attributes["email"] = self.email
+        attributes["over18"] = self.over18.stringValue //convert to string
+        
+        if self.signature != nil {
+            attributes["signature"] = self.signature
+        }
+        
+        return attributes
     }
 
 }

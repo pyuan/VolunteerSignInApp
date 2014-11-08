@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B117EDA1A0E0465002163BE /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117ED91A0E0465002163BE /* AnimationUtils.swift */; };
 		1B122DF51A0BE01A00625623 /* StylesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DF41A0BE01A00625623 /* StylesManager.swift */; };
 		1B122DF81A0BEB9C00625623 /* volunteer_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B122DF71A0BEB9C00625623 /* volunteer_info.json */; };
 		1B122DFA1A0BEC5500625623 /* JSONFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DF91A0BEC5500625623 /* JSONFileService.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B117ED91A0E0465002163BE /* AnimationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationUtils.swift; path = utils/AnimationUtils.swift; sourceTree = "<group>"; };
 		1B122DF41A0BE01A00625623 /* StylesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StylesManager.swift; path = utils/StylesManager.swift; sourceTree = "<group>"; };
 		1B122DF71A0BEB9C00625623 /* volunteer_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = volunteer_info.json; sourceTree = "<group>"; };
 		1B122DF91A0BEC5500625623 /* JSONFileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFileService.swift; path = services/JSONFileService.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		1BCCB1D819ED7A4500E05A36 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B117ED91A0E0465002163BE /* AnimationUtils.swift */,
 				1B8DBB4E1A0ABF54009B1C6F /* PopoverManager.swift */,
 				1B122DF41A0BE01A00625623 /* StylesManager.swift */,
 				1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */,
@@ -530,6 +533,7 @@
 				1B672C911A0D66D8009D5F53 /* SettingsViewController.swift in Sources */,
 				1B8DBB651A0ADF9B009B1C6F /* InfoBottomBar.swift in Sources */,
 				1B71C61F1A0D12FF00838D21 /* SettingsButton.swift in Sources */,
+				1B117EDA1A0E0465002163BE /* AnimationUtils.swift in Sources */,
 				1B865ED41A06C728008A02F1 /* FormTemplateView.swift in Sources */,
 				1B8DBB631A0AD938009B1C6F /* UIBarButtonItem.swift in Sources */,
 				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,

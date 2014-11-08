@@ -22,7 +22,7 @@ class SignatureViewController:UIViewController
     let BRUSH_COLOR_GREEN:CGFloat = 0.0
     let BRUSH_COLOR_BLUE:CGFloat = 0.0
     
-    @IBOutlet var signatureImageView:UIImageView!
+    @IBOutlet var signatureImageView:UIImageView?
     @IBOutlet var line:UIView?
     @IBOutlet var signLabel:UILabel?
     
@@ -32,11 +32,33 @@ class SignatureViewController:UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signatureImageView.contentMode = UIViewContentMode.Center
+        self.signatureImageView?.contentMode = UIViewContentMode.Center
         self.line?.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
         self.signLabel?.font = UIFont.MICE_TYPE()
         self.signLabel?.textColor = UIColor.CHICAGO_CARES.GREY
         self.view.backgroundColor = UIColor.whiteColor()
+    }
+    
+    //update the signature image with a new volunteer and show animation
+    func setSignature(image:UIImage?)
+    {
+        var doWhileOut:() -> Void = {
+            self.signatureImageView!.alpha = 0
+        }
+        
+        var doWhileIn:() -> Void  = {
+            self.signatureImageView!.alpha = 1
+        }
+        
+        var middleHandler:() -> Void = {
+            self.signatureImageView!.image = image
+        }
+        
+        var completionHandler:() -> Void = {
+            
+        }
+        
+        AnimationUtils.outAndIn(doWhileOut, middleHandler: middleHandler, doWhileIn: doWhileIn, completionHandler: completionHandler)
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
@@ -46,8 +68,8 @@ class SignatureViewController:UIViewController
         self._lastPoint = touch.locationInView(self.signatureImageView)
         
         //begin graphics image context
-        UIGraphicsBeginImageContext(self.signatureImageView.frame.size)
-        self.signatureImageView.image?.drawInRect(CGRectMake(0, 0, self.signatureImageView.frame.width, self.signatureImageView.frame.height))
+        UIGraphicsBeginImageContext(self.signatureImageView!.frame.size)
+        self.signatureImageView?.image?.drawInRect(CGRectMake(0, 0, self.signatureImageView!.frame.width, self.signatureImageView!.frame.height))
         
         //setup graphics context
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound)
@@ -68,7 +90,7 @@ class SignatureViewController:UIViewController
         CGContextStrokePath(UIGraphicsGetCurrentContext())
         
         //update bitmap
-        self.signatureImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        self.signatureImageView?.image = UIGraphicsGetImageFromCurrentImageContext()
         
         //update current point
         self._lastPoint = currentPoint
@@ -83,12 +105,12 @@ class SignatureViewController:UIViewController
     
     //clear the image bitmap
     @IBAction func clear() {
-        self.signatureImageView.image = nil
+        self.signatureImageView?.image = nil
     }
     
     //trigger save on the signature
     @IBAction func save() {
-        let signature:UIImage? = self.signatureImageView.image
+        let signature:UIImage? = self.signatureImageView?.image
         self.delegate?.signatureViewOnSave(signature)
     }
     
