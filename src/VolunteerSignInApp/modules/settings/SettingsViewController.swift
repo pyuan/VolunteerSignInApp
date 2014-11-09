@@ -53,6 +53,11 @@ class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDe
         self.waiverTextView?.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showUserDefaults()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
@@ -115,6 +120,24 @@ class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDe
         return true
     }
     
+    //make sure the fields have a correct value
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        if textField === self.actDate?
+        {
+            var date:NSDate? = TimeUtils.stringToDate(self.actDate!.text)
+            if date == nil {
+                var today:NSDate = NSDate()
+                textField.text = TimeUtils.dateToString(today)
+            }
+        }
+        else if textField === self.actDuration?
+        {
+            var value:Float = (textField.text as NSString).floatValue
+            textField.text = value > 0 ? value.description : Constants.DEFAULT_SETTINGS_NUM.DURATION.rawValue.description
+        }
+    }
+    
     //get the element that is currently the first responder
     private func getFirstResponder() -> AnyObject?
     {
@@ -132,10 +155,39 @@ class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDe
         return nil
     }
     
+    //pre-populate fields with user defaults
+    private func showUserDefaults()
+    {
+        self.emailField?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.EMAIL.rawValue)
+        self.actName?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.PROGRAM.rawValue)
+        self.actDate?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.DATE.rawValue)
+        self.actDuration?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.DURATION.rawValue)
+        self.actOrg?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.ORGNIZATION.rawValue)
+        self.actLocation?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.LOCATION.rawValue)
+        self.waiverTextView?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.WAIVER.rawValue)
+    }
+    
+    //save user defaults
+    private func saveUserDefaults()
+    {
+        UserDefaultsService.setDefaultForKey(self.emailField!.text, forKey: Constants.SETTINGS_KEYS.EMAIL.rawValue)
+        UserDefaultsService.setDefaultForKey(self.actName!.text, forKey: Constants.SETTINGS_KEYS.PROGRAM.rawValue)
+        UserDefaultsService.setDefaultForKey(self.actDate!.text, forKey: Constants.SETTINGS_KEYS.DATE.rawValue)
+        UserDefaultsService.setDefaultForKey(self.actDuration!.text, forKey: Constants.SETTINGS_KEYS.DURATION.rawValue)
+        UserDefaultsService.setDefaultForKey(self.actOrg!.text, forKey: Constants.SETTINGS_KEYS.ORGNIZATION.rawValue)
+        UserDefaultsService.setDefaultForKey(self.actLocation!.text, forKey: Constants.SETTINGS_KEYS.LOCATION.rawValue)
+        UserDefaultsService.setDefaultForKey(self.waiverTextView!.text, forKey: Constants.SETTINGS_KEYS.WAIVER.rawValue)
+    }
+    
     //update the user preferences
     @IBAction func onDone()
     {
-        println("done")
+        var firstResponder:AnyObject? = self.getFirstResponder()
+        if firstResponder != nil {
+            firstResponder!.resignFirstResponder()
+        }
+        
+        self.saveUserDefaults()
         self.performSegueWithIdentifier("unwindToMain", sender: self)
     }
     

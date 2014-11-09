@@ -25,7 +25,7 @@
                                             <constraint firstAttribute="height" constant="40" id="6Cv-nr-1TY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Program Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEq-OS-yqt" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
                                         <rect key="frame" x="25" y="80" width="243" height="40"/>

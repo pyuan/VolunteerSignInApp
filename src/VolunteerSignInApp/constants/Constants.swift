@@ -41,7 +41,7 @@ class Constants
     
     enum DEFAULT_SETTINGS_NUM:Float
     {
-        case DURATION = 1
+        case DURATION = 1.0
     }
     
     enum SETTINGS_KEYS:Int
