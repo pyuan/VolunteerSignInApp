@@ -16,6 +16,11 @@ protocol VolunteerSignInDelegate {
 class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, VolunteerInfoViewDelegate, SignatureViewDelegate
 {
     
+    @IBOutlet var dateLabel:UILabel?
+    @IBOutlet var titleLabel:UILabel?
+    @IBOutlet var instructionLabel:UILabel?
+    @IBOutlet var waiverTextView:UITextView?
+    
     @IBOutlet var wrapperView:UIView?
     @IBOutlet var containerView:UIView?
     @IBOutlet var blankView:UIView?
@@ -28,15 +33,40 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     private var volunteerInfoPopoverController:UIPopoverController?
     private var volunteer:Volunteer?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
-        self.blankLabel?.text = "Select a participant from the left to sign in."
         self.blankLabel?.font = UIFont.DEFAULT_LABEL()
         self.blankLabel?.textColor = UIColor.CHICAGO_CARES.GREY
         
+        self.dateLabel?.font = UIFont.MICE_TYPE()
+        self.dateLabel?.textColor = UIColor.CHICAGO_CARES.GREY
+        
+        self.titleLabel?.font = UIFont.TITLE_LABEL()
+        self.titleLabel?.textColor = UIColor.CHICAGO_CARES.GREY
+        
+        var paragraphStyle:NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3
+        var attributedText:NSMutableAttributedString = NSMutableAttributedString(string: self.instructionLabel!.text!)
+        attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+        
+        self.instructionLabel?.attributedText = attributedText
+        self.instructionLabel?.textColor = UIColor.CHICAGO_CARES.GREY
+        self.instructionLabel?.numberOfLines = 3
+        self.instructionLabel?.sizeToFit()
+        
+        self.waiverTextView?.editable = false
+        self.waiverTextView?.textColor = UIColor.CHICAGO_CARES.GREY
+        self.waiverTextView?.font = UIFont.WAIVER()
+        
         //reset view
         self.volunteersViewSelectVolunteer(nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.volunteersViewSelectVolunteer(self.volunteer)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -93,17 +123,37 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     {
         self.volunteer = volunteer
         
+        //update title with volunteer name
         let title:String = volunteer == nil ? "" : volunteer!.getDisplayName()
         self.title = title
         
+        //update views visibility
         self.wrapperView?.hidden = volunteer == nil
         self.blankView?.hidden = !self.wrapperView!.hidden
         
         var view:UIView = self.profileButton?.valueForKey("view") as UIView
         view.hidden = volunteer == nil
         
-        var signature:UIImage? = volunteer != nil && volunteer!.signature != nil ? UIImage(data: volunteer!.signature!) : nil
-        self.signatureVC?.setSignature(signature)
+        if volunteer != nil
+        {
+            //update date text
+            self.dateLabel?.text = UserDefaultsService.getProgramDateTime()
+            
+            //update title text
+            self.titleLabel?.text = "Hi " + volunteer!.fName + ", welcome to the " + UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.PROGRAM.rawValue)
+            
+            //update waiver text
+            self.waiverTextView?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.WAIVER.rawValue)
+            
+            //update signature
+            var signature:UIImage? = volunteer!.signature != nil ? UIImage(data: volunteer!.signature!) : nil
+            self.signatureVC?.setSignature(signature)
+            
+            //weird bug where signature doesn't show up right away until alignment is refreshed
+            TimeUtils.performAfterDelay(0.25, completionHandler: {() -> Void in
+                self.refreshSignatureView()
+            })
+        }
     }
     
     func volunteerInfoClose(volunteer: Volunteer?)

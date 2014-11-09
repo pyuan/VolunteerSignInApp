@@ -76,4 +76,24 @@ class UserDefaultsService
         value.isEmpty || isSameAsDefaultValue ? defaults.setObject(nil, forKey: key.description) : defaults.setObject(value, forKey: key.description)
     }
     
+    class func getProgramDateTime() -> String
+    {
+        var dateString:String = self.getDefaultForKey(Constants.SETTINGS_KEYS.DATE.rawValue)
+        var date:NSDate? = TimeUtils.stringToDate(dateString)
+        if date == nil {
+            date = NSDate()
+        }
+        
+        var formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "MMMM dd, YYYY hh:mm a"
+        dateString = formatter.stringFromDate(date!)
+        
+        var duration:Double = Double((self.getDefaultForKey(Constants.SETTINGS_KEYS.DURATION.rawValue) as NSString).floatValue)
+        var toDate:NSDate = date!.dateByAddingTimeInterval(60 * 60 * duration)
+        formatter.dateFormat = "hh:mm a"
+        dateString += " - " + formatter.stringFromDate(toDate)
+        
+        return dateString
+    }
+    
 }
