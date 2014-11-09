@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsViewController:UIViewController, UITextFieldDelegate
+class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDelegate
 {
     
     @IBOutlet var wrapperView:UIView?
@@ -22,6 +22,7 @@ class SettingsViewController:UIViewController, UITextFieldDelegate
     @IBOutlet var actDuration:UITextField?
     @IBOutlet var actOrg:UITextField?
     @IBOutlet var actLocation:UITextField?
+    @IBOutlet var waiverTextView:UITextView?
     
     private var originalCenter:CGPoint?
     
@@ -49,6 +50,7 @@ class SettingsViewController:UIViewController, UITextFieldDelegate
         self.actDuration?.delegate = self
         self.actOrg?.delegate = self
         self.actLocation?.delegate = self
+        self.waiverTextView?.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,17 +77,19 @@ class SettingsViewController:UIViewController, UITextFieldDelegate
     func onKeyboardHide()
     {
         var isLandscape:Bool = UIInterfaceOrientationIsLandscape(self.interfaceOrientation)
-        if isLandscape {
+        if isLandscape && self.originalCenter != nil {
             self.slideBack()
         }
     }
     
     func slideUp()
     {
+        let firstResponder:UIView? = self.getFirstResponder() as? UIView
+        let amount:CGFloat = firstResponder != nil && firstResponder === self.waiverTextView ? 325 : 55
         self.originalCenter = self.view.center
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {() -> Void in
             
-            self.view.center = CGPointMake(self.originalCenter!.x, self.originalCenter!.y-55)
+            self.view.center = CGPointMake(self.originalCenter!.x, self.originalCenter!.y - amount)
             
             }, completion: {(finished:Bool) -> Void in })
     }
@@ -104,11 +108,35 @@ class SettingsViewController:UIViewController, UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         var tag:Int = textField.tag + 1
-        var nextField:UITextField? = self.view.viewWithTag(tag) as? UITextField
+        var nextField:UIView? = self.view.viewWithTag(tag)
         if nextField != nil {
             nextField?.becomeFirstResponder()
         }
         return true
+    }
+    
+    //get the element that is currently the first responder
+    private func getFirstResponder() -> AnyObject?
+    {
+        if self.isFirstResponder() {
+            return self
+        }
+        
+        for var i:Int=0; i<self.wrapperView?.subviews.count; i++ {
+            var subview:UIView = self.wrapperView!.subviews[i] as UIView
+            if subview.isFirstResponder() {
+                return subview
+            }
+        }
+        
+        return nil
+    }
+    
+    //update the user preferences
+    @IBAction func onDone()
+    {
+        println("done")
+        self.performSegueWithIdentifier("unwindToMain", sender: self)
     }
     
 }

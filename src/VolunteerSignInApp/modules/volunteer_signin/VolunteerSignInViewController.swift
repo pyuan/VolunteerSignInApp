@@ -31,7 +31,7 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.blankLabel?.text = "Select a volunteer from the left to sign in."
+        self.blankLabel?.text = "Select a participant from the left to sign in."
         self.blankLabel?.font = UIFont.DEFAULT_LABEL()
         self.blankLabel?.textColor = UIColor.CHICAGO_CARES.GREY
         

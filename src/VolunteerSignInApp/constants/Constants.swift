@@ -30,4 +30,29 @@ class Constants
         case HEIGHT = 250
     }
     
+    enum DEFAULT_SETTINGS:String
+    {
+        case EMAIL = "name@email.com"
+        case PROGRAM = "Uptown Tech Club"
+        case ORGNIZATION = "Chicago Cares"
+        case LOCATION = "Brennemann Elementary School, Chicago"
+        case WAIVER = "This is a sample waiver."
+    }
+    
+    enum DEFAULT_SETTINGS_NUM:Float
+    {
+        case DURATION = 1
+    }
+    
+    enum SETTINGS_KEYS:Int
+    {
+        case EMAIL
+        case PROGRAM
+        case ORGNIZATION
+        case LOCATION
+        case DATE
+        case DURATION
+        case WAIVER
+    }
+    
 }

@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-rw-vmR">
-                                <rect key="frame" x="50" y="114" width="293" height="310"/>
+                                <rect key="frame" x="50" y="114" width="293" height="575"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chicago Cares Program Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LYd-Ld-DMk" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email to send PDF" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LYd-Ld-DMk" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
                                         <rect key="frame" x="25" y="25" width="243" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6Cv-nr-1TY"/>
@@ -45,24 +45,33 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization Served" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AI4-1a-xH3" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AI4-1a-xH3" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
                                         <rect key="frame" x="25" y="190" width="243" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIR-94-8Uj" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIR-94-8Uj" customClass="SettingsField" customModule="VolunteerSignInApp" customModuleProvider="target">
                                         <rect key="frame" x="25" y="245" width="243" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                     </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wm6-kT-joT" customClass="SettingsTextView" customModule="VolunteerSignInApp" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="300" width="243" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="Zbi-mx-LUO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Noh-1E-Lh4" firstAttribute="leading" secondItem="aWO-rz-SY7" secondAttribute="trailing" constant="10" id="1g9-wZ-Cne"/>
+                                    <constraint firstItem="Wm6-kT-joT" firstAttribute="top" secondItem="BIR-94-8Uj" secondAttribute="bottom" constant="15" id="37q-M4-cUa"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="leading" secondItem="EV9-rw-vmR" secondAttribute="leading" constant="25" id="4iO-tj-bkg"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="height" secondItem="LYd-Ld-DMk" secondAttribute="height" id="Bun-M6-Hmu"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="top" secondItem="LYd-Ld-DMk" secondAttribute="bottom" constant="15" id="ErS-EQ-A9n"/>
-                                    <constraint firstAttribute="bottom" secondItem="BIR-94-8Uj" secondAttribute="bottom" constant="25" id="La7-IU-t67"/>
                                     <constraint firstItem="aWO-rz-SY7" firstAttribute="leading" secondItem="LYd-Ld-DMk" secondAttribute="leading" id="MHx-Gs-Ftq"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="top" secondItem="EV9-rw-vmR" secondAttribute="top" constant="25" id="OZt-26-ajG"/>
                                     <constraint firstItem="Noh-1E-Lh4" firstAttribute="centerY" secondItem="aWO-rz-SY7" secondAttribute="centerY" id="OcD-eR-aT5"/>
@@ -70,9 +79,12 @@
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="width" secondItem="BIR-94-8Uj" secondAttribute="width" id="QQk-kn-d4g"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="width" secondItem="AI4-1a-xH3" secondAttribute="width" id="VYq-C1-K42"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="centerX" secondItem="AI4-1a-xH3" secondAttribute="centerX" id="WKq-Nk-xeO"/>
+                                    <constraint firstItem="LYd-Ld-DMk" firstAttribute="centerX" secondItem="Wm6-kT-joT" secondAttribute="centerX" id="XHP-cq-ZMQ"/>
+                                    <constraint firstItem="LYd-Ld-DMk" firstAttribute="width" secondItem="Wm6-kT-joT" secondAttribute="width" id="YwI-lq-TYP"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="height" secondItem="BIR-94-8Uj" secondAttribute="height" id="aOR-lm-AF5"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="height" secondItem="AI4-1a-xH3" secondAttribute="height" id="aea-xD-KnE"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="width" secondItem="LYd-Ld-DMk" secondAttribute="width" id="bT3-KJ-Fk6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wm6-kT-joT" secondAttribute="bottom" constant="25" id="dUJ-Vn-Zmk"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="height" secondItem="aWO-rz-SY7" secondAttribute="height" id="hLl-2g-PWh"/>
                                     <constraint firstItem="wEq-OS-yqt" firstAttribute="centerX" secondItem="LYd-Ld-DMk" secondAttribute="centerX" id="iIX-di-hBq"/>
                                     <constraint firstItem="LYd-Ld-DMk" firstAttribute="centerX" secondItem="BIR-94-8Uj" secondAttribute="centerX" id="l00-r6-JJD"/>
@@ -132,7 +144,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="A26-2I-4sh">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="T4e-3W-kjw">
                             <connections>
-                                <segue destination="obV-pJ-Cmh" kind="unwind" unwindAction="unwindToMain:" id="E3z-tU-xva"/>
+                                <action selector="onDone" destination="CpY-WU-ET5" id="zUB-Uq-smM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -146,7 +158,9 @@
                         <outlet property="emailField" destination="LYd-Ld-DMk" id="e4Y-tt-RYy"/>
                         <outlet property="madeByLabel" destination="4ZO-dR-rie" id="eJp-7A-qba"/>
                         <outlet property="versionLabel" destination="uPr-QM-E6B" id="xcH-tR-f0L"/>
+                        <outlet property="waiverTextView" destination="Wm6-kT-joT" id="2IN-nO-P0r"/>
                         <outlet property="wrapperView" destination="EV9-rw-vmR" id="AdO-YL-J4u"/>
+                        <segue destination="obV-pJ-Cmh" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMain:" id="Hox-vh-YvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmn-Wl-ekz" userLabel="First Responder" sceneMemberID="firstResponder"/>

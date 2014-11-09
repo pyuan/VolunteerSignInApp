@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="181" y="456"/>
         </scene>
-        <!--Volunteers-->
+        <!--Participants-->
         <scene sceneID="npM-EN-Gz7">
             <objects>
                 <viewController id="5uk-5S-0iq" customClass="VolunteersViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                             <constraint firstItem="YWi-fe-kBe" firstAttribute="leading" secondItem="JUO-TT-IdG" secondAttribute="leading" id="xmN-Wx-psY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Volunteers" id="t79-jE-0PY">
+                    <navigationItem key="navigationItem" title="Participants" id="t79-jE-0PY">
                         <barButtonItem key="leftBarButtonItem" id="4vv-gF-esC">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x0V-im-VBU" customClass="RemoveVolunteerButton" customModule="VolunteerSignInApp" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>

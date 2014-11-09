@@ -12,6 +12,8 @@
 		1B122DF81A0BEB9C00625623 /* volunteer_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B122DF71A0BEB9C00625623 /* volunteer_info.json */; };
 		1B122DFA1A0BEC5500625623 /* JSONFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DF91A0BEC5500625623 /* JSONFileService.swift */; };
 		1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */; };
+		1B1BF8A01A0F2461003DC7D4 /* SettingsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF89F1A0F2461003DC7D4 /* SettingsTextView.swift */; };
+		1B1BF8A21A0F24C1003DC7D4 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */; };
 		1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */; };
 		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
 		1B672C8F1A0D66BA009D5F53 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */; };
@@ -78,6 +80,8 @@
 		1B122DF71A0BEB9C00625623 /* volunteer_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = volunteer_info.json; sourceTree = "<group>"; };
 		1B122DF91A0BEC5500625623 /* JSONFileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFileService.swift; path = services/JSONFileService.swift; sourceTree = "<group>"; };
 		1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeUtils.swift; path = utils/TimeUtils.swift; sourceTree = "<group>"; };
+		1B1BF89F1A0F2461003DC7D4 /* SettingsTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTextView.swift; sourceTree = "<group>"; };
+		1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = ui/UITextView.swift; sourceTree = "<group>"; };
 		1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveVolunteerButton.swift; path = modules/volunteers/RemoveVolunteerButton.swift; sourceTree = "<group>"; };
 		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
 		1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			children = (
 				1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */,
 				1B672C941A0D9194009D5F53 /* SettingsField.swift */,
+				1B1BF89F1A0F2461003DC7D4 /* SettingsTextView.swift */,
 				1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */,
 			);
 			name = settings;
@@ -222,6 +227,7 @@
 				1B8DBB5E1A0AD61A009B1C6F /* UIButton.swift */,
 				1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */,
 				1B672C921A0D8100009D5F53 /* UITextField.swift */,
+				1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -525,9 +531,11 @@
 			files = (
 				1BBF38BB19FB21B700932D90 /* PDFRendererViewController.swift in Sources */,
 				1B99BAAA1A0C01ED004E1FED /* VolunteerService.swift in Sources */,
+				1B1BF8A01A0F2461003DC7D4 /* SettingsTextView.swift in Sources */,
 				1B8DBB531A0AD014009B1C6F /* UIFont.swift in Sources */,
 				1B8DBB4F1A0ABF54009B1C6F /* PopoverManager.swift in Sources */,
 				1B99BAA61A0BEE75004E1FED /* VolunteerInfoFormTextFieldModel.swift in Sources */,
+				1B1BF8A21A0F24C1003DC7D4 /* UITextView.swift in Sources */,
 				1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */,
 				1B8DBB401A0AB904009B1C6F /* Volunteer.swift in Sources */,
 				1B672C911A0D66D8009D5F53 /* SettingsViewController.swift in Sources */,
