@@ -252,7 +252,14 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
             var mailController:MFMailComposeViewController = EmailService.generatePDFEmail(self)
             self.presentViewController(mailController, animated: true, completion: nil)
         }
-        else {
+        else
+        {
+            let alertController = UIAlertController(title: "Sorry!", message: "This device isn't setup to send an email.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
             println("MFMailComposeViewController cannot send mail")
         }
     }
