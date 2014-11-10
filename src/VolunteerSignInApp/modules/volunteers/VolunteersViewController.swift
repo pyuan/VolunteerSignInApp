@@ -95,10 +95,10 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseId:String = "Cell"
-        var cell:UITableViewCell = self.tableView?.dequeueReusableCellWithIdentifier(reuseId) as UITableViewCell
+        var cell:VolunteerCell = self.tableView?.dequeueReusableCellWithIdentifier(reuseId) as VolunteerCell
         
         var volunteer:Volunteer = self.volunteers![indexPath.row]
-        cell.textLabel.text = volunteer.getDisplayName()
+        cell.update(volunteer)
         
         return cell
     }
@@ -171,8 +171,17 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
                 if v === volunteer
                 {
                     let indexPath:NSIndexPath = NSIndexPath(forRow: i, inSection: 0)
-                    self.tableView?.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
-                    self.delegate?.volunteersViewSelectVolunteer(v)
+                    
+                    //force cell to refresh view by first deselecting it
+                    var cell:VolunteerCell? = self.tableView?.cellForRowAtIndexPath(indexPath) as? VolunteerCell
+                    cell?.setSelected(false, animated: false)
+                    
+                    //add slight delay to fix bug where cell doesn't update after edited
+                    TimeUtils.performAfterDelay(0.25, completionHandler: {() -> Void in
+                        self.tableView?.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+                        self.delegate?.volunteersViewSelectVolunteer(v)
+                    })
+                    
                     break
                 }
             }

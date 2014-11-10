@@ -26,6 +26,14 @@ class VolunteerCell:UITableViewCell
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.textLabel.textColor = selected ? UIColor.CHICAGO_CARES.WHITE : UIColor.CHICAGO_CARES.BLUE
+        self.detailTextLabel?.textColor = selected ? UIColor.yellowColor() : UIColor.redColor()
+    }
+    
+    //update for the volunteer
+    func update(volunteer:Volunteer) {
+        self.textLabel.text = volunteer.getDisplayName()
+        self.detailTextLabel?.text = volunteer.signature == nil ? "!" : ""
+        self.detailTextLabel?.hidden = volunteer.signature != nil
     }
     
 }

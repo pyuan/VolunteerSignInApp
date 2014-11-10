@@ -76,6 +76,7 @@ class UserDefaultsService
         value.isEmpty || isSameAsDefaultValue ? defaults.setObject(nil, forKey: key.description) : defaults.setObject(value, forKey: key.description)
     }
     
+    //return the program date time string with duration
     class func getProgramDateTime() -> String
     {
         var dateString:String = self.getDefaultForKey(Constants.SETTINGS_KEYS.DATE.rawValue)
