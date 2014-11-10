@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="fKs-vj-S4C">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZSS-Q2-udO" customClass="VolunteerDeleteButton" customModule="VolunteerSignInApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="10" width="25" height="25"/>
+                                <rect key="frame" x="16" y="9" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
