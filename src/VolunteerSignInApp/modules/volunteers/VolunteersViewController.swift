@@ -93,6 +93,10 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         return self.volunteers!.count
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseId:String = "Cell"
         var cell:VolunteerCell = self.tableView?.dequeueReusableCellWithIdentifier(reuseId) as VolunteerCell
@@ -172,15 +176,13 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
                 {
                     let indexPath:NSIndexPath = NSIndexPath(forRow: i, inSection: 0)
                     
-                    //force cell to refresh view by first deselecting it
+                    //force cell to show select animation by first deselecting it
                     var cell:VolunteerCell? = self.tableView?.cellForRowAtIndexPath(indexPath) as? VolunteerCell
                     cell?.setSelected(false, animated: false)
                     
-                    //add slight delay to fix bug where cell doesn't update after edited
-                    TimeUtils.performAfterDelay(0.25, completionHandler: {() -> Void in
-                        self.tableView?.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
-                        self.delegate?.volunteersViewSelectVolunteer(v)
-                    })
+                    //select cell
+                    self.tableView?.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+                    self.delegate?.volunteersViewSelectVolunteer(v)
                     
                     break
                 }

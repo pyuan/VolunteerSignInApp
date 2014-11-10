@@ -19,7 +19,8 @@ extension UIFont
     class func MICE_TYPE() -> UIFont { return UIFont(name: "Gotham-Book", size: 10.0)! }
     class func SETTINGS_BY_TYPE() -> UIFont { return UIFont(name: "Gotham-Book", size: 12.0)! }
     class func TITLE_LABEL() -> UIFont { return UIFont(name: "Gotham-Medium", size: 16.0)! }
-    class func WAIVER() -> UIFont {return UIFont(name: "Gotham-Book", size: 12)! }
+    class func WAIVER() -> UIFont { return UIFont(name: "Gotham-Book", size: 12)! }
+    class func VOLUNTEER_CELL_ICON() -> UIFont { return UIFont(name: "Gotham-Medium", size: 16)! }
     
     //class func NOTES_DATE_LABEL() -> UIFont { return UIFont(name: "Gotham-Bold", size: 14.0)! }
     //class func NOTES_TEXT() -> UIFont { return UIFont(name: "Georgia", size: 20.0)! }

@@ -12,8 +12,14 @@ import UIKit
 class VolunteerCell:UITableViewCell
 {
     
+    @IBOutlet var titleLabel:UILabel?
+    @IBOutlet var iconLabel:UILabel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.iconLabel?.textAlignment = NSTextAlignment.Right
+        self.iconLabel?.font = UIFont.VOLUNTEER_CELL_ICON()
         
         //set selected background
         var selectedBg:UIView = UIView(frame: self.frame)
@@ -25,15 +31,15 @@ class VolunteerCell:UITableViewCell
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.textLabel.textColor = selected ? UIColor.CHICAGO_CARES.WHITE : UIColor.CHICAGO_CARES.BLUE
-        self.detailTextLabel?.textColor = selected ? UIColor.yellowColor() : UIColor.redColor()
+        self.titleLabel?.textColor = selected ? UIColor.CHICAGO_CARES.WHITE : UIColor.CHICAGO_CARES.BLUE
+        self.iconLabel?.textColor = selected ? UIColor.yellowColor() : UIColor.redColor()
     }
     
     //update for the volunteer
     func update(volunteer:Volunteer) {
-        self.textLabel.text = volunteer.getDisplayName()
-        self.detailTextLabel?.text = volunteer.signature == nil ? "!" : ""
-        self.detailTextLabel?.hidden = volunteer.signature != nil
+        self.titleLabel?.text = volunteer.getDisplayName()
+        self.iconLabel?.text = volunteer.signature == nil ? "!" : ""
+        self.iconLabel?.hidden = volunteer.signature != nil
     }
     
 }
