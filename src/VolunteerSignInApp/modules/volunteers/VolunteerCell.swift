@@ -36,10 +36,11 @@ class VolunteerCell:UITableViewCell
     }
     
     //update for the volunteer
-    func update(volunteer:Volunteer) {
-        self.titleLabel?.text = volunteer.getDisplayName()
-        self.iconLabel?.text = volunteer.signature == nil ? "!" : ""
-        self.iconLabel?.hidden = volunteer.signature != nil
+    func update(volunteer:Volunteer?)
+    {
+        self.titleLabel?.text = volunteer!.getDisplayName()
+        self.iconLabel?.text = volunteer!.signature == nil ? "!" : ""
+        self.iconLabel?.hidden = volunteer!.signature != nil
     }
     
 }

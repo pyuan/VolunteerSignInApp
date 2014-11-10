@@ -180,6 +180,9 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
             var attributes:NSMutableDictionary = self.volunteer!.getAttributes().mutableCopy() as NSMutableDictionary
             attributes["signature"] = UIImagePNGRepresentation(signature)
             VolunteerService.updateVolunteer(self.volunteer!, attributes: attributes)
+            
+            //propogate save action
+            self.delegate?.volunteerSignInSaved(self.volunteer)
         }
         
         self.presentViewController(alert, animated: true, completion: nil)
