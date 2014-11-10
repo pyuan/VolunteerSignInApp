@@ -29,7 +29,7 @@ class Volunteer: NSManagedObject {
         self.team = attributes["team"] == nil ? self.team : attributes["team"] as String
         self.phone = attributes["phone"] == nil ? self.phone : attributes["phone"] as String
         self.email = attributes["email"] == nil ? self.email : attributes["email"] as String
-        self.over18 = attributes["over18"] == nil ? self.over18 : attributes["over18"] as String == "true"
+        self.over18 = attributes["over18"] == nil ? self.over18 : NSNumber(integer: (attributes["over18"] as String).toInt()!)
         self.signature = attributes.objectForKey("signature") == nil ? self.signature : attributes["signature"] as? NSData
     }
     

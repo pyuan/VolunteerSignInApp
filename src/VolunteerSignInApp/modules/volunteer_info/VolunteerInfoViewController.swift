@@ -133,7 +133,7 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
             else
             {
                 //TODO: update volunteer in db
-                attributes["over18"] = isOver18.description
+                attributes["over18"] = isOver18 ? "1" : "0"
                 self.volunteer = VolunteerService.updateVolunteer(self.volunteer!, attributes: attributes)
                 self.delegate?.volunteerInfoClose(self.volunteer)
             }
