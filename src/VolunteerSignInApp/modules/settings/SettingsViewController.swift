@@ -29,7 +29,7 @@ class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDe
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+
         self.wrapperView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
         self.wrapperView?.layer.cornerRadius = 5
         self.wrapperView?.clipsToBounds = true

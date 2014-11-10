@@ -98,10 +98,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dv8-w2-J1F">
                                 <rect key="frame" x="393" y="114" width="350" height="885"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_full_color" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-u5-xuL">
-                                        <rect key="frame" x="0.0" y="100" width="300" height="60"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_signin_blue" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-u5-xuL">
+                                        <rect key="frame" x="0.0" y="50" width="300" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Dnk-3u-CfZ"/>
+                                            <constraint firstAttribute="height" constant="150" id="Dnk-3u-CfZ"/>
                                             <constraint firstAttribute="width" constant="300" id="d6f-Ed-6In"/>
                                         </constraints>
                                     </imageView>
@@ -112,7 +112,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Paul in Chicago." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZO-dR-rie">
-                                        <rect key="frame" x="0.0" y="160" width="325" height="20.5"/>
+                                        <rect key="frame" x="51.5" y="215" width="197" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -122,12 +122,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uPr-QM-E6B" secondAttribute="trailing" id="2po-Mz-naj"/>
                                     <constraint firstAttribute="bottom" secondItem="uPr-QM-E6B" secondAttribute="bottom" id="2xF-eu-7rf"/>
-                                    <constraint firstAttribute="trailing" secondItem="4ZO-dR-rie" secondAttribute="trailing" constant="25" id="3RX-Cf-cc6"/>
-                                    <constraint firstItem="BLH-u5-xuL" firstAttribute="top" secondItem="dv8-w2-J1F" secondAttribute="top" constant="100" id="8aV-XV-yHB"/>
-                                    <constraint firstItem="4ZO-dR-rie" firstAttribute="top" secondItem="BLH-u5-xuL" secondAttribute="bottom" id="9zq-EC-oeK"/>
+                                    <constraint firstItem="BLH-u5-xuL" firstAttribute="top" secondItem="dv8-w2-J1F" secondAttribute="top" constant="50" id="8aV-XV-yHB"/>
+                                    <constraint firstItem="4ZO-dR-rie" firstAttribute="top" secondItem="BLH-u5-xuL" secondAttribute="bottom" constant="15" id="9zq-EC-oeK"/>
+                                    <constraint firstItem="BLH-u5-xuL" firstAttribute="centerX" secondItem="4ZO-dR-rie" secondAttribute="centerX" id="dah-fL-nh6"/>
                                     <constraint firstAttribute="width" constant="350" id="eLv-Ny-4cG"/>
                                     <constraint firstAttribute="centerX" secondItem="BLH-u5-xuL" secondAttribute="centerX" constant="25" id="ni6-bL-QP5"/>
-                                    <constraint firstItem="4ZO-dR-rie" firstAttribute="leading" secondItem="dv8-w2-J1F" secondAttribute="leading" id="vGW-WQ-q9o"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -188,6 +187,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_full_color" width="490" height="60"/>
+        <image name="icon_signin_blue" width="500" height="500"/>
     </resources>
 </document>
