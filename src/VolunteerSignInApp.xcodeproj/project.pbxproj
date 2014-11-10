@@ -62,7 +62,11 @@
 		1BCCB1DE19ED7B8500E05A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BCCB1DD19ED7B8500E05A36 /* Main.storyboard */; };
 		1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCB1E219ED7BCA00E05A36 /* MainSplitViewController.swift */; };
 		1BCCB1E819ED7D7300E05A36 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCB1E719ED7D7300E05A36 /* SignatureViewController.swift */; };
+		1BD285FF1A107B59000F00F0 /* ShareOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD285FE1A107B59000F00F0 /* ShareOptions.storyboard */; };
+		1BD286011A107B74000F00F0 /* ShareOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD286001A107B74000F00F0 /* ShareOptionsViewController.swift */; };
 		1BE67AF01A0C75CB007A238C /* VolunteerInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */; };
+		1BF20C781A1083CC005D4897 /* ShareOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF20C771A1083CC005D4897 /* ShareOptionCell.swift */; };
+		1BF20C7A1A10840B005D4897 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF20C791A10840B005D4897 /* UITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,7 +139,11 @@
 		1BCCB1DD19ED7B8500E05A36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = modules/main/Main.storyboard; sourceTree = "<group>"; };
 		1BCCB1E219ED7BCA00E05A36 /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainSplitViewController.swift; path = modules/main/MainSplitViewController.swift; sourceTree = "<group>"; };
 		1BCCB1E719ED7D7300E05A36 /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignatureViewController.swift; path = modules/signature/SignatureViewController.swift; sourceTree = "<group>"; };
+		1BD285FE1A107B59000F00F0 /* ShareOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShareOptions.storyboard; sourceTree = "<group>"; };
+		1BD286001A107B74000F00F0 /* ShareOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareOptionsViewController.swift; sourceTree = "<group>"; };
 		1BE67AEF1A0C75CB007A238C /* VolunteerInfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerInfoButton.swift; sourceTree = "<group>"; };
+		1BF20C771A1083CC005D4897 /* ShareOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareOptionCell.swift; sourceTree = "<group>"; };
+		1BF20C791A10840B005D4897 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCell.swift; path = ui/UITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +238,7 @@
 				1B8398681A0BDAB0000372B3 /* UINavigationBar.swift */,
 				1B672C921A0D8100009D5F53 /* UITextField.swift */,
 				1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */,
+				1BF20C791A10840B005D4897 /* UITableViewCell.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				1BCCB1DA19ED7A8E00E05A36 /* main */,
 				1BBF38B519FB207800932D90 /* pdf_renderer */,
 				1B672C8D1A0D668D009D5F53 /* settings */,
+				1BD285FD1A107B46000F00F0 /* share_options */,
 				1BCCB1E419ED7D3100E05A36 /* signature */,
 				1BBB3D201A088E970014A7FD /* volunteer_info */,
 				1B8DBB411A0ABAD6009B1C6F /* volunteer_signin */,
@@ -417,6 +427,17 @@
 				1B69724019EE1CDA003ADF1D /* Signature.storyboard */,
 			);
 			name = signature;
+			sourceTree = "<group>";
+		};
+		1BD285FD1A107B46000F00F0 /* share_options */ = {
+			isa = PBXGroup;
+			children = (
+				1BF20C771A1083CC005D4897 /* ShareOptionCell.swift */,
+				1BD285FE1A107B59000F00F0 /* ShareOptions.storyboard */,
+				1BD286001A107B74000F00F0 /* ShareOptionsViewController.swift */,
+			);
+			name = share_options;
+			path = modules/share_options;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +534,7 @@
 				1B8DBB591A0AD034009B1C6F /* Gotham-Bold.otf in Resources */,
 				1BCCB1B919ED78E600E05A36 /* Images.xcassets in Resources */,
 				1B69724119EE1CDA003ADF1D /* Signature.storyboard in Resources */,
+				1BD285FF1A107B59000F00F0 /* ShareOptions.storyboard in Resources */,
 				1B865ED31A06C728008A02F1 /* FormTemplate.xib in Resources */,
 				1B8DBB581A0AD034009B1C6F /* Georgia.ttf in Resources */,
 			);
@@ -562,13 +584,16 @@
 				1B8DBB511A0AC0C9009B1C6F /* VolunteerInfoTextFieldCell.swift in Sources */,
 				1BCCB1B219ED78E600E05A36 /* AppDelegate.swift in Sources */,
 				1B122DF51A0BE01A00625623 /* StylesManager.swift in Sources */,
+				1BF20C7A1A10840B005D4897 /* UITableViewCell.swift in Sources */,
 				1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */,
 				1B8DBB451A0ABAD6009B1C6F /* VolunteerSignInViewController.swift in Sources */,
 				1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */,
 				1BBB3D321A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld in Sources */,
 				1BBB3D1F1A088A150014A7FD /* VolunteersViewController.swift in Sources */,
 				1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */,
+				1BF20C781A1083CC005D4897 /* ShareOptionCell.swift in Sources */,
 				1BBB3D2B1A089C140014A7FD /* UIColor.swift in Sources */,
+				1BD286011A107B74000F00F0 /* ShareOptionsViewController.swift in Sources */,
 				1B8DBB491A0ABC2E009B1C6F /* VolunteerInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

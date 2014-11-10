@@ -101,8 +101,8 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     //show volunteer info in a popover positioned next to the add button
     private func showVolunteerInfoPopover()
     {
-        var view:UIView = self.profileButton?.valueForKey("view") as UIView
-        var frame:CGRect = CGRect(x: view.frame.origin.x-2, y: view.frame.origin.y + 25, width: view.frame.width, height: view.frame.height)
+        var profileButtonView:UIView = self.profileButton?.valueForKey("view") as UIView
+        var frame:CGRect = CGRect(x: profileButtonView.frame.origin.x-2, y: profileButtonView.frame.origin.y + 20, width: profileButtonView.frame.width, height: profileButtonView.frame.height)
         self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: self.volunteer, inView: self.view, delegate: self)
     }
     

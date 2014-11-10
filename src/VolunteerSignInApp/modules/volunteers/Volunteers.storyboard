@@ -55,7 +55,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="frN-du-JuM"/>
                                     <barButtonItem systemItem="action" id="I0U-5f-lhB">
                                         <connections>
-                                            <action selector="sendToChicagoCares:" destination="5uk-5S-0iq" id="KJz-d8-53r"/>
+                                            <action selector="share:" destination="5uk-5S-0iq" id="4Uo-cx-vuz"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -139,6 +139,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addVolunteerButton" destination="AFZ-3F-5Qk" id="boy-by-xry"/>
+                        <outlet property="bottomBar" destination="YWi-fe-kBe" id="YKE-gc-Hz3"/>
+                        <outlet property="shareButton" destination="I0U-5f-lhB" id="XE5-1l-cWZ"/>
                         <outlet property="tableView" destination="aeZ-M4-MWN" id="U85-jA-5rR"/>
                     </connections>
                 </viewController>

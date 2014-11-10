@@ -25,4 +25,16 @@ class PopoverManager
         return popoverController
     }
     
+    //show the share options popover in a view
+    class func showShareOptions(frame:CGRect, inView view:UIView, delegate:ShareOptionsDelegate) -> UIPopoverController
+    {
+        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.SHARE_OPTIONS.rawValue, bundle: nil)
+        var controller:ShareOptionsViewController = storyboard.instantiateInitialViewController() as ShareOptionsViewController
+        controller.delegate = delegate
+        var popoverController:UIPopoverController = UIPopoverController(contentViewController: controller)
+        popoverController.setPopoverContentSize(ShareOptionsViewController.POPOVER_SIZE, animated: true)
+        popoverController.presentPopoverFromRect(frame, inView: view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        return popoverController
+    }
+    
 }

@@ -21,11 +21,6 @@ class VolunteerCell:UITableViewCell
         self.iconLabel?.textAlignment = NSTextAlignment.Right
         self.iconLabel?.font = UIFont.VOLUNTEER_CELL_ICON()
         
-        //set selected background
-        var selectedBg:UIView = UIView(frame: self.frame)
-        selectedBg.backgroundColor = UIColor.CHICAGO_CARES.BLUE
-        self.selectedBackgroundView = selectedBg
-        
         self.setSelected(false, animated: true)
     }
     

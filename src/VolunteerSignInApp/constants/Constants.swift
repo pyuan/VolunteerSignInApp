@@ -17,6 +17,7 @@ class Constants
         case VOLUNTEER_SIGN_IN = "VolunteerSignIn"
         case VOLUNTEERS = "Volunteers"
         case SIGNATURE = "Signature"
+        case SHARE_OPTIONS = "ShareOptions"
     }
     
     enum NOTIFICATION_CENTER_OBSERVER_NAMES:String

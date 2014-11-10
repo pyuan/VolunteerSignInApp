@@ -13,15 +13,17 @@ protocol VolunteersViewDelegate {
     func volunteersViewSelectVolunteer(volunteer:Volunteer?)
 }
 
-class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate
+class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate, ShareOptionsDelegate
 {
     
     @IBOutlet var tableView:UITableView?
     @IBOutlet var addVolunteerButton:UIBarButtonItem?
+    @IBOutlet var shareButton:UIBarButtonItem?
+    @IBOutlet var bottomBar:UIToolbar?
     
     var delegate:VolunteersViewDelegate?
     
-    private var volunteerInfoPopoverController:UIPopoverController?
+    private var popoverController:UIPopoverController?
     private var volunteers:[Volunteer]?
     
     override func viewDidLoad() {
@@ -76,8 +78,8 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         self.showVolunteerInfoPopover()
     }
     
-    @IBAction func sendToChicagoCares(sender:AnyObject) {
-        println("Send to Chicago Cares")
+    @IBAction func share(sender:AnyObject) {
+        self.showShareOptionsPopover()
     }
     
     @IBAction func showSettings(sender:AnyObject) {
@@ -100,6 +102,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseId:String = "Cell"
         var cell:VolunteerCell = self.tableView?.dequeueReusableCellWithIdentifier(reuseId) as VolunteerCell
+        
+        //remove separator inset
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
         
         var volunteer:Volunteer = self.volunteers![indexPath.row]
         cell.update(volunteer)
@@ -201,16 +208,30 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     //show volunteer info in a popover positioned next to the add button
     private func showVolunteerInfoPopover()
     {
-        var view:UIView = self.addVolunteerButton?.valueForKey("view") as UIView
-        var frame:CGRect = CGRect(x: view.frame.origin.x-1, y: view.frame.origin.y + 20, width: view.frame.width, height: view.frame.height)
-        self.volunteerInfoPopoverController = PopoverManager.showVolunteerInfo(frame, volunteer: nil, inView: self.view, delegate: self)
+        var addButtonView:UIView = self.addVolunteerButton?.valueForKey("view") as UIView
+        var frame:CGRect = CGRect(x: addButtonView.frame.origin.x-1, y: addButtonView.frame.origin.y + 20, width: addButtonView.frame.width, height: addButtonView.frame.height)
+        self.popoverController = PopoverManager.showVolunteerInfo(frame, volunteer: nil, inView: self.view, delegate: self)
+    }
+    
+    //show share options in a popover positioned next to the share button
+    private func showShareOptionsPopover()
+    {
+        var shareButtonView:UIView = self.shareButton?.valueForKey("view") as UIView
+        var frame:CGRect = CGRect(x: shareButtonView.frame.origin.x-1, y: self.bottomBar!.frame.origin.y + 5, width: shareButtonView.frame.width, height: shareButtonView.frame.height)
+        self.popoverController = PopoverManager.showShareOptions(frame, inView: self.view, delegate: self)
+    }
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+    {
+        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+        self.popoverController?.dismissPopoverAnimated(true)
     }
     
     /**** delegate method ****/
     func volunteerInfoClose(volunteer: Volunteer?)
     {
-        self.volunteerInfoPopoverController?.dismissPopoverAnimated(true)
-        self.volunteerInfoPopoverController = nil
+        self.popoverController?.dismissPopoverAnimated(true)
+        self.popoverController = nil
         self.reload()
         self.selectVolunteer(volunteer)
     }
@@ -218,6 +239,18 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     func volunteerSignInSaved(volunteer: Volunteer?) {
         self.reload()
         self.selectVolunteer(volunteer)
+    }
+    
+    func shareOptionsEmailPDF() {
+        self.popoverController?.dismissPopoverAnimated(true)
+        self.popoverController = nil
+        println("Email PDF")
+    }
+    
+    func shareOptionsShowPDFPreview() {
+        self.popoverController?.dismissPopoverAnimated(true)
+        self.popoverController = nil
+        println("Preview PDF")
     }
     
 }
