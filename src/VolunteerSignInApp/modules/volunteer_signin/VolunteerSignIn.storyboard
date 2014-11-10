@@ -91,6 +91,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Name" id="Caz-Tf-AUB">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="fKs-vj-S4C">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZSS-Q2-udO" customClass="VolunteerDeleteButton" customModule="VolunteerSignInApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="10" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteVolunteer:" destination="ze8-ZA-OdW" eventType="touchUpInside" id="VCo-kl-oyD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="fgO-XL-fHg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mo4-tQ-hAF" customClass="VolunteerInfoButton" customModule="VolunteerSignInApp" customModuleProvider="target">
                                 <rect key="frame" x="554" y="11" width="30" height="30"/>
@@ -110,6 +122,7 @@
                         <outlet property="instructionLabel" destination="QW1-mS-oXd" id="a41-6G-NtZ"/>
                         <outlet property="profileButton" destination="fgO-XL-fHg" id="h39-Sn-uJi"/>
                         <outlet property="titleLabel" destination="5dG-Kf-ldy" id="7wj-BD-vAI"/>
+                        <outlet property="trashButton" destination="fKs-vj-S4C" id="Gno-aD-0fJ"/>
                         <outlet property="waiverTextView" destination="J5V-rG-Ts4" id="k1f-wW-b5y"/>
                         <outlet property="wrapperView" destination="V1o-CU-9Z2" id="YZT-Gt-ykj"/>
                     </connections>

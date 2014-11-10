@@ -56,4 +56,14 @@ class Constants
         case WAIVER
     }
     
+    enum ALERT:String
+    {
+        case TITLE_ERROR = "Whoa!"
+    }
+    
+    enum PDF:String
+    {
+        case FILE_NAME = "volunteers.pdf"
+    }
+    
 }

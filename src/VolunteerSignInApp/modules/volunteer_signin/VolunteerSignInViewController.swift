@@ -11,6 +11,7 @@ import UIKit
 
 protocol VolunteerSignInDelegate {
     func volunteerSignInSaved(volunteer:Volunteer?)
+    func volunteerSignInDeleted(volunteer:Volunteer)
 }
 
 class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, VolunteerInfoViewDelegate, SignatureViewDelegate
@@ -26,6 +27,7 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     @IBOutlet var blankView:UIView?
     @IBOutlet var blankLabel:UILabel?
     @IBOutlet var profileButton:UIBarButtonItem?
+    @IBOutlet var trashButton:UIBarButtonItem?
     
     var delegate:VolunteerSignInDelegate?
     
@@ -76,6 +78,22 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     
     @IBAction func showVolunteerInfo(sender:AnyObject) {
         self.showVolunteerInfoPopover()
+    }
+    
+    //confirm delete before deleting the volunteer
+    @IBAction func deleteVolunteer(sender:AnyObject)
+    {
+        let alert:UIAlertController = UIAlertController(title: Constants.ALERT.TITLE_ERROR.rawValue, message: "Are you sure you want to remove " + self.volunteer!.getDisplayName() + "? This cannot be undone.", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+            alert.dismissViewControllerAnimated(false, completion: nil)
+        }
+        let submit:UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (action) -> Void in
+            self.delegate?.volunteerSignInDeleted(self.volunteer!)
+            alert.dismissViewControllerAnimated(false, completion: nil)
+        }
+        alert.addAction(cancel)
+        alert.addAction(submit)
+        self.presentViewController(alert, animated: false, completion: nil)
     }
     
     //programmatically add signature view controller
@@ -132,6 +150,9 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
         self.blankView?.hidden = !self.wrapperView!.hidden
         
         var view:UIView = self.profileButton?.valueForKey("view") as UIView
+        view.hidden = volunteer == nil
+        
+        view = self.trashButton?.valueForKey("view") as UIView
         view.hidden = volunteer == nil
         
         if volunteer != nil

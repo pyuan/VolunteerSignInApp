@@ -20,7 +20,7 @@ class PDFRendererViewController:UIViewController, MFMailComposeViewControllerDel
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        let fileName:String = "test.pdf"
+        let fileName:String = Constants.PDF.FILE_NAME.rawValue
         self._createPDF(fileName)
         self._showPDF(fileName)
         //self._createEmailWithPDF(fileName)

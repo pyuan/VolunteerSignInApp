@@ -43,7 +43,8 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     {
         if self.volunteers?.count > 0
         {
-            let alert:UIAlertController = UIAlertController(title: "Whoa!", message: "Are you sure you want to remove ALL the participants? This cannot be undone.", preferredStyle: UIAlertControllerStyle.Alert)
+            let msg:String = "Are you sure you want to remove ALL " + self.volunteers!.count.description + " participant" + (self.volunteers!.count > 1 ? "s" : "") + "? This cannot be undone."
+            let alert:UIAlertController = UIAlertController(title: Constants.ALERT.TITLE_ERROR.rawValue, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
             let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
                 alert.dismissViewControllerAnimated(false, completion: nil)
             }
@@ -126,16 +127,8 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     {
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            //update selection
-            self.selectVolunteer(nil)
-            
-            //remove from db
             var volunteer:Volunteer = self.volunteers![indexPath.row]
-            VolunteerService.removeVolunteers([volunteer])
-            
-            //remove from table
-            self.volunteers?.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.deleteVolunteer(volunteer)
         }
     }
     
@@ -169,6 +162,29 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         line.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
         footer.addSubview(line)
         return UIView() //footer
+    }
+    
+    //delete a volunteer from db and refresh the view
+    private func deleteVolunteer(volunteer:Volunteer)
+    {
+        //update selection
+        self.selectVolunteer(nil)
+        
+        //remove from db
+        VolunteerService.removeVolunteers([volunteer])
+        
+        //remove from table
+        for var i:Int=0; i<self.volunteers?.count; i++
+        {
+            var v:Volunteer = self.volunteers![i]
+            if v === volunteer
+            {
+                var indexPath:NSIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                self.volunteers?.removeAtIndex(indexPath.row)
+                self.tableView!.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                break
+            }
+        }
     }
     
     //scroll to and select row, or deselect all rows if no volunteer is specified
@@ -239,6 +255,10 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     func volunteerSignInSaved(volunteer: Volunteer?) {
         self.reload()
         self.selectVolunteer(volunteer)
+    }
+    
+    func volunteerSignInDeleted(volunteer: Volunteer) {
+        self.deleteVolunteer(volunteer)
     }
     
     func shareOptionsEmailPDF() {
