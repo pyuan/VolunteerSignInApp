@@ -1,5 +1,5 @@
 //
-//  EmailService.swift
+//  EmailUtils.swift
 //  VolunteerSignInApp
 //
 //  Created by Paul Yuan on 2014-11-10.
@@ -9,7 +9,7 @@
 import Foundation
 import MessageUI
 
-class EmailService
+class EmailUtils
 {
     
     class func generatePDFEmail(delegate:MFMailComposeViewControllerDelegate?) -> MFMailComposeViewController
@@ -24,7 +24,7 @@ class EmailService
         //set email subject
         let program:String = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.PROGRAM.rawValue)
         let location:String = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.LOCATION.rawValue)
-        let subject:String = "Sign-in sheet from " + program + " at " + location
+        let subject:String = "Sign-in sheet for " + program + " at " + location
         mail.setSubject(subject)
         
         //add pdf attachment

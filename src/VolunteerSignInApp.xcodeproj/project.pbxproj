@@ -15,10 +15,10 @@
 		1B1BF8A01A0F2461003DC7D4 /* SettingsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF89F1A0F2461003DC7D4 /* SettingsTextView.swift */; };
 		1B1BF8A21A0F24C1003DC7D4 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */; };
 		1B1BF8A41A0FE0C2003DC7D4 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */; };
+		1B3067031A117FFA00E3E1E6 /* EmailUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3067021A117FFA00E3E1E6 /* EmailUtils.swift */; };
 		1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */; };
 		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
 		1B39E73A1A114E8900A2E69C /* VolunteerDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39E7391A114E8900A2E69C /* VolunteerDeleteButton.swift */; };
-		1B39E73C1A115B6E00A2E69C /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39E73B1A115B6E00A2E69C /* EmailService.swift */; };
 		1B672C8F1A0D66BA009D5F53 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */; };
 		1B672C911A0D66D8009D5F53 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */; };
 		1B672C931A0D8100009D5F53 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672C921A0D8100009D5F53 /* UITextField.swift */; };
@@ -90,10 +90,10 @@
 		1B1BF89F1A0F2461003DC7D4 /* SettingsTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTextView.swift; sourceTree = "<group>"; };
 		1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = ui/UITextView.swift; sourceTree = "<group>"; };
 		1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsService.swift; path = services/UserDefaultsService.swift; sourceTree = "<group>"; };
+		1B3067021A117FFA00E3E1E6 /* EmailUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailUtils.swift; path = utils/EmailUtils.swift; sourceTree = "<group>"; };
 		1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveVolunteerButton.swift; path = modules/volunteers/RemoveVolunteerButton.swift; sourceTree = "<group>"; };
 		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
 		1B39E7391A114E8900A2E69C /* VolunteerDeleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerDeleteButton.swift; sourceTree = "<group>"; };
-		1B39E73B1A115B6E00A2E69C /* EmailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailService.swift; path = services/EmailService.swift; sourceTree = "<group>"; };
 		1B672C8E1A0D66BA009D5F53 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		1B672C901A0D66D8009D5F53 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1B672C921A0D8100009D5F53 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextField.swift; path = ui/UITextField.swift; sourceTree = "<group>"; };
@@ -387,7 +387,6 @@
 		1BCCB1D719ED7A3E00E05A36 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				1B39E73B1A115B6E00A2E69C /* EmailService.swift */,
 				1B122DF91A0BEC5500625623 /* JSONFileService.swift */,
 				1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */,
 				1B99BAA71A0BEEF6004E1FED /* VolunteerFormService.swift */,
@@ -400,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				1B117ED91A0E0465002163BE /* AnimationUtils.swift */,
+				1B3067021A117FFA00E3E1E6 /* EmailUtils.swift */,
 				1B8DBB4E1A0ABF54009B1C6F /* PopoverManager.swift */,
 				1B122DF41A0BE01A00625623 /* StylesManager.swift */,
 				1B122DFB1A0BEC9E00625623 /* TimeUtils.swift */,
@@ -597,7 +597,7 @@
 				1B122DFC1A0BEC9E00625623 /* TimeUtils.swift in Sources */,
 				1BBB3D321A089F230014A7FD /* VolunteerSignInApp.xcdatamodeld in Sources */,
 				1BBB3D1F1A088A150014A7FD /* VolunteersViewController.swift in Sources */,
-				1B39E73C1A115B6E00A2E69C /* EmailService.swift in Sources */,
+				1B3067031A117FFA00E3E1E6 /* EmailUtils.swift in Sources */,
 				1BCCB1E319ED7BCA00E05A36 /* MainSplitViewController.swift in Sources */,
 				1BF20C781A1083CC005D4897 /* ShareOptionCell.swift in Sources */,
 				1BBB3D2B1A089C140014A7FD /* UIColor.swift in Sources */,

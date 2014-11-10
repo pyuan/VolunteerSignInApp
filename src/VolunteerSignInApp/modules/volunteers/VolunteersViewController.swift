@@ -249,7 +249,7 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
     {
         if MFMailComposeViewController.canSendMail()
         {
-            var mailController:MFMailComposeViewController = EmailService.generatePDFEmail(self)
+            var mailController:MFMailComposeViewController = EmailUtils.generatePDFEmail(self)
             self.presentViewController(mailController, animated: true, completion: nil)
         }
         else
