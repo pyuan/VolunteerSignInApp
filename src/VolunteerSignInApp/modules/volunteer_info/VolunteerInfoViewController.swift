@@ -111,6 +111,12 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
     /**** delegate methods ****/
     func infoBottomBarSave(isOver18: Bool)
     {
+        //make sure no form field is in focus so all the values are final
+        var firstResponder:AnyObject? = self.getFirstResponder()
+        if firstResponder != nil {
+            firstResponder!.resignFirstResponder()
+        }
+        
         var attributes:[String:String] = [String:String]()
         for field in self.fields {
             attributes[field.key] = field.value
@@ -178,6 +184,24 @@ class VolunteerInfoViewController:UIViewController, UITableViewDataSource, UITab
                 break
             }
         }
+    }
+    
+    //get the element that is currently the first responder
+    private func getFirstResponder() -> AnyObject?
+    {
+        if self.isFirstResponder() {
+            return self
+        }
+        
+        var cells:[VolunteerInfoTextFieldCell] = self.tableView?.visibleCells() as [VolunteerInfoTextFieldCell]
+        for var i:Int=0; i<cells.count; i++ {
+            var cell:VolunteerInfoTextFieldCell = cells[i]
+            if cell.textField!.isFirstResponder() {
+                return cell.textField
+            }
+        }
+        
+        return nil
     }
     
 }

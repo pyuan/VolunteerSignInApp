@@ -92,6 +92,10 @@ class VolunteerInfoTextFieldCell:UITableViewCell, UITextFieldDelegate
         return true
     }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.onTextFieldValueChangeEnd(textField)
+    }
+    
     override func becomeFirstResponder() -> Bool {
         self.textField?.becomeFirstResponder()
         return true
