@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Renderer View Controller-->
+        <!--PDF Preview-->
         <scene sceneID="Kgq-Di-9NX">
             <objects>
                 <viewController id="Ing-JB-yFk" customClass="PDFRendererViewController" customModule="VolunteerSignInApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,17 +24,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="haS-bu-5Cw" secondAttribute="trailing" id="0f7-mW-sxT"/>
+                            <constraint firstAttribute="bottom" secondItem="haS-bu-5Cw" secondAttribute="bottom" id="Say-Ai-CE3"/>
                             <constraint firstItem="haS-bu-5Cw" firstAttribute="top" secondItem="FSS-lS-97j" secondAttribute="top" id="Wpx-Yy-muB"/>
-                            <constraint firstItem="vH8-xm-OkO" firstAttribute="top" secondItem="haS-bu-5Cw" secondAttribute="bottom" id="XJY-Xo-PGo"/>
                             <constraint firstItem="haS-bu-5Cw" firstAttribute="leading" secondItem="FSS-lS-97j" secondAttribute="leading" id="hM4-nw-07m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gCG-8C-zd0"/>
+                    <navigationItem key="navigationItem" title="PDF Preview" id="gCG-8C-zd0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="l78-wK-hUV">
+                            <connections>
+                                <segue destination="C2n-ZY-nFt" kind="unwind" unwindAction="unwindToMain:" id="V36-mc-JLl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="haS-bu-5Cw" id="mrW-su-n5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8v-qh-nDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="C2n-ZY-nFt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="882" y="248"/>
         </scene>

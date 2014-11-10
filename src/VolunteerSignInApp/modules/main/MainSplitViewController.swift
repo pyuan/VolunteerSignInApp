@@ -38,6 +38,7 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
         
         let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
         notif.addObserver(self, selector: "showSettings", name: Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_SETTINGS.rawValue, object: nil)
+        notif.addObserver(self, selector: "showPDFPreview", name: Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_PDF_VIEWER.rawValue, object: nil)
     }
     
     func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
@@ -48,7 +49,14 @@ class MainSplitViewController:UISplitViewController, UISplitViewControllerDelega
     
     func showSettings()
     {
-        var storyboard:UIStoryboard = UIStoryboard(name: "Settings", bundle: nil)
+        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.SETTINGS.rawValue, bundle: nil)
+        var controller:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func showPDFPreview()
+    {
+        var storyboard:UIStoryboard = UIStoryboard(name: Constants.STORYBOARD_NAMES.PDF_PREVIEW.rawValue, bundle: nil)
         var controller:UIViewController = storyboard.instantiateInitialViewController() as UIViewController
         self.presentViewController(controller, animated: true, completion: nil)
     }

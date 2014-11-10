@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 protocol VolunteersViewDelegate {
     func volunteersViewSelectVolunteer(volunteer:Volunteer?)
 }
 
-class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate, ShareOptionsDelegate
+class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate, ShareOptionsDelegate, MFMailComposeViewControllerDelegate
 {
     
     @IBOutlet var tableView:UITableView?
@@ -243,6 +244,41 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         self.popoverController?.dismissPopoverAnimated(true)
     }
     
+    //create email and attach pdf
+    private func emailPDF(fileName:String)
+    {
+        if MFMailComposeViewController.canSendMail()
+        {
+            var mailController:MFMailComposeViewController = EmailService.generatePDFEmail(self)
+            self.presentViewController(mailController, animated: true, completion: nil)
+        }
+        else {
+            println("MFMailComposeViewController cannot send mail")
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    {
+        switch result.value
+        {
+        case MFMailComposeResultCancelled.value:
+            println("MFMailComposeResultCancelled")
+            break
+        case MFMailComposeResultSaved.value:
+            println("MFMailComposeResultSaved")
+            break
+        case MFMailComposeResultSent.value:
+            println("MFMailComposeResultSent")
+            break
+        case MFMailComposeResultFailed.value:
+            println("MFMailComposeResultFailed")
+            break
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /**** delegate method ****/
     func volunteerInfoClose(volunteer: Volunteer?)
     {
@@ -261,16 +297,19 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         self.deleteVolunteer(volunteer)
     }
     
-    func shareOptionsEmailPDF() {
+    func shareOptionsEmailPDF()
+    {
         self.popoverController?.dismissPopoverAnimated(true)
         self.popoverController = nil
-        println("Email PDF")
+        self.emailPDF(Constants.PDF.FILE_NAME.rawValue)
     }
     
-    func shareOptionsShowPDFPreview() {
+    func shareOptionsShowPDFPreview()
+    {
         self.popoverController?.dismissPopoverAnimated(true)
         self.popoverController = nil
-        println("Preview PDF")
+        let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        notif.postNotificationName(Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_PDF_VIEWER.rawValue, object: nil)
     }
     
 }
