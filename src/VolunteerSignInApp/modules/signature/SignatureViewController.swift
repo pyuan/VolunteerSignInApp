@@ -106,12 +106,18 @@ class SignatureViewController:UIViewController
     //clear the image bitmap
     @IBAction func clear() {
         self.signatureImageView?.image = nil
+        
+        //track analytics
+        AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.SIGNATURE_CLEAR.rawValue, label: Constants.ANALYTICS_EVENTS.SIGNATURE_CLEAR.rawValue)
     }
     
     //trigger save on the signature
     @IBAction func save() {
         let signature:UIImage? = self.signatureImageView?.image
         self.delegate?.signatureViewOnSave(signature)
+        
+        //track analytics
+        AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.SIGNATURE_SAVE.rawValue, label: Constants.ANALYTICS_EVENTS.SIGNATURE_SAVE.rawValue)
     }
     
 }

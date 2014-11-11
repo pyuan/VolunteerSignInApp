@@ -31,7 +31,7 @@ class UserDefaultsService
                 value = TimeUtils.dateToString(today)
                 break
             case Constants.SETTINGS_KEYS.ORGNIZATION.rawValue:
-                value = Constants.DEFAULT_SETTINGS.PROGRAM.rawValue
+                value = Constants.DEFAULT_SETTINGS.ORGNIZATION.rawValue
                 break
             case Constants.SETTINGS_KEYS.LOCATION.rawValue:
                 value = Constants.DEFAULT_SETTINGS.LOCATION.rawValue
@@ -52,6 +52,8 @@ class UserDefaultsService
     {
         var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var isSameAsDefaultValue:Bool = false
+        var analyticsKey:String = ""
+        
         switch key
         {
         case Constants.SETTINGS_KEYS.EMAIL.rawValue:
@@ -59,12 +61,15 @@ class UserDefaultsService
             break
         case Constants.SETTINGS_KEYS.PROGRAM.rawValue:
             isSameAsDefaultValue = value == Constants.DEFAULT_SETTINGS.PROGRAM.rawValue
+            analyticsKey = "program name"
             break
         case Constants.SETTINGS_KEYS.ORGNIZATION.rawValue:
-            isSameAsDefaultValue = value == Constants.DEFAULT_SETTINGS.PROGRAM.rawValue
+            isSameAsDefaultValue = value == Constants.DEFAULT_SETTINGS.ORGNIZATION.rawValue
+            analyticsKey = "organization name"
             break
         case Constants.SETTINGS_KEYS.LOCATION.rawValue:
             isSameAsDefaultValue = value == Constants.DEFAULT_SETTINGS.LOCATION.rawValue
+            analyticsKey = "location"
             break
         case Constants.SETTINGS_KEYS.WAIVER.rawValue:
             isSameAsDefaultValue = value == Constants.DEFAULT_SETTINGS.WAIVER.rawValue
@@ -74,6 +79,12 @@ class UserDefaultsService
         }
         
         value.isEmpty || isSameAsDefaultValue ? defaults.setObject(nil, forKey: key.description) : defaults.setObject(value, forKey: key.description)
+        
+        //track saved setting if set and different from default, dont track waiver
+        if !value.isEmpty && !isSameAsDefaultValue && !analyticsKey.isEmpty
+        {
+            AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.SAVE_SETTINGS_ACTION.rawValue, action: analyticsKey, label: value)
+        }
     }
     
     //return the program date time string with duration

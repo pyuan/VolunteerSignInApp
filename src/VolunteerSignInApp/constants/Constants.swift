@@ -61,6 +61,7 @@ class Constants
     enum ALERT:String
     {
         case TITLE_ERROR = "Whoa!"
+        case TITLE_SORRY = "Sorry!"
     }
     
     enum PDF:String
@@ -68,4 +69,31 @@ class Constants
         case FILE_NAME = "volunteers.pdf"
     }
     
+    enum ANALYTICS_CATEGORIES:String
+    {
+        case UI_ACTION = "UI Action"
+        case SAVE_SETTINGS_ACTION = "Save Settings Action"
+    }
+    
+    enum ANALYTICS_EVENTS:String
+    {
+        case PREVIEW_PDF = "Preview PDF"
+        case EMAIL_PDF = "Email PDF"
+        case DELETE_ALL = "Delete All"
+        case DELETE = "Delete"
+        case DELETE_SWIPE = "Delete from Swipe"
+        case EMAIL_PDF_SENT = "Email PDF Sent"
+        case EMAIL_PDF_CANCEL = "Email PDF Cancel"
+        case SIGNATURE_CLEAR = "Signature Clear"
+        case SIGNATURE_SAVE = "Signature Save"
+    }
+    
+    
 }
+
+
+
+
+
+
+

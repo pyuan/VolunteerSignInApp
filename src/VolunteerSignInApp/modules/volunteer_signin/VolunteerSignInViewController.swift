@@ -91,6 +91,9 @@ class VolunteerSignInViewController:GAITrackedViewController, VolunteersViewDele
         let submit:UIAlertAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (action) -> Void in
             self.delegate?.volunteerSignInDeleted(self.volunteer!)
             alert.dismissViewControllerAnimated(false, completion: nil)
+            
+            //track in analytics
+            AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.DELETE.rawValue, label: self.screenName)
         }
         alert.addAction(cancel)
         alert.addAction(submit)

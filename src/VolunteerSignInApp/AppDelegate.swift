@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StylesManager.initStyles()
         
         //initialize google analytics
-        AnalyticsService.initialize()
+        if DEBUG == 0 {
+            AnalyticsService.initialize()
+        }
         
         return true
     }

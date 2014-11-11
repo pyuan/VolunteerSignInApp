@@ -10,9 +10,8 @@
 import Foundation
 import UIKit
 import CoreText
-import MessageUI
 
-class PDFRendererViewController:GAITrackedViewController, MFMailComposeViewControllerDelegate
+class PDFRendererViewController:GAITrackedViewController
 {
     
     @IBOutlet var webView:UIWebView?
@@ -28,7 +27,6 @@ class PDFRendererViewController:GAITrackedViewController, MFMailComposeViewContr
         let fileName:String = Constants.PDF.FILE_NAME.rawValue
         self._createPDF(fileName)
         self._showPDF(fileName)
-        //self._createEmailWithPDF(fileName)
     }
     
     func _createPDF(fileName:String)
@@ -105,48 +103,6 @@ class PDFRendererViewController:GAITrackedViewController, MFMailComposeViewContr
         {
             println("Error: file note found - " + fileName)
         }
-    }
-    
-    func _createEmailWithPDF(fileName:String)
-    {
-        if MFMailComposeViewController.canSendMail()
-        {
-            let mail:MFMailComposeViewController = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setSubject("Hello Paul")
-            
-            let fileURI:String = PDFRenderer.getFileURIWithFileName(fileName)
-            let pdfData:NSData = NSData(contentsOfFile: fileURI)!
-            mail.addAttachmentData(pdfData, mimeType: "application/pdf", fileName: fileName)
-            mail.setMessageBody("<h1>Check out my PDF file</h1><br/>This is not a <b>virus</b>!", isHTML: true)
-            
-            self.presentViewController(mail, animated: true, completion: nil)
-        }
-        else {
-            println("MFMailComposeViewController cannot send mail")
-        }
-    }
-    
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
-    {
-        switch result.value
-        {
-        case MFMailComposeResultCancelled.value:
-            println("MFMailComposeResultCancelled")
-            break
-        case MFMailComposeResultSaved.value:
-            println("MFMailComposeResultSaved")
-            break
-        case MFMailComposeResultSent.value:
-            println("MFMailComposeResultSent")
-            break
-        case MFMailComposeResultFailed.value:
-            println("MFMailComposeResultFailed")
-            break
-        default:
-            break
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

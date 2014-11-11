@@ -67,6 +67,9 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
                 self.tableView?.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
                 self.selectVolunteer(nil)
                 alert.dismissViewControllerAnimated(false, completion: nil)
+                
+                //track in analytics
+                AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.DELETE_ALL.rawValue, label: self.screenName)
             }
             alert.addAction(cancel)
             alert.addAction(submit)
@@ -135,6 +138,9 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
         {
             var volunteer:Volunteer = self.volunteers![indexPath.row]
             self.deleteVolunteer(volunteer)
+            
+            //track in analytics
+            AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.DELETE_SWIPE.rawValue, label: self.screenName)
         }
     }
     
@@ -269,7 +275,7 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
         }
         else
         {
-            let alertController = UIAlertController(title: "Sorry!", message: "This device isn't setup to send an email.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: Constants.ALERT.TITLE_SORRY.rawValue, message: "This device isn't setup to send an email.", preferredStyle: UIAlertControllerStyle.Alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(defaultAction)
@@ -285,12 +291,14 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
         {
         case MFMailComposeResultCancelled.value:
             println("MFMailComposeResultCancelled")
+            AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.EMAIL_PDF_CANCEL.rawValue, label: self.screenName)
             break
         case MFMailComposeResultSaved.value:
             println("MFMailComposeResultSaved")
             break
         case MFMailComposeResultSent.value:
             println("MFMailComposeResultSent")
+            AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.EMAIL_PDF_SENT.rawValue, label: self.screenName)
             break
         case MFMailComposeResultFailed.value:
             println("MFMailComposeResultFailed")
@@ -324,6 +332,9 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
         self.popoverController?.dismissPopoverAnimated(true)
         self.popoverController = nil
         self.emailPDF(Constants.PDF.FILE_NAME.rawValue)
+        
+        //track user action
+        AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.EMAIL_PDF.rawValue, label: self.screenName)
     }
     
     func shareOptionsShowPDFPreview()
@@ -332,6 +343,9 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
         self.popoverController = nil
         let notif:NSNotificationCenter = NSNotificationCenter.defaultCenter()
         notif.postNotificationName(Constants.NOTIFICATION_CENTER_OBSERVER_NAMES.SHOW_PDF_VIEWER.rawValue, object: nil)
+        
+        //track user action
+        AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.PREVIEW_PDF.rawValue, label: self.screenName)
     }
     
 }

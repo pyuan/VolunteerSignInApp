@@ -13,6 +13,7 @@ class AnalyticsService
     
     class var GOOGLE_ANALYTICS_ID:String { return "UA-12214566-24" }
     
+    //initialize analytics library
     class func initialize()
     {
         //init google analytics
@@ -23,10 +24,19 @@ class AnalyticsService
         GAI.sharedInstance().dispatchInterval  = 20
         
         // Optional: set Logger to VERBOSE for debug information.
-        GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
+        GAI.sharedInstance().logger.logLevel = GAILogLevel.Error
         
         // Initialize tracker. Replace with your tracking ID.
         GAI.sharedInstance().trackerWithTrackingId(self.GOOGLE_ANALYTICS_ID)
+    }
+    
+    //send an event
+    class func registerEvent(category:String, action:String, label:String)
+    {
+        let tracker:GAITracker? = GAI.sharedInstance().defaultTracker
+        let value:NSNumber = 0
+        let params:NSMutableDictionary = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: value).build()
+        tracker?.send(params)
     }
     
 }
