@@ -238,9 +238,19 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
     //show share options in a popover positioned next to the share button
     private func showShareOptionsPopover()
     {
-        var shareButtonView:UIView = self.shareButton?.valueForKey("view") as UIView
-        var frame:CGRect = CGRect(x: shareButtonView.frame.origin.x-1, y: self.bottomBar!.frame.origin.y + 5, width: shareButtonView.frame.width, height: shareButtonView.frame.height)
-        self.popoverController = PopoverManager.showShareOptions(frame, inView: self.view, delegate: self)
+        if self.volunteers?.count > 0
+        {
+            var shareButtonView:UIView = self.shareButton?.valueForKey("view") as UIView
+            var frame:CGRect = CGRect(x: shareButtonView.frame.origin.x-1, y: self.bottomBar!.frame.origin.y + 5, width: shareButtonView.frame.width, height: shareButtonView.frame.height)
+            self.popoverController = PopoverManager.showShareOptions(frame, inView: self.view, delegate: self)
+        }
+        else
+        {
+            let alert:UIAlertController = UIAlertController(title: "Sorry", message: "You don't have any participant listed, please add them by tapping on the '+' button.", preferredStyle: UIAlertControllerStyle.Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(defaultAction)
+            self.presentViewController(alert, animated: false, completion: nil)
+        }
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
