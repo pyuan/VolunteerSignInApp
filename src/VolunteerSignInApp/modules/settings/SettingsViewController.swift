@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDelegate
+class SettingsViewController:GAITrackedViewController, UITextFieldDelegate, UITextViewDelegate
 {
     
     @IBOutlet var wrapperView:UIView?
@@ -55,6 +55,7 @@ class SettingsViewController:UIViewController, UITextFieldDelegate, UITextViewDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.screenName = "Settings"
         self.showUserDefaults()
     }
     

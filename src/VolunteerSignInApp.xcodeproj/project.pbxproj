@@ -16,6 +16,12 @@
 		1B1BF8A21A0F24C1003DC7D4 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */; };
 		1B1BF8A41A0FE0C2003DC7D4 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */; };
 		1B3067031A117FFA00E3E1E6 /* EmailUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3067021A117FFA00E3E1E6 /* EmailUtils.swift */; };
+		1B3067291A11C02400E3E1E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3067281A11C02400E3E1E6 /* CoreData.framework */; };
+		1B30672B1A11C02E00E3E1E6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B30672A1A11C02E00E3E1E6 /* SystemConfiguration.framework */; };
+		1B30672D1A11C03700E3E1E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B30672C1A11C03700E3E1E6 /* libz.dylib */; };
+		1B30672F1A11C04D00E3E1E6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B30672E1A11C04D00E3E1E6 /* libsqlite3.0.dylib */; };
+		1B3067341A11C21400E3E1E6 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3067331A11C21400E3E1E6 /* libGoogleAnalyticsServices.a */; };
+		1B3067361A11C24D00E3E1E6 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3067351A11C24D00E3E1E6 /* AnalyticsService.swift */; };
 		1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */; };
 		1B39C0EE1A0C8AFF00DC844F /* VolunteerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */; };
 		1B39E73A1A114E8900A2E69C /* VolunteerDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39E7391A114E8900A2E69C /* VolunteerDeleteButton.swift */; };
@@ -91,6 +97,23 @@
 		1B1BF8A11A0F24C1003DC7D4 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = ui/UITextView.swift; sourceTree = "<group>"; };
 		1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsService.swift; path = services/UserDefaultsService.swift; sourceTree = "<group>"; };
 		1B3067021A117FFA00E3E1E6 /* EmailUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailUtils.swift; path = utils/EmailUtils.swift; sourceTree = "<group>"; };
+		1B30671D1A11C00700E3E1E6 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		1B30671E1A11C00700E3E1E6 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		1B30671F1A11C00700E3E1E6 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		1B3067201A11C00700E3E1E6 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		1B3067211A11C00700E3E1E6 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		1B3067221A11C00700E3E1E6 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		1B3067231A11C00700E3E1E6 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		1B3067241A11C00700E3E1E6 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		1B3067251A11C00700E3E1E6 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		1B3067261A11C00700E3E1E6 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		1B3067281A11C02400E3E1E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1B30672A1A11C02E00E3E1E6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1B30672C1A11C03700E3E1E6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1B30672E1A11C04D00E3E1E6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		1B3067301A11C07A00E3E1E6 /* VolunteerSignInApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VolunteerSignInApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B3067331A11C21400E3E1E6 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		1B3067351A11C24D00E3E1E6 /* AnalyticsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsService.swift; path = services/AnalyticsService.swift; sourceTree = "<group>"; };
 		1B39C0EB1A0C82C000DC844F /* RemoveVolunteerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveVolunteerButton.swift; path = modules/volunteers/RemoveVolunteerButton.swift; sourceTree = "<group>"; };
 		1B39C0ED1A0C8AFF00DC844F /* VolunteerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VolunteerCell.swift; path = modules/volunteers/VolunteerCell.swift; sourceTree = "<group>"; };
 		1B39E7391A114E8900A2E69C /* VolunteerDeleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolunteerDeleteButton.swift; sourceTree = "<group>"; };
@@ -155,6 +178,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B30672F1A11C04D00E3E1E6 /* libsqlite3.0.dylib in Frameworks */,
+				1B30672D1A11C03700E3E1E6 /* libz.dylib in Frameworks */,
+				1B30672B1A11C02E00E3E1E6 /* SystemConfiguration.framework in Frameworks */,
+				1B3067341A11C21400E3E1E6 /* libGoogleAnalyticsServices.a in Frameworks */,
+				1B3067291A11C02400E3E1E6 /* CoreData.framework in Frameworks */,
 				1BBF38BE19FB22BF00932D90 /* CoreText.framework in Frameworks */,
 				1B901E0319FB4D5900C058CA /* MessageUI.framework in Frameworks */,
 			);
@@ -176,6 +204,25 @@
 				1B122DF71A0BEB9C00625623 /* volunteer_info.json */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		1B30671C1A11C00700E3E1E6 /* google_analytics */ = {
+			isa = PBXGroup;
+			children = (
+				1B30671D1A11C00700E3E1E6 /* GAI.h */,
+				1B30671E1A11C00700E3E1E6 /* GAIDictionaryBuilder.h */,
+				1B30671F1A11C00700E3E1E6 /* GAIEcommerceFields.h */,
+				1B3067201A11C00700E3E1E6 /* GAIEcommerceProduct.h */,
+				1B3067211A11C00700E3E1E6 /* GAIEcommerceProductAction.h */,
+				1B3067221A11C00700E3E1E6 /* GAIEcommercePromotion.h */,
+				1B3067231A11C00700E3E1E6 /* GAIFields.h */,
+				1B3067241A11C00700E3E1E6 /* GAILogger.h */,
+				1B3067251A11C00700E3E1E6 /* GAITrackedViewController.h */,
+				1B3067261A11C00700E3E1E6 /* GAITracker.h */,
+				1B3067331A11C21400E3E1E6 /* libGoogleAnalyticsServices.a */,
+			);
+			name = google_analytics;
+			path = libs/google_analytics;
 			sourceTree = "<group>";
 		};
 		1B672C8D1A0D668D009D5F53 /* settings */ = {
@@ -290,6 +337,7 @@
 		1BCCB1AE19ED78E600E05A36 /* VolunteerSignInApp */ = {
 			isa = PBXGroup;
 			children = (
+				1B3067301A11C07A00E3E1E6 /* VolunteerSignInApp-Bridging-Header.h */,
 				1BCCB1B119ED78E600E05A36 /* AppDelegate.swift */,
 				1BCCB1D119ED7A1D00E05A36 /* constants */,
 				1BCCB1D219ED7A2500E05A36 /* core_data */,
@@ -353,8 +401,13 @@
 		1BCCB1D419ED7A2F00E05A36 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				1B901E0119FB4D4F00C058CA /* MessageUI.framework */,
+				1B3067281A11C02400E3E1E6 /* CoreData.framework */,
 				1BBF38BC19FB22A000932D90 /* CoreText.framework */,
+				1B30671C1A11C00700E3E1E6 /* google_analytics */,
+				1B30672E1A11C04D00E3E1E6 /* libsqlite3.0.dylib */,
+				1B30672C1A11C03700E3E1E6 /* libz.dylib */,
+				1B901E0119FB4D4F00C058CA /* MessageUI.framework */,
+				1B30672A1A11C02E00E3E1E6 /* SystemConfiguration.framework */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -387,6 +440,7 @@
 		1BCCB1D719ED7A3E00E05A36 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				1B3067351A11C24D00E3E1E6 /* AnalyticsService.swift */,
 				1B122DF91A0BEC5500625623 /* JSONFileService.swift */,
 				1B1BF8A31A0FE0C2003DC7D4 /* UserDefaultsService.swift */,
 				1B99BAA71A0BEEF6004E1FED /* VolunteerFormService.swift */,
@@ -578,6 +632,7 @@
 				1B8DBB5F1A0AD61A009B1C6F /* UIButton.swift in Sources */,
 				1B1BF8A41A0FE0C2003DC7D4 /* UserDefaultsService.swift in Sources */,
 				1B99BAA81A0BEEF6004E1FED /* VolunteerFormService.swift in Sources */,
+				1B3067361A11C24D00E3E1E6 /* AnalyticsService.swift in Sources */,
 				1B672C931A0D8100009D5F53 /* UITextField.swift in Sources */,
 				1B39C0EC1A0C82C000DC844F /* RemoveVolunteerButton.swift in Sources */,
 				1B8398691A0BDAB0000372B3 /* UINavigationBar.swift in Sources */,
@@ -708,11 +763,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VolunteerSignInApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VolunteerSignInApp/libs/google_analytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VolunteerSignInApp/VolunteerSignInApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -720,11 +782,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VolunteerSignInApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VolunteerSignInApp/libs/google_analytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VolunteerSignInApp/VolunteerSignInApp-Bridging-Header.h";
 			};
 			name = Release;
 		};

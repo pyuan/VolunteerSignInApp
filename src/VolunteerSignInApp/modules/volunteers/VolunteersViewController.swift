@@ -14,7 +14,7 @@ protocol VolunteersViewDelegate {
     func volunteersViewSelectVolunteer(volunteer:Volunteer?)
 }
 
-class VolunteersViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate, ShareOptionsDelegate, MFMailComposeViewControllerDelegate
+class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UITableViewDataSource, VolunteerInfoViewDelegate, VolunteerSignInDelegate, ShareOptionsDelegate, MFMailComposeViewControllerDelegate
 {
     
     @IBOutlet var tableView:UITableView?
@@ -31,6 +31,11 @@ class VolunteersViewController:UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.tableView?.backgroundColor = UIColor.DEFAULT_SEPARATOR_COLOR
         self.reload()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.screenName = "Volunteers Table"
     }
     
     //reload data from db and refresh view

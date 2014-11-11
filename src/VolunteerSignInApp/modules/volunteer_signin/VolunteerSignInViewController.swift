@@ -14,7 +14,7 @@ protocol VolunteerSignInDelegate {
     func volunteerSignInDeleted(volunteer:Volunteer)
 }
 
-class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, VolunteerInfoViewDelegate, SignatureViewDelegate
+class VolunteerSignInViewController:GAITrackedViewController, VolunteersViewDelegate, VolunteerInfoViewDelegate, SignatureViewDelegate
 {
     
     @IBOutlet var dateLabel:UILabel?
@@ -68,6 +68,7 @@ class VolunteerSignInViewController:UIViewController, VolunteersViewDelegate, Vo
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.screenName = "Volunteer Sign-In"
         self.volunteersViewSelectVolunteer(self.volunteer)
     }
     

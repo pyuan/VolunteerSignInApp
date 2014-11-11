@@ -12,10 +12,15 @@ import UIKit
 import CoreText
 import MessageUI
 
-class PDFRendererViewController:UIViewController, MFMailComposeViewControllerDelegate
+class PDFRendererViewController:GAITrackedViewController, MFMailComposeViewControllerDelegate
 {
     
     @IBOutlet var webView:UIWebView?
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.screenName = "PDF Preview"
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
