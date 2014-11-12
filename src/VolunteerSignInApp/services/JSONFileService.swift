@@ -18,6 +18,13 @@ class JSONFileService
         return items
     }
     
+    //load pdf form columns data
+    class func getPDFColumns() -> NSArray
+    {
+        var items:NSArray = self.loadJSONFromBundle("form_template_columns") as NSArray
+        return items
+    }
+    
     //read local json file for data
     private class func loadJSONFromBundle(fileNameWithoutExtension:String) -> AnyObject
     {

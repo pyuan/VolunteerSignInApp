@@ -11,6 +11,7 @@ import Foundation
 class VolunteerFormService
 {
     
+    //get the fields for the volunteer info popover
     class func getFormFields() -> [VolunteerInfoFormTextFieldModel]
     {
         var items:NSArray = JSONFileService.getVolunteerInfoForm()
@@ -21,6 +22,13 @@ class VolunteerFormService
             fields.append(field)
         }
         return fields
+    }
+    
+    //get the columns for the pdf
+    class func getPDFColumns() -> NSArray
+    {
+        var items:NSArray = JSONFileService.getPDFColumns()
+        return items
     }
     
 }

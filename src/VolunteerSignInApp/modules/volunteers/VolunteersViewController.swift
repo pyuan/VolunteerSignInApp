@@ -266,7 +266,7 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
     }
     
     //create email and attach pdf
-    private func emailPDF(fileName:String)
+    private func emailPDF()
     {
         if MFMailComposeViewController.canSendMail()
         {
@@ -331,7 +331,10 @@ class VolunteersViewController:GAITrackedViewController, UITableViewDelegate, UI
     {
         self.popoverController?.dismissPopoverAnimated(true)
         self.popoverController = nil
-        self.emailPDF(Constants.PDF.FILE_NAME.rawValue)
+        
+        //generate pdf and then attach to email
+        PDFRenderer.generatePDF()
+        self.emailPDF()
         
         //track user action
         AnalyticsService.registerEvent(Constants.ANALYTICS_CATEGORIES.UI_ACTION.rawValue, action: Constants.ANALYTICS_EVENTS.EMAIL_PDF.rawValue, label: self.screenName)

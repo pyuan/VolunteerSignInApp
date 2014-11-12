@@ -167,8 +167,9 @@ class VolunteerSignInViewController:GAITrackedViewController, VolunteersViewDele
             //update title text
             self.titleLabel?.text = "Hi " + volunteer!.fName + ", welcome to the " + UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.PROGRAM.rawValue)
             
-            //update waiver text
+            //update waiver text and scroll to top
             self.waiverTextView?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.WAIVER.rawValue)
+            self.waiverTextView?.scrollRectToVisible(CGRectZero, animated: true)
             
             //update signature
             var signature:UIImage? = volunteer!.signature != nil ? UIImage(data: volunteer!.signature!) : nil

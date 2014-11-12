@@ -1,0 +1,33 @@
+[
+
+	{
+		"label" : "Name",
+		"width" : 80
+	},
+
+	{
+		"label" : "Team Name",
+		"width" : 100
+	},
+
+	{
+		"label" : "Phone",
+		"width" : 100
+	},
+
+	{
+		"label" : "Email",
+		"width" : 100
+	},
+
+	{
+		"label" : "Over 18?",
+		"width" : 50
+	},
+
+	{
+		"label" : "Signature",
+		"width" : 500
+	}
+
+]

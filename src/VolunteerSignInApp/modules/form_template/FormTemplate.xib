@@ -10,21 +10,26 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_signin_blue" translatesAutoresizingMaskIntoConstraints="NO" id="3Ie-tE-rTI">
-                    <rect key="frame" x="50" y="50" width="240" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="4Ef-fp-ugM"/>
-                        <constraint firstAttribute="height" constant="100" id="gbl-Gd-NyH"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-N8-VE8">
-                    <rect key="frame" x="80" y="200" width="34" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey1-Ma-k91">
+                    <rect key="frame" x="15" y="35" width="570" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-O9-HYE">
-                    <rect key="frame" x="144" y="200" width="41.5" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIS-QF-eBh">
+                    <rect key="frame" x="15" y="60.5" width="570" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEQ-6a-NaY">
+                    <rect key="frame" x="15" y="86" width="570" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing below, I acknowledge that I have read and agree to the waiver attached to this sign-in sheet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnP-sK-4V5">
+                    <rect key="frame" x="15" y="131.5" width="570" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -32,21 +37,26 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="3Ie-tE-rTI" firstAttribute="leading" secondItem="LGw-N8-VE8" secondAttribute="leading" constant="-30" id="0Pj-RP-FgL"/>
-                <constraint firstItem="LGw-N8-VE8" firstAttribute="top" secondItem="3Ie-tE-rTI" secondAttribute="bottom" constant="50" id="9fQ-LO-6PD"/>
-                <constraint firstItem="MHK-O9-HYE" firstAttribute="centerY" secondItem="LGw-N8-VE8" secondAttribute="centerY" id="Joa-Lb-8pO"/>
-                <constraint firstItem="3Ie-tE-rTI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="LSO-56-dcq"/>
-                <constraint firstItem="MHK-O9-HYE" firstAttribute="leading" secondItem="LGw-N8-VE8" secondAttribute="trailing" constant="30" id="Lbn-p6-fU7"/>
-                <constraint firstItem="3Ie-tE-rTI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="oii-VZ-eas"/>
+                <constraint firstItem="MEQ-6a-NaY" firstAttribute="leading" secondItem="Ey1-Ma-k91" secondAttribute="leading" id="2LB-Ze-jjR"/>
+                <constraint firstItem="MEQ-6a-NaY" firstAttribute="width" secondItem="Ey1-Ma-k91" secondAttribute="width" id="6df-Jt-npR"/>
+                <constraint firstItem="Ey1-Ma-k91" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="CdY-nw-MrV"/>
+                <constraint firstItem="ZIS-QF-eBh" firstAttribute="top" secondItem="Ey1-Ma-k91" secondAttribute="bottom" constant="5" id="D1y-39-Oq5"/>
+                <constraint firstItem="XnP-sK-4V5" firstAttribute="width" secondItem="Ey1-Ma-k91" secondAttribute="width" id="MHO-w5-ygA"/>
+                <constraint firstItem="XnP-sK-4V5" firstAttribute="top" secondItem="MEQ-6a-NaY" secondAttribute="bottom" constant="25" id="ObX-Ub-WAi"/>
+                <constraint firstItem="Ey1-Ma-k91" firstAttribute="leading" secondItem="ZIS-QF-eBh" secondAttribute="leading" id="VAJ-wi-mF6"/>
+                <constraint firstItem="Ey1-Ma-k91" firstAttribute="width" secondItem="ZIS-QF-eBh" secondAttribute="width" id="VbE-qK-MHg"/>
+                <constraint firstItem="Ey1-Ma-k91" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="W9n-BC-4sg"/>
+                <constraint firstItem="MEQ-6a-NaY" firstAttribute="top" secondItem="ZIS-QF-eBh" secondAttribute="bottom" constant="5" id="X1E-ec-kLq"/>
+                <constraint firstAttribute="trailing" secondItem="Ey1-Ma-k91" secondAttribute="trailing" constant="15" id="sjf-rb-hIM"/>
+                <constraint firstItem="XnP-sK-4V5" firstAttribute="leading" secondItem="Ey1-Ma-k91" secondAttribute="leading" id="tBY-ET-KT7"/>
             </constraints>
             <connections>
-                <outlet property="keyLabel" destination="LGw-N8-VE8" id="Nqn-Pa-GPy"/>
-                <outlet property="valueLabel" destination="MHK-O9-HYE" id="osr-0X-QKZ"/>
+                <outlet property="date" destination="ZIS-QF-eBh" id="J3a-q5-GHj"/>
+                <outlet property="instruction" destination="XnP-sK-4V5" id="NvP-5O-TNp"/>
+                <outlet property="location" destination="MEQ-6a-NaY" id="ebE-Tk-AJB"/>
+                <outlet property="program" destination="Ey1-Ma-k91" id="CNP-SF-aT8"/>
             </connections>
             <point key="canvasLocation" x="289" y="353"/>
         </view>
     </objects>
-    <resources>
-        <image name="icon_signin_blue" width="500" height="500"/>
-    </resources>
 </document>
