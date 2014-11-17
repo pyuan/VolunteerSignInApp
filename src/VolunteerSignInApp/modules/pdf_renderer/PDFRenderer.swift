@@ -152,7 +152,7 @@ class PDFRenderer
         
         //for signature, need to position left aligned and add offset vertically
         if imageView.tag == FormTemplateView.TAG_SIGNATURES {
-            frame.origin = CGPointMake(adjusted.origin.x, adjusted.origin.y - frame.height/2)
+            frame.origin = CGPointMake(adjusted.origin.x, adjusted.origin.y - frame.height/3)
         }
         
         //render image in rect

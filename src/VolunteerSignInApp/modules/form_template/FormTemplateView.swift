@@ -22,7 +22,7 @@ class FormTemplateView:UIView
     
     private class var MARGIN_TABLE : CGFloat { return 10 }
     private class var TABLE_ROW_HEIGHT : CGFloat { return 35 }
-    private class var THICKNESS_LINES : CGFloat { return 1 }
+    private class var THICKNESS_LINES : CGFloat { return 0.5 }
     
     private var volunteers:[Volunteer] = [Volunteer]()
     
@@ -106,21 +106,22 @@ class FormTemplateView:UIView
     private func drawVolunteersRows(belowElement element:UIView?, volunteers:[Volunteer])
     {
         var y:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.TABLE_ROW_HEIGHT : 0
-        var x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
+        let x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
         
         var columns:NSArray = VolunteerFormService.getPDFColumns()
-        for volunteer in self.volunteers
+        for i in 0..<self.volunteers.count
         {
+            let volunteer:Volunteer = self.volunteers[i]
             var label:UILabel?
             var rowX:CGFloat = x
-            for i in 0..<columns.count
+            for j in 0..<columns.count
             {
-                var d:NSDictionary = columns[i] as NSDictionary
+                var d:NSDictionary = columns[j] as NSDictionary
                 var w:CGFloat = d.valueForKey("width") as CGFloat
                 label = UILabel(frame: CGRectMake(rowX, y, w, FormTemplateView.TABLE_ROW_HEIGHT))
                 
                 var title:String = ""
-                switch i
+                switch j
                 {
                 case 0:
                     title = volunteer.getDisplayName()
@@ -158,6 +159,16 @@ class FormTemplateView:UIView
                 rowX += w //set x for the next element in the row
             }
             
+            //draw horizontal row separator
+            if i < self.volunteers.count-1
+            {
+                let from:CGPoint = CGPointMake(x, y - FormTemplateView.TABLE_ROW_HEIGHT/3)
+                let to:CGPoint = CGPointMake(rowX, y)
+                let thickness:CGFloat = FormTemplateView.THICKNESS_LINES
+                self.drawHorizontalLine(from, to: to, thickness: thickness, color: UIColor.groupTableViewBackgroundColor())
+            }
+            
+            //go to the next row
             y += label!.frame.height
         }
     }
