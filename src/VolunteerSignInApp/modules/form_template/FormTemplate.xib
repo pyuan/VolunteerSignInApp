@@ -17,19 +17,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIS-QF-eBh">
-                    <rect key="frame" x="15" y="60.5" width="570" height="20.5"/>
+                    <rect key="frame" x="15" y="55.5" width="570" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEQ-6a-NaY">
-                    <rect key="frame" x="15" y="86" width="570" height="20.5"/>
+                    <rect key="frame" x="15" y="76" width="570" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing below, I acknowledge that I have read and agree to the waiver attached to this sign-in sheet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnP-sK-4V5">
-                    <rect key="frame" x="15" y="131.5" width="570" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing below, the participant has acknowledged that they have read and agreed to the waiver attached." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnP-sK-4V5">
+                    <rect key="frame" x="15" y="111.5" width="570" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -40,13 +40,13 @@
                 <constraint firstItem="MEQ-6a-NaY" firstAttribute="leading" secondItem="Ey1-Ma-k91" secondAttribute="leading" id="2LB-Ze-jjR"/>
                 <constraint firstItem="MEQ-6a-NaY" firstAttribute="width" secondItem="Ey1-Ma-k91" secondAttribute="width" id="6df-Jt-npR"/>
                 <constraint firstItem="Ey1-Ma-k91" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="CdY-nw-MrV"/>
-                <constraint firstItem="ZIS-QF-eBh" firstAttribute="top" secondItem="Ey1-Ma-k91" secondAttribute="bottom" constant="5" id="D1y-39-Oq5"/>
+                <constraint firstItem="ZIS-QF-eBh" firstAttribute="top" secondItem="Ey1-Ma-k91" secondAttribute="bottom" id="D1y-39-Oq5"/>
                 <constraint firstItem="XnP-sK-4V5" firstAttribute="width" secondItem="Ey1-Ma-k91" secondAttribute="width" id="MHO-w5-ygA"/>
-                <constraint firstItem="XnP-sK-4V5" firstAttribute="top" secondItem="MEQ-6a-NaY" secondAttribute="bottom" constant="25" id="ObX-Ub-WAi"/>
+                <constraint firstItem="XnP-sK-4V5" firstAttribute="top" secondItem="MEQ-6a-NaY" secondAttribute="bottom" constant="15" id="ObX-Ub-WAi"/>
                 <constraint firstItem="Ey1-Ma-k91" firstAttribute="leading" secondItem="ZIS-QF-eBh" secondAttribute="leading" id="VAJ-wi-mF6"/>
                 <constraint firstItem="Ey1-Ma-k91" firstAttribute="width" secondItem="ZIS-QF-eBh" secondAttribute="width" id="VbE-qK-MHg"/>
                 <constraint firstItem="Ey1-Ma-k91" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="W9n-BC-4sg"/>
-                <constraint firstItem="MEQ-6a-NaY" firstAttribute="top" secondItem="ZIS-QF-eBh" secondAttribute="bottom" constant="5" id="X1E-ec-kLq"/>
+                <constraint firstItem="MEQ-6a-NaY" firstAttribute="top" secondItem="ZIS-QF-eBh" secondAttribute="bottom" id="X1E-ec-kLq"/>
                 <constraint firstAttribute="trailing" secondItem="Ey1-Ma-k91" secondAttribute="trailing" constant="15" id="sjf-rb-hIM"/>
                 <constraint firstItem="XnP-sK-4V5" firstAttribute="leading" secondItem="Ey1-Ma-k91" secondAttribute="leading" id="tBY-ET-KT7"/>
             </constraints>

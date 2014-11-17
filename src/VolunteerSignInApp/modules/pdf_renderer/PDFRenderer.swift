@@ -47,9 +47,13 @@ class PDFRenderer
         for var i:Int=0; i<mainView.subviews.count; i++
         {
             var view:UIView = mainView.subviews[i] as UIView
-            if view.isKindOfClass(UILabel.classForCoder()) {
-                var label:UILabel = view as UILabel
-                self.drawText(label.text!, inRect: label.frame)
+            if view.isKindOfClass(UILabel.classForCoder())
+            {
+                let label:UILabel = view as UILabel
+                let fontName:String = label.font.fontName
+                let fontSize:CGFloat = label.font.pointSize
+                let fontColor:UIColor = label.textColor
+                self.drawText(label.text!, fontName: fontName, fontSize: fontSize, fontColor: fontColor, inRect: label.frame)
             }
         }
     }
@@ -101,12 +105,15 @@ class PDFRenderer
     }
     
     //draw text into the PDF
-    class private func drawText(text:String, inRect rect:CGRect)
+    class private func drawText(text:String, fontName:String, fontSize:CGFloat, fontColor:UIColor, inRect rect:CGRect)
     {
-        // Prepare the text using a Core Text Framesetter.
-        let stringRef:CFStringRef = text
-        let currentText:CFAttributedStringRef = CFAttributedStringCreate(nil, stringRef, nil)
-        let framesetter:CTFramesetterRef = CTFramesetterCreateWithAttributedString(currentText)
+        let font:CTFontRef = CTFontCreateWithName(fontName, fontSize, nil)
+        let attributes:NSMutableDictionary = NSMutableDictionary()
+        attributes.setValue(font, forKey: kCTFontAttributeName)
+        attributes.setValue(fontColor.CGColor, forKey: kCTForegroundColorAttributeName)
+        
+        let attString:NSAttributedString = NSAttributedString(string: text, attributes: attributes)
+        let framesetter:CTFramesetterRef = CTFramesetterCreateWithAttributedString(attString)
         
         let framePath:CGMutablePathRef = CGPathCreateMutable()
         CGPathAddRect(framePath, nil, rect)

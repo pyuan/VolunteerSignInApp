@@ -20,13 +20,25 @@ class FormTemplateView:UIView
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        
+
         //fill in program info
         var title:String = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.PROGRAM.rawValue) + " (" + UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.ORGNIZATION.rawValue) + ")"
         self.program?.text = title
-        self.date?.text = UserDefaultsService.getProgramDateTime()
-        self.location?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.LOCATION.rawValue)
+        self.program?.font = UIFont.PDF_TITLE()
+        self.program?.sizeToFit()
         
+        self.date?.text = UserDefaultsService.getProgramDateTime()
+        self.date?.font = UIFont.PDF_TITLE()
+        self.date?.sizeToFit()
+        
+        self.location?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.LOCATION.rawValue)
+        self.location?.font = UIFont.PDF_TITLE()
+        self.location?.sizeToFit()
+        
+        self.instruction?.font = UIFont.MICE_TYPE()
+        self.instruction?.textColor = UIColor.CHICAGO_CARES.GREY
+        
+        //draw table for volunteers info
         var volunteers:[Volunteer] = VolunteerService.getAllVolunteers()
         self.drawTable(belowElement: self.instruction, volunteers: volunteers)
     }
@@ -54,6 +66,8 @@ class FormTemplateView:UIView
             var title:String = d.valueForKey("label") as String
             var w:CGFloat = d.valueForKey("width") as CGFloat
             var label:UILabel = UILabel(frame: CGRectMake(x, y, w, 25))
+            label.font = UIFont.PDF_TABLE_HEADER()
+            label.textColor = UIColor.CHICAGO_CARES.BLUE
             label.text = title
             self.addSubview(label)
             
