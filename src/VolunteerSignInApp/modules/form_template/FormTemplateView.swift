@@ -17,6 +17,13 @@ class FormTemplateView:UIView
     @IBOutlet var location:UILabel?
     @IBOutlet var instruction:UILabel?
     
+    class var TAG_SIGNATURES : Int { return 999 }
+    
+    private class var MARGIN_TABLE : CGFloat { return 10 }
+    private class var TABLE_ROW_HEIGHT : CGFloat {return 35 }
+    
+    private var volunteers:[Volunteer] = [Volunteer]()
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -37,35 +44,38 @@ class FormTemplateView:UIView
         
         self.instruction?.font = UIFont.MICE_TYPE()
         self.instruction?.textColor = UIColor.CHICAGO_CARES.GREY
-        
-        //draw table for volunteers info
-        var volunteers:[Volunteer] = VolunteerService.getAllVolunteers()
-        self.drawTable(belowElement: self.instruction, volunteers: volunteers)
     }
     
+    //setup the volunteers for the view
+    func setVolunteers(volunteers:[Volunteer])
+    {
+        self.volunteers = volunteers
+        
+        //draw table for volunteers info
+        self.drawTable(belowElement: self.instruction, volunteers: self.volunteers)
+    }
     
+    //render the volunteers table with header
     private func drawTable(belowElement element:UIView?, volunteers:[Volunteer])
     {
         var header:UIView = self.drawTableHeader(belowElement: element)
-        //self.drawVolunteersRows(belowElement: header, volunteers: volunteers)
+        self.drawVolunteersRows(belowElement: header, volunteers: volunteers)
     }
     
     //draw the table header row below the specified element
     private func drawTableHeader(belowElement element:UIView?) -> UIView
     {
         var firstlabel:UILabel?
-        var y:CGFloat = element != nil ? element!.frame.origin.y + self.instruction!.frame.height + 25 : 25
-        var x:CGFloat = element != nil ? element!.frame.origin.x : 25
+        var y:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.MARGIN_TABLE : FormTemplateView.MARGIN_TABLE
+        var x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
         
         var data:NSArray = VolunteerFormService.getPDFColumns()
         for i in 0..<data.count
         {
-            x += 10 //offset label
-            
             var d:NSDictionary = data[i] as NSDictionary
             var title:String = d.valueForKey("label") as String
             var w:CGFloat = d.valueForKey("width") as CGFloat
-            var label:UILabel = UILabel(frame: CGRectMake(x, y, w, 25))
+            var label:UILabel = UILabel(frame: CGRectMake(x, y, w, FormTemplateView.TABLE_ROW_HEIGHT/2))
             label.font = UIFont.PDF_TABLE_HEADER()
             label.textColor = UIColor.CHICAGO_CARES.BLUE
             label.text = title
@@ -84,22 +94,60 @@ class FormTemplateView:UIView
     //draw the volunteer rows below the specified element
     private func drawVolunteersRows(belowElement element:UIView?, volunteers:[Volunteer])
     {
-        var y:CGFloat = element != nil ? element!.frame.origin.y + self.instruction!.frame.height + 25 : 25
-        var x:CGFloat = element != nil ? element!.frame.origin.x : 25
+        var y:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.TABLE_ROW_HEIGHT : 0
+        var x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
         
-        var data:NSArray = VolunteerFormService.getPDFColumns()
-        for i in 0..<data.count
+        var columns:NSArray = VolunteerFormService.getPDFColumns()
+        for volunteer in self.volunteers
         {
-            x += 10 //offset label
+            var label:UILabel?
+            var rowX:CGFloat = x
+            for i in 0..<columns.count
+            {
+                var d:NSDictionary = columns[i] as NSDictionary
+                var w:CGFloat = d.valueForKey("width") as CGFloat
+                label = UILabel(frame: CGRectMake(rowX, y, w, FormTemplateView.TABLE_ROW_HEIGHT))
+                
+                var title:String = ""
+                switch i
+                {
+                case 0:
+                    title = volunteer.getDisplayName()
+                    break
+                case 1:
+                    title = volunteer.team
+                    break
+                case 2:
+                    title = volunteer.phone
+                    break
+                case 3:
+                    title = volunteer.email
+                case 4:
+                    title = volunteer.over18 == true ? "Yes" : "No"
+                    break
+                default:
+                    if volunteer.signature != nil
+                    {
+                        var signatureView:UIImageView = UIImageView(frame: label!.frame)
+                        signatureView.image = UIImage(data: volunteer.signature!)
+                        signatureView.tag = FormTemplateView.TAG_SIGNATURES
+                        self.addSubview(signatureView)
+                    }
+                    break
+                }
+                
+                if !title.isEmpty
+                {
+                    label!.text = title
+                    label!.font = UIFont.PDF_TABLE_BODY()
+                    label!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+                    self.addSubview(label!)
+                }
+   
+                rowX += w //set x for the next element in the row
+            }
             
-            var d:NSDictionary = data[i] as NSDictionary
-            var title:String = d.valueForKey("label") as String
-            var w:CGFloat = d.valueForKey("width") as CGFloat
-            var label:UILabel = UILabel(frame: CGRectMake(x, y, w, 25))
-            label.text = title
-            self.addSubview(label)
-            
-            x += w //set x for the next label
+            y += label!.frame.height
         }
     }
     

@@ -2,12 +2,12 @@
 
 	{
 		"label" : "Name",
-		"width" : 80
+		"width" : 150
 	},
 
 	{
 		"label" : "Team Name",
-		"width" : 100
+		"width" : 120
 	},
 
 	{
@@ -17,17 +17,17 @@
 
 	{
 		"label" : "Email",
-		"width" : 100
+		"width" : 170
 	},
 
 	{
 		"label" : "Over 18?",
-		"width" : 50
+		"width" : 70
 	},
 
 	{
 		"label" : "Signature",
-		"width" : 500
+		"width" : 150
 	}
 
 ]

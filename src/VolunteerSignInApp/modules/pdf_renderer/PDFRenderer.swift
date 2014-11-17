@@ -16,6 +16,7 @@ class PDFRenderer
     class var TEMPLATE_XIB_NAME : String { return "FormTemplate" }
     class var PDF_WIDTH : CGFloat { return 792 }
     class var PDF_HEIGHT : CGFloat { return 612 }
+    class var VOLUNTEERS_PER_PAGE : Int { return 10 }
     
     //create a PDF file in the file system with the default file name
     class func generatePDF()
@@ -23,7 +24,43 @@ class PDFRenderer
         let fileName:String = Constants.PDF.FILE_NAME.rawValue
         let fileURI:String = PDFRenderer.getFileURIWithFileName(fileName)
         UIGraphicsBeginPDFContextToFile(fileURI, CGRectZero, nil)
+        
+        let volunteers:[Volunteer] = VolunteerService.getAllVolunteers()
+        var group:[Volunteer] = [Volunteer]()
+        for var i:Int=0; i<volunteers.count; i++
+        {
+            let volunteer:Volunteer = volunteers[i]
+            group.append(volunteer)
+
+            if group.count > PDFRenderer.VOLUNTEERS_PER_PAGE || i == volunteers.count - 1
+            {
+                self.startNewPDFPageFromTemplate(group)
+                group = [Volunteer]()
+            }
+        }
+
+        UIGraphicsEndPDFContext()
+    }
+    
+    //start a new page in the PDF
+    class func startNewPDFPageFromTemplate(volunteers:[Volunteer])
+    {
         UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, PDF_WIDTH, PDF_HEIGHT), nil)
+        
+        //load template and populate with data
+        var objects:NSArray = NSBundle.mainBundle().loadNibNamed(TEMPLATE_XIB_NAME, owner: nil, options: nil)
+        var template:FormTemplateView = objects.objectAtIndex(0) as FormTemplateView
+        
+        //render view with volunteers
+        template.setVolunteers(volunteers)
+        
+        //render all the text labels
+        self.drawTextFromTemplate(template)
+        
+        //render all the uiimages
+        self.drawImagesFromTemplate(template)
+        
+        //TODO: draw all lines
         
         /*
         let from:CGPoint = CGPointMake(0, 0)
@@ -32,21 +69,14 @@ class PDFRenderer
         
         self.drawImagesFromTemplate()
         */
-        
-        self.drawTextFromTemplate()
-        
-        UIGraphicsEndPDFContext()
     }
     
     //draw all the labels in the template xib
-    class private func drawTextFromTemplate()
+    class private func drawTextFromTemplate(template:UIView)
     {
-        var objects:NSArray = NSBundle.mainBundle().loadNibNamed(TEMPLATE_XIB_NAME, owner: nil, options: nil)
-        var mainView:FormTemplateView = objects.objectAtIndex(0) as FormTemplateView
-        
-        for var i:Int=0; i<mainView.subviews.count; i++
+        for var i:Int=0; i<template.subviews.count; i++
         {
-            var view:UIView = mainView.subviews[i] as UIView
+            var view:UIView = template.subviews[i] as UIView
             if view.isKindOfClass(UILabel.classForCoder())
             {
                 let label:UILabel = view as UILabel
@@ -59,17 +89,16 @@ class PDFRenderer
     }
     
     //draw all the images in the template xib
-    class private func drawImagesFromTemplate()
+    class private func drawImagesFromTemplate(template:UIView)
     {
-        var objects:NSArray = NSBundle.mainBundle().loadNibNamed(TEMPLATE_XIB_NAME, owner: nil, options: nil)
-        var mainView:UIView = objects.objectAtIndex(0) as UIView
-        
-        for var i:Int=0; i<mainView.subviews.count; i++
+        for var i:Int=0; i<template.subviews.count; i++
         {
-            var view:UIView = mainView.subviews[i] as UIView
+            var view:UIView = template.subviews[i] as UIView
             if view.isKindOfClass(UIImageView.classForCoder()) {
                 var imageView:UIImageView = view as UIImageView
-                self.drawImageToFill(imageView.image!, inRect: imageView.frame)
+                if imageView.image != nil {
+                    self.drawImageToFill(imageView, inRect: imageView.frame)
+                }
             }
         }
     }
@@ -89,24 +118,39 @@ class PDFRenderer
     }
     
     //draw an image into the PDF and resize it to fill rect proportionally
-    class private func drawImageToFill(image:UIImage, inRect rect:CGRect)
+    class private func drawImageToFill(imageView:UIImageView, inRect rect:CGRect)
     {
-        let diffW:CGFloat = abs(rect.size.width - image.size.width)
-        let diffH:CGFloat = abs(rect.size.height - image.size.height)
-        let scaleX:CGFloat = rect.width / image.size.width
-        let scaleY:CGFloat = rect.height / image.size.height
-        let scale:CGFloat = diffW > diffH ? scaleX : scaleY
-        let w:CGFloat = rect.width * scale
-        let h:CGFloat = rect.height * scale
-        let x:CGFloat = rect.origin.x + (rect.width-w)/2
-        let y:CGFloat = rect.origin.y + (rect.height-h)/2
-        let frame:CGRect = CGRectMake(x, y, w, h)
+        let image:UIImage = imageView.image!
+        
+        //move image up because unlike textfields, images do not get flipped
+        var adjusted:CGRect = CGRectMake(rect.origin.x, rect.origin.y - rect.height, rect.width, rect.height)
+        let diffW:CGFloat = abs(adjusted.size.width - image.size.width)
+        let diffH:CGFloat = abs(adjusted.size.height - image.size.height)
+        let scaleX:CGFloat = adjusted.width / image.size.width
+        let scaleY:CGFloat = adjusted.height / image.size.height
+        let scale:CGFloat = diffW < diffH ? scaleX : scaleY
+        let w:CGFloat = image.size.width * scale
+        let h:CGFloat = image.size.height * scale
+        let x:CGFloat = adjusted.origin.x + (adjusted.width - w)/2
+        let y:CGFloat = adjusted.origin.y + (adjusted.height - h)/2
+        var frame:CGRect = CGRectMake(x, y, w, h)
+        
+        //for signature, need to position left aligned and add offset vertically
+        if imageView.tag == FormTemplateView.TAG_SIGNATURES {
+            frame.origin = CGPointMake(adjusted.origin.x, adjusted.origin.y - frame.height/2)
+        }
+        
+        //render image in rect
         image.drawInRect(frame)
     }
     
     //draw text into the PDF
     class private func drawText(text:String, fontName:String, fontSize:CGFloat, fontColor:UIColor, inRect rect:CGRect)
     {
+        /*let context:CGContextRef = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
+        CGContextFillRect(context, rect)*/
+        
         let font:CTFontRef = CTFontCreateWithName(fontName, fontSize, nil)
         let attributes:NSMutableDictionary = NSMutableDictionary()
         attributes.setValue(font, forKey: kCTFontAttributeName)
