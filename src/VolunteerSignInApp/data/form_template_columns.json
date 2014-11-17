@@ -2,7 +2,7 @@
 
 	{
 		"label" : "Name",
-		"width" : 150
+		"width" : 160
 	},
 
 	{
@@ -12,7 +12,7 @@
 
 	{
 		"label" : "Phone",
-		"width" : 100
+		"width" : 110
 	},
 
 	{

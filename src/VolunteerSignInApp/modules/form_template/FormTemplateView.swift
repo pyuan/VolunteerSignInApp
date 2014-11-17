@@ -17,10 +17,12 @@ class FormTemplateView:UIView
     @IBOutlet var location:UILabel?
     @IBOutlet var instruction:UILabel?
     
-    class var TAG_SIGNATURES : Int { return 999 }
+    class var TAG_SIGNATURES : Int { return 99999 }
+    class var TAG_LINES : Int { return 99998 }
     
     private class var MARGIN_TABLE : CGFloat { return 10 }
-    private class var TABLE_ROW_HEIGHT : CGFloat {return 35 }
+    private class var TABLE_ROW_HEIGHT : CGFloat { return 35 }
+    private class var THICKNESS_LINES : CGFloat { return 1 }
     
     private var volunteers:[Volunteer] = [Volunteer]()
     
@@ -66,8 +68,11 @@ class FormTemplateView:UIView
     private func drawTableHeader(belowElement element:UIView?) -> UIView
     {
         var firstlabel:UILabel?
-        var y:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.MARGIN_TABLE : FormTemplateView.MARGIN_TABLE
-        var x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
+        let startY:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.MARGIN_TABLE : FormTemplateView.MARGIN_TABLE
+        let startX:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
+        var endX:CGFloat = startX
+        var y:CGFloat = startY
+        var x:CGFloat = startX
         
         var data:NSArray = VolunteerFormService.getPDFColumns()
         for i in 0..<data.count
@@ -86,7 +91,13 @@ class FormTemplateView:UIView
             }
             
             x += w //set x for the next label
+            endX += label.frame.width
         }
+        
+        //draw line below
+        let from:CGPoint = CGPointMake(startX, startY)
+        let to:CGPoint = CGPointMake(endX, startY)
+        self.drawHorizontalLine(from, to: to, thickness: FormTemplateView.THICKNESS_LINES, color: UIColor.groupTableViewBackgroundColor())
         
         return firstlabel!
     }
@@ -149,6 +160,26 @@ class FormTemplateView:UIView
             
             y += label!.frame.height
         }
+    }
+    
+    //draw a line horizontally by creating a UIView
+    private func drawHorizontalLine(from:CGPoint, to:CGPoint, thickness:CGFloat, color:UIColor)
+    {
+        let frame:CGRect = CGRectMake(from.x, from.y-thickness/2, to.x-from.x, thickness)
+        let line:UIView = UIView(frame: frame)
+        line.backgroundColor = color
+        line.tag = FormTemplateView.TAG_LINES
+        self.addSubview(line)
+    }
+    
+    //draw a line vertically by creating a UIView
+    private func drawVerticalLine(from:CGPoint, to:CGPoint, thickness:CGFloat, color:UIColor)
+    {
+        let frame:CGRect = CGRectMake(from.x-thickness, from.y, thickness, to.y-from.y)
+        let line:UIView = UIView(frame: frame)
+        line.backgroundColor = color
+        line.tag = FormTemplateView.TAG_LINES
+        self.addSubview(line)
     }
     
 }

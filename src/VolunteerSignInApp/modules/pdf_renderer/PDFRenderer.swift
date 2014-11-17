@@ -60,15 +60,8 @@ class PDFRenderer
         //render all the uiimages
         self.drawImagesFromTemplate(template)
         
-        //TODO: draw all lines
-        
-        /*
-        let from:CGPoint = CGPointMake(0, 0)
-        let to:CGPoint = CGPointMake(200, 300)
-        self.drawLineBetweenPoints(from, to: to)
-        
-        self.drawImagesFromTemplate()
-        */
+        //render all the lines
+        self.drawLinesFromTemplate(template)
     }
     
     //draw all the labels in the template xib
@@ -103,15 +96,37 @@ class PDFRenderer
         }
     }
     
-    //draw a line between 2 points
-    class private func drawLineBetweenPoints(from:CGPoint, to:CGPoint)
+    //draw all the lines in the template xib
+    class private func drawLinesFromTemplate(template:UIView)
     {
+        for var i:Int=0; i<template.subviews.count; i++
+        {
+            var view:UIView = template.subviews[i] as UIView
+            if view.isKindOfClass(UIView.classForCoder())
+            {
+                if view.tag == FormTemplateView.TAG_LINES
+                {
+                    let from:CGPoint = view.frame.origin
+                    let to:CGPoint = CGPointMake(view.frame.width, view.frame.origin.y)
+                    let color:UIColor? = view.backgroundColor
+                    let thickness:CGFloat = view.frame.width > view.frame.height ? view.frame.height : view.frame.width
+                    self.drawLineBetweenPoints(from, to: to, thickness: thickness, color: color)
+                }
+            }
+        }
+    }
+    
+    //draw a line between 2 points
+    class private func drawLineBetweenPoints(from:CGPoint, to:CGPoint, thickness:CGFloat, color:UIColor?)
+    {
+        var lineColor:UIColor? = color
+        if color == nil {
+            lineColor = UIColor.blackColor()
+        }
+        
         let context:CGContextRef = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 2.0)
-        let colorSpace:CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()
-        let components:[CGFloat] = [0.2, 0.2, 0.2, 0.3]
-        let color:CGColorRef = CGColorCreate(colorSpace, components)
-        CGContextSetStrokeColorWithColor(context, color)
+        CGContextSetLineWidth(context, thickness)
+        CGContextSetStrokeColorWithColor(context, lineColor!.CGColor)
         CGContextMoveToPoint(context, from.x, from.y)
         CGContextAddLineToPoint(context, to.x, to.y)
         CGContextStrokePath(context)
