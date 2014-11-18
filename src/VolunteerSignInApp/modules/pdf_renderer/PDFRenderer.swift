@@ -32,7 +32,7 @@ class PDFRenderer
             let volunteer:Volunteer = volunteers[i]
             group.append(volunteer)
 
-            if group.count > PDFRenderer.VOLUNTEERS_PER_PAGE || i == volunteers.count - 1
+            if group.count >= PDFRenderer.VOLUNTEERS_PER_PAGE || i == volunteers.count - 1
             {
                 self.startNewPDFPageFromTemplate(group)
                 group = [Volunteer]()

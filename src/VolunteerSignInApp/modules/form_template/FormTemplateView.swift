@@ -20,7 +20,8 @@ class FormTemplateView:UIView
     class var TAG_SIGNATURES : Int { return 99999 }
     class var TAG_LINES : Int { return 99998 }
     
-    private class var MARGIN_TABLE : CGFloat { return 10 }
+    private class var MARGIN_TABLE_X : CGFloat { return 10 }
+    private class var MARGIN_TABLE_Y : CGFloat { return 50 }
     private class var TABLE_ROW_HEIGHT : CGFloat { return 35 }
     private class var THICKNESS_LINES : CGFloat { return 0.5 }
     
@@ -68,8 +69,8 @@ class FormTemplateView:UIView
     private func drawTableHeader(belowElement element:UIView?) -> UIView
     {
         var firstlabel:UILabel?
-        let startY:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.MARGIN_TABLE : FormTemplateView.MARGIN_TABLE
-        let startX:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
+        let startY:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.MARGIN_TABLE_Y : FormTemplateView.MARGIN_TABLE_Y
+        let startX:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE_X
         var endX:CGFloat = startX
         var y:CGFloat = startY
         var x:CGFloat = startX
@@ -106,7 +107,7 @@ class FormTemplateView:UIView
     private func drawVolunteersRows(belowElement element:UIView?, volunteers:[Volunteer])
     {
         var y:CGFloat = element != nil ? element!.frame.origin.y + element!.frame.height + FormTemplateView.TABLE_ROW_HEIGHT : 0
-        let x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE
+        let x:CGFloat = element != nil ? element!.frame.origin.x : FormTemplateView.MARGIN_TABLE_X
         
         var columns:NSArray = VolunteerFormService.getPDFColumns()
         for i in 0..<self.volunteers.count

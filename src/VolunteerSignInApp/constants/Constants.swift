@@ -66,7 +66,7 @@ class Constants
     
     enum PDF:String
     {
-        case FILE_NAME = "volunteers.pdf"
+        case FILE_NAME = "signin.pdf"
     }
     
     enum ANALYTICS_CATEGORIES:String
