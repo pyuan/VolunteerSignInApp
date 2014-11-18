@@ -169,7 +169,7 @@ class VolunteerSignInViewController:GAITrackedViewController, VolunteersViewDele
             
             //update waiver text and scroll to top
             self.waiverTextView?.text = UserDefaultsService.getDefaultForKey(Constants.SETTINGS_KEYS.WAIVER.rawValue)
-            self.waiverTextView?.scrollRectToVisible(CGRectZero, animated: true)
+            self.waiverTextView?.setContentOffset(CGPointZero, animated: true)
             
             //update signature
             var signature:UIImage? = volunteer!.signature != nil ? UIImage(data: volunteer!.signature!) : nil
